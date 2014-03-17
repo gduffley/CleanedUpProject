@@ -9,6 +9,7 @@ import java.util.Queue;
 /**
  * Created by Gordon on 3/17/14.
  */
+//test
 public class MakeTree {
     private static ArrayList<PhyloTreeNode> sequenceVariations; //ArrayList PhyloTreeNodes that represent a gene variation in the family
     private static String ss_Cons = null; //consensus secondary structure
