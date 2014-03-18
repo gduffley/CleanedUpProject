@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="" />
+    <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KeepStructure.java" afterPath="$PROJECT_DIR$/src/KeepStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="CleanedUpProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,27 +67,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MakeTree.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MakeTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="210" column="20" selection-start="10379" selection-end="10379" vertical-scroll-proportion="2.013825" vertical-offset="2696" max-vertical-offset="3723">
+            <state line="11" column="6" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="3740">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9243#9258#0" expanded="true" />
+                <element signature="e#9250#9265#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KeepStructure.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="KeepStructure.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="24" selection-start="3618" selection-end="3618" vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2567">
+            <state line="148" column="30" selection-start="5797" selection-end="5797" vertical-scroll-proportion="0.8174847" vertical-offset="1983" max-vertical-offset="2754">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#359#367#0" expanded="true" />
-                <element signature="e#3810#3818#0" expanded="true" />
-                <element signature="e#4877#4892#0" expanded="true" />
+                <element signature="e#332#340#0" expanded="true" />
+                <element signature="e#3781#3789#0" expanded="true" />
+                <element signature="e#5748#5763#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,7 +122,7 @@
       <file leaf-file-name="MainMethodClass.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="0" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2363">
+            <state line="132" column="0" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.0" vertical-offset="1507" max-vertical-offset="2363">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1640#1655#0" expanded="true" />
@@ -147,9 +149,9 @@
         <option value="$PROJECT_DIR$/src/PhyloTree.java" />
         <option value="$PROJECT_DIR$/src/Sankoff.java" />
         <option value="$PROJECT_DIR$/src/ViennaCalls.java" />
+        <option value="$PROJECT_DIR$/src/MainMethodClass.java" />
         <option value="$PROJECT_DIR$/src/MakeTree.java" />
         <option value="$PROJECT_DIR$/src/KeepStructure.java" />
-        <option value="$PROJECT_DIR$/src/MainMethodClass.java" />
       </list>
     </option>
   </component>
@@ -418,7 +420,11 @@
       <created>1395099949118</created>
       <updated>1395099949118</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Keep structure doesn't work, but the files are organized in a way that is at least managable&#10;">
+      <created>1395100340645</created>
+      <updated>1395100340645</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -442,7 +448,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51124436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32153392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32153392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -463,7 +469,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Keep structure doesn't work, but the files are organized in a way that is at least managable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Keep structure doesn't work, but the files are organized in a way that is at least managable" />
+    <MESSAGE value="Keep structure doesn't work, but the files are organized in a way that is at least managable&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Keep structure doesn't work, but the files are organized in a way that is at least managable&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -501,13 +508,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
+    <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="35" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1683">
+        <state line="11" column="6" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="3740">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#779#794#0" expanded="true" />
-            <element signature="e#2719#2734#0" expanded="true" />
+            <element signature="e#9250#9265#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -535,24 +541,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
+    <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="24" selection-start="3618" selection-end="3618" vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2567">
+        <state line="29" column="35" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1683">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#359#367#0" expanded="true" />
-            <element signature="e#3810#3818#0" expanded="true" />
-            <element signature="e#4877#4892#0" expanded="true" />
+            <element signature="e#779#794#0" expanded="true" />
+            <element signature="e#2719#2734#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
+    <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="20" selection-start="10379" selection-end="10379" vertical-scroll-proportion="2.013825" vertical-offset="2696" max-vertical-offset="3723">
+        <state line="148" column="30" selection-start="5797" selection-end="5797" vertical-scroll-proportion="0.8174847" vertical-offset="1983" max-vertical-offset="2754">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9243#9258#0" expanded="true" />
+            <element signature="e#332#340#0" expanded="true" />
+            <element signature="e#3781#3789#0" expanded="true" />
+            <element signature="e#5748#5763#0" expanded="true" />
           </folding>
         </state>
       </provider>

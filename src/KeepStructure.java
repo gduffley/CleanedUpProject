@@ -1,4 +1,4 @@
-import com.sun.javaws.Main;
+
 
 import java.util.*;
 
@@ -30,6 +30,7 @@ public class KeepStructure {
         //if our pretend base matches the actual base that is there
         //score of 0, ow score of -MainMethodClass.INF
         if(node.getChildren().size() < 2){
+            node.setPontSequence(node.getSequence());
             if(seqArray[pos+1].equals(base)){
                 return 0;
             }
@@ -62,7 +63,6 @@ public class KeepStructure {
             }
             totalMax = maxR + maxL;
 
-            //non-essential code to get sequences at each letter
             if(pos == 0 && node.getChildren().get(0).getChildren().size() > 1){
                 node.getChildren().get(0).setPontSequence(bestL);
                 node.getChildren().get(1).setPontSequence(bestR);
@@ -92,7 +92,7 @@ public class KeepStructure {
         return totalMax;
     }
 
-    public static void keepStructure(PhyloTree tree){
+    public static void keepStructureIterative(PhyloTree tree){
         PhyloTreeNode curNode;
         int seqLength;
         int totalScore = 0;
@@ -122,7 +122,7 @@ public class KeepStructure {
             tree.getRoot().setPontSequence(tree.getRoot().getPontSequence().concat(bestBase));
             totalScore += bestScore;
         }
-        Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+        /*Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
         q.add(tree.getRoot());
         PhyloTreeNode curN;
         while(! q.isEmpty()){
@@ -136,9 +136,20 @@ public class KeepStructure {
             if(curSeq.startsWith(",")) curSeq = curSeq.replaceFirst(",", "");
             if(curSeq.endsWith(",")) curSeq = curSeq.substring(0,curSeq.length() -1);
             curN.setPontSequence(curSeq);
+        }*/
+
+
+    }
+    public static void keepStructure(PhyloTree tree){
+        keepStructureIterative(tree);
+        String seq = tree.getRoot().getSequence();
+        seq = seq.replace(",", "");
+        int seqLength = seq.length();
+        Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+        q.add(tree.getRoot());
+        for(int i = 0; i < seqLength; i++){
+
         }
-
-
     }
 
 
