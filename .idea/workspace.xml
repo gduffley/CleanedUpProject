@@ -75,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KeepStructure.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="KeepStructure.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4301">
+            <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.6779141" vertical-offset="0" max-vertical-offset="4301">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2363#2371#0" expanded="true" />
@@ -89,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KeepStructure2.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KeepStructure2.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.59969324" vertical-offset="0" max-vertical-offset="697">
+            <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#271#286#0" expanded="true" />
@@ -406,7 +406,11 @@
       <created>1395272542358</created>
       <updated>1395272542358</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="I cant figure out how to keep structure&#10;">
+      <created>1395272607332</created>
+      <updated>1395272607332</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -455,7 +459,8 @@
     <MESSAGE value="Implementing keepStructure where only accept base pair changes if in a pair, then the base it is paired with changes at well, if its not then make sure the basepairing doesnt change by running RNAfold" />
     <MESSAGE value="Implementing keepStructure where only accept base pair changes if in a pair, then the base it is paired with changes at well, if its not then make sure the basepairing doesnt change by running RNAfold&#10;" />
     <MESSAGE value="I cant figure out how to keep structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="I cant figure out how to keep structure" />
+    <MESSAGE value="I cant figure out how to keep structure&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="I cant figure out how to keep structure&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -604,24 +609,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#271#286#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4301">
+        <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.6779141" vertical-offset="0" max-vertical-offset="4301">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2363#2371#0" expanded="true" />
             <element signature="e#5812#5820#0" expanded="true" />
             <element signature="e#7674#7689#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.59969324" vertical-offset="0" max-vertical-offset="697">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#271#286#0" expanded="true" />
           </folding>
         </state>
       </provider>
