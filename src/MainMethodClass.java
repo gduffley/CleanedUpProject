@@ -74,6 +74,7 @@ public class MainMethodClass {
         }
     }
 
+
     public static void main(String Args[]){
         try {
             PhyloTree tree = MakeTree.makeTree(Args[0], Args[1]);

@@ -8,6 +8,37 @@ import java.util.*;
  */
 public class KeepStructure {
 
+    //option 1: Take sequences found from Sankoff, then at each step keep as many of the changes as possible,
+    //but at the same time keeping the folding equal to the consensus sequence. --> assumes that all of the leaves
+    //have folding = to the consensus sequence.
+
+    //option 2: Take the sequences found at the Sankoff, then keep as many changes as possible but at the same time
+    //conserve consensus, determine this before moving up to the next level in the Sankoff recursion
+
+    //option 3: If you can write Sankoff to get a whole sequence at a time rather than a base at a time all the way up,
+    //then just do sankoff and focus at maintaing folding at each level before moving up the next.
+        //cons: if it is even possible to do Sankoff this way, you have to implement it
+
+    //Best plausible option: Calculate Sankoff all the way through the way you already do. For each sequence find the
+    //max number of the potential changes you can keep while at the same time keeping the sum of the distance from
+    //each child <= the distance between the 2 children
+        //cons: assumes that "integrity" of the Sankoff is the same even when we alter the children.
+
+    //option 4: Do the sankoff but only change the base if it wont change pairing
+
+
+    //Methods to conserve folding:
+        //1)Insist that the folding of all nodes is the same as the consensus
+        //2)Keep the max number of changes that you can, but at the same time make sure the sum of the differences of
+          //the folding to both children <= the distance between the folding of the same children. This way if
+          //both children have the same folding, the parent will have to keep this folding
+        //3)Find a way ti minimize the differences in folding, ignoring what happens to base pairs
+    //Ordering methods
+        //1)Do the Sankoff and then adjust for these changes after
+        //2)Find a way to do Sankoff one level at a time, conserve foldng, then move to the layer up
+        //3)
+
+
     public static int keepStructureRecursive(PhyloTreeNode node, String base, int pos){
         int totalMax = -MainMethodClass.INF;
         int totalSum = 0;
@@ -154,7 +185,7 @@ public class KeepStructure {
             findSequence(cur);
         }
     }
-
+    //take the potential sequence and detect the changes from
     private static void findSequence(PhyloTreeNode cur) throws IOException {
         String command = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\ViennaRNAPackage\\rnaFold.exe";
         BufferedReader inp;
@@ -167,7 +198,9 @@ public class KeepStructure {
         inp = new BufferedReader(new InputStreamReader(ips));
         out = new BufferedWriter(new OutputStreamWriter(ops));
         String pont = cur.getPontSequence();
-        String pontFolding;
+        String pontFolding = "";
+        String pontEnergyString;
+        double pontEnergy = 0;
         pont = pont.replace(".", "");
         int seqLength = pont.length();
         pont = pont.concat("\n");
@@ -182,24 +215,33 @@ public class KeepStructure {
                 String energy = line.substring(lastOpen);
                 line = line.substring(0, lastOpen);
                 pontFolding = line;
-                //energy = energy.replace("(", "");
-                //energy = energy.replace(")", "");
-                //energy =  energy.trim();
-                //cur.setEnergy(Double.parseDouble(energy));
+                pontEnergyString = energy.replace("(", "");
+                pontEnergyString = energy.replace(")", "");
+                pontEnergyString =  energy.trim();
+                pontEnergy = Double.parseDouble(energy);
             }
             i++;
         }
         System.out.println(cur.getFolding() + "   " + Double.toString(cur.getEnergy()));
         p.destroy();
-        if(pontFolding.equals(cur.getFolding())) return;
+        boolean sameFolding = true;
+        for(int j = 0; j < cur.getChildren().size(); j++){
+            if(!pontFolding.equals(cur.getChildren().get(i).getFolding())) sameFolding = false;
+        }
+        if(sameFolding){
+            cur.setSequence(cur.getPontSequence());
+            cur.setEnergy(pontEnergy);
+            return;
+        }
         String seq = cur.getSequence();
         for(i = 0; i < seqLength; i++){
             if(pont.charAt(i) == (seq.charAt(i))) continue;
             else{
-                if()
+                String replacement =
             }
         }
     }
+
 
 
 }
