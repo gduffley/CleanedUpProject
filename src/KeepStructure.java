@@ -1,5 +1,6 @@
 
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -140,15 +141,63 @@ public class KeepStructure {
 
 
     }
-    public static void keepStructure(PhyloTree tree){
+    public static void keepStructure(PhyloTree tree) throws IOException {
         keepStructureIterative(tree);
-        String seq = tree.getRoot().getSequence();
-        seq = seq.replace(",", "");
-        int seqLength = seq.length();
         Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+        PhyloTreeNode cur;
         q.add(tree.getRoot());
-        for(int i = 0; i < seqLength; i++){
+        while(!q.isEmpty()){
+            cur = q.poll();
+            for(int i = 0; i < cur.getChildren().size(); i++){
+                q.add(cur.getChildren().get(i));
+            }
+            findSequence(cur);
+        }
+    }
 
+    private static void findSequence(PhyloTreeNode cur) throws IOException {
+        String command = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\ViennaRNAPackage\\rnaFold.exe";
+        BufferedReader inp;
+        BufferedWriter out;
+        ProcessBuilder builder = new ProcessBuilder(command);
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        InputStream ips = p.getInputStream();
+        OutputStream ops = p.getOutputStream();
+        inp = new BufferedReader(new InputStreamReader(ips));
+        out = new BufferedWriter(new OutputStreamWriter(ops));
+        String pont = cur.getPontSequence();
+        String pontFolding;
+        pont = pont.replace(".", "");
+        int seqLength = pont.length();
+        pont = pont.concat("\n");
+        out.write(pont);
+        out.flush();
+        String line;
+        int i = 0;
+        while(i < 2 && ( line = inp.readLine()) != null){
+            if(i == 1){
+                int lastClosed = line.lastIndexOf(")");
+                int lastOpen = MainMethodClass.findClosestOpen(lastClosed, line);
+                String energy = line.substring(lastOpen);
+                line = line.substring(0, lastOpen);
+                pontFolding = line;
+                //energy = energy.replace("(", "");
+                //energy = energy.replace(")", "");
+                //energy =  energy.trim();
+                //cur.setEnergy(Double.parseDouble(energy));
+            }
+            i++;
+        }
+        System.out.println(cur.getFolding() + "   " + Double.toString(cur.getEnergy()));
+        p.destroy();
+        if(pontFolding.equals(cur.getFolding())) return;
+        String seq = cur.getSequence();
+        for(i = 0; i < seqLength; i++){
+            if(pont.charAt(i) == (seq.charAt(i))) continue;
+            else{
+                if()
+            }
         }
     }
 
