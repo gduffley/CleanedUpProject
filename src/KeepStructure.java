@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Created by Gordon on 3/17/14.
  */
-public class KeepStructure {
+public class KeepStructure {/*
 
     //option 1: Take sequences found from Sankoff, then at each step keep as many of the changes as possible,
     //but at the same time keeping the folding equal to the consensus sequence. --> assumes that all of the leaves
@@ -168,7 +168,7 @@ public class KeepStructure {
             if(curSeq.startsWith(",")) curSeq = curSeq.replaceFirst(",", "");
             if(curSeq.endsWith(",")) curSeq = curSeq.substring(0,curSeq.length() -1);
             curN.setPontSequence(curSeq);
-        }*/
+        }
 
 
     }
@@ -243,5 +243,5 @@ public class KeepStructure {
     }
 
 
-
+*/
 }

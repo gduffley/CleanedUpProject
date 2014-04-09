@@ -11,13 +11,56 @@ public class PhyloTreeNode {
     private String folding;
     private double energy;
     private int distanceFromConsensus;
-    private String pontSequence;
+    private String ifParentisA = "";
+    private String ifParentisC = "";
+    private String ifParentisG = "";
+    private String ifParentisT = "";
+    private String ifParentisGap = "";
+
+    public String getIfParentisA() {
+        return ifParentisA;
+    }
+
+    public String getIfParentisC() {
+        return ifParentisC;
+    }
+
+    public String getIfParentisG() {
+        return ifParentisG;
+    }
+
+    public String getIfParentisT() {
+        return ifParentisT;
+    }
+
+    public String getIfParentisGap() {
+        return ifParentisGap;
+    }
+
+    public void setIfParentisA(String ifParentisA) {
+        this.ifParentisA = ifParentisA;
+    }
+
+    public void setIfParentisC(String ifParentisC) {
+        this.ifParentisC = ifParentisC;
+    }
+
+    public void setIfParentisG(String ifParentisG) {
+        this.ifParentisG = ifParentisG;
+    }
+
+    public void setIfParentisT(String ifParentisT) {
+        this.ifParentisT = ifParentisT;
+    }
+
+    public void setIfParentisGap(String ifParentisGap) {
+        this.ifParentisGap = ifParentisGap;
+    }
 
     public PhyloTreeNode(String name, String sequence){
         this.name = name;
         this.sequence = sequence;
         this.parent = null;
-        this.pontSequence = "";
     }
 
     public void setName(String name){
@@ -60,12 +103,5 @@ public class PhyloTreeNode {
     public void setDistanceFromConsensus(int a){this.distanceFromConsensus = a;}
     public int getDistanceFromConsensus(){ return this.distanceFromConsensus;}
 
-    public String getPontSequence() {
-        return pontSequence;
-    }
-
-    public void setPontSequence(String pontSequence) {
-        this.pontSequence = pontSequence;
-    }
 }
 

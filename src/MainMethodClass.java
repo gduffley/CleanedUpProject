@@ -108,18 +108,10 @@ public class MainMethodClass {
             int j = 0;
             Sankoff.sankoff(tree);
             printTree(tree);
-            KeepStructure.keepStructure(tree);
+            //KeepStructure.keepStructure(tree);
             Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
             PhyloTreeNode curNode = tree.getRoot();
             q.add(curNode);
-            while(!q.isEmpty()){
-                curNode = q.poll();
-                for(int k = 0; k < curNode.getChildren().size(); k++){
-                    q.add(curNode.getChildren().get(k));
-                }
-                System.out.println(curNode.getPontSequence());
-            }
-
 
 
 
