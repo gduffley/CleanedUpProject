@@ -26,6 +26,7 @@ public class ViennaCalls {
                 q.add(cur.getChildren().get(i));
             }
             String seq = cur.getSequence();
+            seq = seq.replace(",", "");
             seq = seq.replace(".", "");
             seq = seq.concat("\n");
             out.write(seq);

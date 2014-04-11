@@ -79,7 +79,7 @@ public class Sankoff {
                             lChild.setSequence(lChild.getSequence().concat(lChild.getIfParentisG()));
                         }
                         if(curB == 'U'){
-                            lChild.setSequence(lChild.getSequence().concat(lChild.getIfParentisT()));
+                            lChild.setSequence(lChild.getSequence().concat(lChild.getIfParentisU()));
                         }
                         if(curB == '.'){
                             lChild.setSequence(lChild.getSequence().concat(lChild.getIfParentisGap()));
@@ -100,7 +100,7 @@ public class Sankoff {
                             rChild.setSequence(rChild.getSequence().concat(rChild.getIfParentisG()));
                         }
                         if(curB == 'U'){
-                            rChild.setSequence(rChild.getSequence().concat(rChild.getIfParentisT()));
+                            rChild.setSequence(rChild.getSequence().concat(rChild.getIfParentisU()));
                         }
                         if(curB == '.'){
                             rChild.setSequence(rChild.getSequence().concat(rChild.getIfParentisGap()));
@@ -117,7 +117,7 @@ public class Sankoff {
         return totalScore;
     }
 
-    private static int sankoffRecursion(PhyloTreeNode node, String base, int pos){
+    public static int sankoffRecursion(PhyloTreeNode node, String base, int pos){
         int totalMax = -MainMethodClass.INF;
         int totalSum = 0;
         String bestBase = " ";
@@ -214,8 +214,8 @@ public class Sankoff {
                 rightChild.setIfParentisG(bestR);
             }
             if(base == "U"){
-                leftChild.setIfParentisT(bestL);
-                rightChild.setIfParentisT(bestR);
+                leftChild.setIfParentisU(bestL);
+                rightChild.setIfParentisU(bestR);
             }
             if(base == "."){
                 leftChild.setIfParentisGap(bestL);

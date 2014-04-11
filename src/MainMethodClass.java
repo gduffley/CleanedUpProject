@@ -82,7 +82,6 @@ public class MainMethodClass {
             //printTree(tree);
             //topDown(tree.getRoot());
             //printTree(tree);
-            //rnaFold(tree);
             //calcDistancesFromConsensus(tree);
             cost = new int[5][5];
             for(int i = 0; i < 5; i++){
@@ -107,8 +106,9 @@ public class MainMethodClass {
             cost[3][2] = -2;
             int j = 0;
             Sankoff.sankoff(tree);
+            ViennaCalls.rnaFold(tree);
+            System.out.println("consensus:" + tree.getConsensusSequence());
             printTree(tree);
-            //KeepStructure.keepStructure(tree);
             Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
             PhyloTreeNode curNode = tree.getRoot();
             q.add(curNode);

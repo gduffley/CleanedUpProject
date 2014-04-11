@@ -14,7 +14,16 @@ public class PhyloTreeNode {
     private String ifParentisA = "";
     private String ifParentisC = "";
     private String ifParentisG = "";
-    private String ifParentisT = "";
+
+    public String getIfParentisU() {
+        return ifParentisU;
+    }
+
+    public void setIfParentisU(String ifParentisU) {
+        this.ifParentisU = ifParentisU;
+    }
+
+    private String ifParentisU = "";
     private String ifParentisGap = "";
 
     public String getIfParentisA() {
@@ -27,10 +36,6 @@ public class PhyloTreeNode {
 
     public String getIfParentisG() {
         return ifParentisG;
-    }
-
-    public String getIfParentisT() {
-        return ifParentisT;
     }
 
     public String getIfParentisGap() {
@@ -47,10 +52,6 @@ public class PhyloTreeNode {
 
     public void setIfParentisG(String ifParentisG) {
         this.ifParentisG = ifParentisG;
-    }
-
-    public void setIfParentisT(String ifParentisT) {
-        this.ifParentisT = ifParentisT;
     }
 
     public void setIfParentisGap(String ifParentisGap) {
