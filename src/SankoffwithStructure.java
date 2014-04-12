@@ -13,7 +13,7 @@ Notes:
 and 2 spots in the sequence. For both the left and right children pass in all 25 combinations for the 2 spots and
 save the score of the best pair. Do this all the way up and now you will have the sequence for 2 spots
     -> How does this help conserve base pairing?
-    ->Maybe becasue
+    ->Maybe because
 --> Start with a single base and an index
 --> Take the consensus structure
     run the normal Sankoff for all of the indices that aren't involved in a base pair
@@ -27,9 +27,29 @@ Steps:
 3) If in the leaf there is base pairing, then we will run sankoff on these 2 bases together, treating them as a
 single pair of bases
 4)
+
+
+
+New Strategy
+--> For every node, keep the base pairing of all of the leafs that are below it or keep what you're doing
+--> Need to make it so that even if you have a base pair in one child, the other child still has access to all
+bases. You could do this by imposing the consensus on all of the nodes except the leafs
  */
+
 public class SankoffwithStructure {
     public static void sankoffwithStructure(PhyloTree tree){
+        PhyloTreeNode curNode = tree.getRoot();
+        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
+        s.push(curNode);
+        int seqLength = 0;
+        while(!s.isEmpty()){
+            curNode = s.pop();
+            if(curNode.getChildren().size() == 2){
+                s.push(curNode.getChildren().get(0));
+                s.push(curNode.getChildren().get(1));
+            }
+            else seqLength = curNode.getSequence().length();
+        }
         String conSeq = tree.getConsensusSequence();
         Collection<Integer> singles = new ArrayList<Integer>();
         Collection<Integer> firstOfPair = new ArrayList<Integer>();
@@ -49,24 +69,82 @@ public class SankoffwithStructure {
                 }
             }
         }
+        int sum = 0;
         for(Integer i : singles){
-            sankoffSingles(tree, i);
+            sum += sankoffSingles(tree, i, seqLength);
 
         }
         Iterator<Integer> first = firstOfPair.iterator();
         Iterator<Integer> second = secondOfPair.iterator();
         while(first.hasNext()){
-            sankoffDoubles(tree, first.next(), second.next());
+            sankoffPairs(tree, first.next(), second.next(), seqLength);
         }
 
 
     }
 
-    private static void sankoffDoubles(PhyloTree tree, Integer index1, Integer index2) {
-
+    private static void sankoffPairs(PhyloTree tree, Integer index1, Integer index2, int seqLength) {
+        Collection<String> basePairs = new ArrayList<String>();
+        basePairs.add("CG");
+        basePairs.add("GC");
+        basePairs.add("AU");
+        basePairs.add("UA");
+        basePairs.add("GU");
+        basePairs.add("UG");
+        Iterator<String> it = basePairs.iterator();
+        String curBase = "";
+        String bestBase = "";
+        int maxScore = -MainMethodClass.INF;
+        int curScore = 0;
+        while(it.hasNext()){
+            curBase = it.next();
+            curScore = sankoffPairsRecursion(tree.getRoot(), index1, index2, curBase);
+            if(curScore > maxScore){
+                curScore = maxScore;
+                bestBase = curBase;
+            }
+        }
+        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
+        PhyloTreeNode curNode = tree.getRoot();
+        s.push(curNode);
+        while(!s.empty()){
+            curNode = s.pop();
+            for(int i = 0; i < curNode.getChildren().size(); i++){
+                s.push(curNode.getChildren().get(i));
+            }
+        }
     }
 
-    public static void sankoffSingles(PhyloTree tree, int index){
+    private static int sankoffPairsRecursion(PhyloTreeNode node, Integer index1, Integer index2, String curBase) {
+        Collection<String> basePairs = new ArrayList<String>();
+        basePairs.add("CG");
+        basePairs.add("GC");
+        basePairs.add("AU");
+        basePairs.add("UA");
+        basePairs.add("GU");
+        basePairs.add("UG");
+        int bestScore = -MainMethodClass.INF;
+        int curScore = 0;
+        if(node.getChildren().size() == 0){
+
+        }
+        Iterator<String> it = basePairs.iterator();
+        while(it.hasNext()){
+            score
+        }
+
+
+
+
+
+
+
+
+
+        return 0;
+    }
+
+    public static int sankoffSingles(PhyloTree tree, int index, int seqLength){
         Collection<String> singleBases = new ArrayList<String>();
         singleBases.add("A");
         singleBases.add("C");
@@ -99,57 +177,59 @@ public class SankoffwithStructure {
                     curNode.getChildren().get(1).getChildren().size() > 0){
                 PhyloTreeNode c0 = curNode.getChildren().get(0);
                 PhyloTreeNode c1 = curNode.getChildren().get(1);
-                if(index == 0){
-                    switch(curNode.getSequence().charAt(index)){
-                        case 'A':
-                            c0.setSequence(c0.getIfParentisA());
-                            c1.setSequence(c1.getIfParentisA());
-                            break;
-                        case 'C':
-                            c0.setSequence(c0.getIfParentisC());
-                            c1.setSequence(c1.getIfParentisC());
-                            break;
-                        case 'G':
-                            c0.setSequence(c0.getIfParentisG());
-                            c1.setSequence(c1.getIfParentisG());
-                            break;
-                        case 'U':
-                            c0.setSequence(c0.getIfParentisU());
-                            c1.setSequence(c1.getIfParentisU());
-                            break;
-                        case '.':
-                            c0.setSequence(c0.getIfParentisGap());
-                            c1.setSequence(c1.getIfParentisGap());
-                            break;
-
+                String c0Base = "";
+                String c1Base = "";
+                switch(curNode.getSequence().charAt(index)){
+                    case 'A':
+                        c0Base = c0.getIfParentisA();
+                        c1Base = c1.getIfParentisA();
+                        break;
+                    case 'C':
+                        c0Base = c0.getIfParentisC();
+                        c1Base = c1.getIfParentisC();
+                        break;
+                    case 'G':
+                        c0Base = c0.getIfParentisG();
+                        c1Base = c1.getIfParentisG();
+                        break;
+                    case 'U':
+                        c0Base = c0.getIfParentisU();
+                        c1Base = c1.getIfParentisU();
+                        break;
+                    case '.':
+                        c0Base = c0.getIfParentisGap();
+                        c1Base = c1.getIfParentisGap();
+                        break;
+                }
+                if(index == 1){
+                    String c0Sequence = c0Base;
+                    String c1Sequence = c1Base;
+                    for(int i = 0; i < seqLength-1; i++){
+                        c0Sequence = c0Sequence.concat("?");
+                        c1Sequence = c1Sequence.concat("?");
                     }
+                    c0.setSequence(c0Base);
+                    c1.setSequence(c1Base);
                 }
                 else{
-                    switch(curNode.getSequence().charAt(index)){
-                        case 'A':
-                            c0.setSequence(c0.getSequence().concat(c0.getIfParentisA()));
-                            c1.setSequence(c1.getSequence().concat(c1.getIfParentisA()));
-                            break;
-                        case 'C':
-                            c0.setSequence(c0.getSequence().concat(c0.getIfParentisC()));
-                            c1.setSequence(c1.getSequence().concat(c1.getIfParentisC()));
-                            break;
-                        case 'G':
-                            c0.setSequence(c0.getSequence().concat(c0.getIfParentisG()));
-                            c1.setSequence(c1.getSequence().concat(c1.getIfParentisG()));
-                            break;
-                        case 'U':
-                            c0.setSequence(c0.getSequence().concat(c0.getIfParentisU()));
-                            c1.setSequence(c1.getSequence().concat(c1.getIfParentisU()));
-                            break;
-                        case '.':
-                            c0.setSequence(c0.getSequence().concat(c0.getIfParentisGap()));
-                            c1.setSequence(c1.getSequence().concat(c1.getIfParentisGap()));
-                            break;
+                    String c0Sequence = c0.getSequence();
+                    String c1Sequence = c1.getSequence();
+                    char[] c0Array = c0Sequence.toCharArray();
+                    char[] c1Array = c1Sequence.toCharArray();
+                    c0Array[index] = c0Base.charAt(0);
+                    c1Array[index] = c1Base.charAt(1);
+                    c0Sequence = "";
+                    c1Sequence = "";
+                    for(int i = 0; i < c0Array.length; i++){
+                        c0Sequence = c0Sequence.concat(Character.toString(c0Array[i]));
+                        c1Sequence = c1Sequence.concat(Character.toString(c1Array[i]));
                     }
+                    c1.setSequence(c1Sequence);
+                    c0.setSequence(c0Sequence);
                 }
             }
         }
+        return max;
     }
 
     private static int sankoffSinglesRecursion(PhyloTree tree, String curBase, int index) {

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainMethodClass.java" afterPath="$PROJECT_DIR$/src/MainMethodClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PhyloTreeNode.java" afterPath="$PROJECT_DIR$/src/PhyloTreeNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sankoff.java" afterPath="$PROJECT_DIR$/src/Sankoff.java" />
+    <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SankoffwithStructure.java" afterPath="$PROJECT_DIR$/src/SankoffwithStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ViennaCalls.java" afterPath="$PROJECT_DIR$/src/ViennaCalls.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CleanedUpProject.iws" />
@@ -119,13 +115,20 @@
       <file leaf-file-name="SankoffwithStructure.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="8" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.37576687" vertical-offset="860" max-vertical-offset="2788">
+            <state line="35" column="87" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.78753996" vertical-offset="102" max-vertical-offset="1904">
               <folding>
-                <element signature="e#1391#1400#0" expanded="true" />
-                <element signature="e#1459#1468#0" expanded="true" />
-                <element signature="e#1528#1537#0" expanded="true" />
-                <element signature="e#2646#2654#0" expanded="true" />
-                <element signature="e#3363#3378#0" expanded="true" />
+                <element signature="method#sankoffwithStructure#0;class#SankoffwithStructure#0" expanded="false" />
+                <element signature="e#1699#1714#0" expanded="true" />
+                <element signature="e#2178#2187#0" expanded="true" />
+                <element signature="e#2246#2255#0" expanded="true" />
+                <element signature="e#2315#2324#0" expanded="true" />
+                <element signature="e#3410#3418#0" expanded="true" />
+                <element signature="e#4103#4118#0" expanded="true" />
+                <element signature="e#4572#4580#0" expanded="true" />
+                <element signature="method#sankoffSingles#0;class#SankoffwithStructure#0" expanded="false" />
+                <element signature="e#5162#5170#0" expanded="true" />
+                <element signature="e#5879#5894#0" expanded="true" />
+                <element signature="method#sankoffSinglesRecursion#0;class#SankoffwithStructure#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -455,7 +458,11 @@
       <created>1397014444795</created>
       <updated>1397014444795</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs">
+      <created>1397258726697</created>
+      <updated>1397258726697</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -472,6 +479,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -482,7 +490,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -506,7 +513,8 @@
     <MESSAGE value="I cant figure out how to keep structure" />
     <MESSAGE value="I cant figure out how to keep structure&#10;" />
     <MESSAGE value="Fixed Sankoff so that sequences stored are correct, adjusting for the base of the parent. Fresh start to keeping sequence next" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Sankoff so that sequences stored are correct, adjusting for the base of the parent. Fresh start to keeping sequence next" />
+    <MESSAGE value="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs" />
+    <option name="LAST_COMMIT_MESSAGE" value="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -527,11 +535,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
           <folding>
-            <element signature="e#1391#1400#0" expanded="true" />
-            <element signature="e#1459#1468#0" expanded="true" />
-            <element signature="e#1528#1537#0" expanded="true" />
-            <element signature="e#2646#2654#0" expanded="true" />
-            <element signature="e#3363#3378#0" expanded="true" />
+            <element signature="method#sankoffwithStructure#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#1699#1714#0" expanded="true" />
+            <element signature="e#2178#2187#0" expanded="true" />
+            <element signature="e#2246#2255#0" expanded="true" />
+            <element signature="e#2315#2324#0" expanded="true" />
+            <element signature="e#3410#3418#0" expanded="true" />
+            <element signature="e#4103#4118#0" expanded="true" />
+            <element signature="e#4572#4580#0" expanded="true" />
+            <element signature="method#sankoffSingles#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#5162#5170#0" expanded="true" />
+            <element signature="e#5879#5894#0" expanded="true" />
+            <element signature="method#sankoffSinglesRecursion#0;class#SankoffwithStructure#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -589,11 +604,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="1" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="187">
           <folding>
-            <element signature="e#1391#1400#0" expanded="true" />
-            <element signature="e#1459#1468#0" expanded="true" />
-            <element signature="e#1528#1537#0" expanded="true" />
-            <element signature="e#2646#2654#0" expanded="true" />
-            <element signature="e#3363#3378#0" expanded="true" />
+            <element signature="method#sankoffwithStructure#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#1699#1714#0" expanded="true" />
+            <element signature="e#2178#2187#0" expanded="true" />
+            <element signature="e#2246#2255#0" expanded="true" />
+            <element signature="e#2315#2324#0" expanded="true" />
+            <element signature="e#3410#3418#0" expanded="true" />
+            <element signature="e#4103#4118#0" expanded="true" />
+            <element signature="e#4572#4580#0" expanded="true" />
+            <element signature="method#sankoffSingles#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#5162#5170#0" expanded="true" />
+            <element signature="e#5879#5894#0" expanded="true" />
+            <element signature="method#sankoffSinglesRecursion#0;class#SankoffwithStructure#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -818,13 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sankoff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="42" selection-start="10269" selection-end="10269" vertical-scroll-proportion="0.4533762" vertical-offset="3407" max-vertical-offset="4029">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="0" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1394">
@@ -832,15 +847,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sankoff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="217" column="42" selection-start="10269" selection-end="10269" vertical-scroll-proportion="0.4533762" vertical-offset="3407" max-vertical-offset="4029">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="8" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.37576687" vertical-offset="860" max-vertical-offset="2788">
+        <state line="35" column="87" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.78753996" vertical-offset="102" max-vertical-offset="1904">
           <folding>
-            <element signature="e#1391#1400#0" expanded="true" />
-            <element signature="e#1459#1468#0" expanded="true" />
-            <element signature="e#1528#1537#0" expanded="true" />
-            <element signature="e#2646#2654#0" expanded="true" />
-            <element signature="e#3363#3378#0" expanded="true" />
+            <element signature="method#sankoffwithStructure#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#1699#1714#0" expanded="true" />
+            <element signature="e#2178#2187#0" expanded="true" />
+            <element signature="e#2246#2255#0" expanded="true" />
+            <element signature="e#2315#2324#0" expanded="true" />
+            <element signature="e#3410#3418#0" expanded="true" />
+            <element signature="e#4103#4118#0" expanded="true" />
+            <element signature="e#4572#4580#0" expanded="true" />
+            <element signature="method#sankoffSingles#0;class#SankoffwithStructure#0" expanded="false" />
+            <element signature="e#5162#5170#0" expanded="true" />
+            <element signature="e#5879#5894#0" expanded="true" />
+            <element signature="method#sankoffSinglesRecursion#0;class#SankoffwithStructure#0" expanded="false" />
           </folding>
         </state>
       </provider>
