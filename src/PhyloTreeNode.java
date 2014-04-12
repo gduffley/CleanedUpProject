@@ -14,6 +14,23 @@ public class PhyloTreeNode {
     private String ifParentisA = "";
     private String ifParentisC = "";
     private String ifParentisG = "";
+    private String ifParentisU = "";
+    private String ifParentisGap = "";
+    private ArrayList<Boolean> lChildBPs = new ArrayList<Boolean>();
+    private ArrayList<Boolean> rChildBPs = new ArrayList<Boolean>();
+
+    public void setLChildBPs(int i, boolean b){
+        lChildBPs.add(i, b);
+    }
+    public void setRChildBPs(int i, boolean b){
+        rChildBPs.add(i, b);
+    }
+    public boolean getLChildBPs(int i){
+        return lChildBPs.get(i);
+    }
+    public boolean getRChildBPs(int i){
+        return rChildBPs.get(i);
+    }
 
     public String getIfParentisU() {
         return ifParentisU;
@@ -22,9 +39,6 @@ public class PhyloTreeNode {
     public void setIfParentisU(String ifParentisU) {
         this.ifParentisU = ifParentisU;
     }
-
-    private String ifParentisU = "";
-    private String ifParentisGap = "";
 
     public String getIfParentisA() {
         return ifParentisA;

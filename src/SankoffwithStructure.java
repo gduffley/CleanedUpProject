@@ -34,6 +34,18 @@ New Strategy
 --> For every node, keep the base pairing of all of the leafs that are below it or keep what you're doing
 --> Need to make it so that even if you have a base pair in one child, the other child still has access to all
 bases. You could do this by imposing the consensus on all of the nodes except the leafs
+
+
+Imposing the consensus sequence on all of the nodes doesn't make sense, and it doesn't even really make sense
+to impose the consensus sequence on all of the leafs. What does make sense is imposing the base pairing of the
+leafs below a node on the node itself
+
+Steps:
+1) Find the structure of all of the leafs
+2) Run the normal Sankoff, and once you get to the leaf, if it is a single base, then run normal Sankoff for it,
+if it is not a normal base, run the Sankoffpairwise for it. This will override any bases that are placed as singles
+with those that are double all the way up, allowing for any bases to the children if they dont have pairing, but
+only pairing options to the parents
  */
 
 public class SankoffwithStructure {
