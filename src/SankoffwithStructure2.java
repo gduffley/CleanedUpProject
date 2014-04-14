@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.io.*;
+import java.util.*;
 
 /**
  * Created by Gordon on 4/12/14.
@@ -38,56 +39,211 @@ import java.util.Stack;
  *          pairs, and all 16 combinations for c1b0 and c1b1
  *      }
  *
+ *Bugs:
+ * -wont handle gaped sequences very well
+ * Steps:
+ * 1)Get all of the leafs, get string that represents their base pairing
+ * 2)Set all of the basepairs array for the children
+ * 3)Recursively set all of the basepair arrays for the nodes above them
+ *
  */
 public class SankoffwithStructure2 {
-    public static int SankoffwithStructure(PhyloTree tree){
-        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
+
+    public int SankoffwithStructure(PhyloTree tree) throws IOException {
+        /**TODO: Update the data structure of the nodes to be a 2D array to store best values
+         *just like what we have now, except make it 2D for every spot in the sequence
+         */
+        getFolding(tree);
+        Collection<String> singleBases = new ArrayList<String>();
+        singleBases.add("A");
+        singleBases.add("C");
+        singleBases.add("G");
+        singleBases.add("U");
+        singleBases.add(".");
+        Collection<String> pairedBases = new ArrayList<String>();
+        pairedBases.add("CG");
+        pairedBases.add("GC");
+        pairedBases.add("GU");
+        pairedBases.add("UG");
+        pairedBases.add("AU");
+        pairedBases.add("UA");
+        ArrayList<String> newSequence = new ArrayList<String>();
+        int parsimonyScore = 0;
+        PhyloTreeNode root = tree.getRoot();
+        for(int i = 0; i < root.getSequence().length(); i++){
+            if(root.getBasePairs().get(i) == null){
+                Iterator<String> it = singleBases.iterator();
+                int curScore = -MainMethodClass.INF;
+                int bestScore = -MainMethodClass.INF;
+                String curBase = "";
+                String bestBase = "";
+                while(it.hasNext()){
+                    curBase = it.next();
+                    curScore = sankoffSingle(tree.getRoot(), curBase, i, singleBases);
+                    if(curScore > bestScore){
+                        bestBase = curBase;
+                        bestScore = curScore;
+                    }
+                }
+                newSequence.add(i, bestBase);
+                parsimonyScore += bestScore;
+            }
+            else if(root.getBasePairs().get(i) > i){
+                int j = root.getBasePairs().get(i);
+                Iterator<String> it = pairedBases.iterator();
+                String curBases = "";
+                String bestBases = "";
+                int bestScore = -MainMethodClass.INF;
+                int curScore = -MainMethodClass.INF;
+                while(it.hasNext()){
+                    curBases = it.next();
+                    curScore = sankoffPairs(tree.getRoot(), curBases, i, j);
+                    if(curScore > bestScore){
+                        bestScore = curScore;
+                        bestBases = curBases;
+                    }
+                }
+                newSequence.add(i, bestBases.substring(0,1));
+                newSequence.add(j, bestBases.substring(1));
+                parsimonyScore += bestScore;
+            }
+        }
+        //TODO: for every letter, figure out the sequence based on the 2D array.
+        return parsimonyScore;
+    }
+
+    private int sankoffPairs(PhyloTreeNode root, String curBases, int i, int j) {
+        return 0;
+        //TODO: write this method
+    }
+
+    private int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {
+        int scoreL;
+        int scoreR;
+        int transitionR;
+        int transitionL;
+        int curScore;
+        int bestScore = -MainMethodClass.INF;
+        String curBaseR;
+        String curBaseL;
+        String bestBaseR = "";
+        String bestBaseL = "";
+        PhyloTreeNode childL;
+        PhyloTreeNode childR;
+        if(node.getChildren().size() < 2){
+            if((node.getSequence().substring(index, index+1)).equals(curBase)) return 0;
+            else return -MainMethodClass.INF;
+        }
+        else{
+            childL = node.getChildren().get(0);
+            childR = node.getChildren().get(1);
+            if(childL.getScoreForSinglesACGT("A") == 1){
+                Iterator<String> it = singleBases.iterator();
+                while(it.hasNext()){
+                    String curBaseNow = it.next();
+                    childL.setScoreForSinglesACGT(curBaseNow, sankoffSingle(childL, curBaseNow, index, singleBases));
+                    childR.setScoreForSinglesACGT(curBaseNow, sankoffSingle(childR, curBaseNow, index, singleBases));
+                }
+            }
+            Iterator<String> itL = singleBases.iterator();
+            Iterator<String> itR = singleBases.iterator();
+            while(itL.hasNext()){
+                curBaseL = itL.next();
+                while(itR.hasNext()){
+                    curBaseR = itR.next();
+                    scoreL = childL.getScoreForSinglesACGT(curBaseL);
+                    scoreR = childR.getScoreForSinglesACGT(curBaseR);
+                    transitionL = MainMethodClass.cost(curBase, curBaseL);
+                    transitionR = MainMethodClass.cost(curBase, curBaseR);
+                    curScore = scoreL + scoreR + transitionL + transitionR;
+                    if(curScore > bestScore){
+                        bestScore = curScore;
+                        bestBaseL = curBaseL;
+                        bestBaseR = curBaseR;
+                    }
+                }
+            }
+            childL.setBaseIfParentAGCUGap(bestBaseL, curBase);
+            childR.setBaseIfParentAGCUGap(bestBaseR, curBase);
+        }
+        return bestScore;
+    }
+
+
+    private void getFolding(PhyloTree tree) throws IOException {
         PhyloTreeNode curNode = tree.getRoot();
+        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
         s.push(curNode);
         while(!s.empty()){
-            for(int i = 0; i < curNode.getChildren().size(); i++){
-                s.push(curNode.getChildren().get(i));
+            curNode = s.pop();
+            if(curNode.getChildren().size() == 2){
+                for(int i = 0; i < curNode.getChildren().size(); i++){
+                    s.push(curNode.getChildren().get(i));
+                }
             }
-            PhyloTreeNode curNodeUp;
-            if(curNode.getChildren().size() < 2){
-                PhyloTreeNode curNodeParent = curNode.getParent();
-                String folding = getFolding(curNode);
+            else{
+                foldingFromVienna(curNode);
+                String sequence = curNode.getSequence();
+                String folding = curNode.getFolding();
                 for(int i = 0; i < curNode.getSequence().length(); i++){
-                    if(curNode.getFolding().charAt(i) == '<' || curNode.getFolding().charAt(i) == '>'){
-                        curNode.setLChildBPs(i, true);
-                        curNode.setRChildBPs(i, true);
+                    if(folding.charAt(i) == '<'){
+                        int brackets = 1;
+                        int j;
+                        for(j = i; j < folding.length(); j++){
+                            if(folding.charAt(j) == '<') brackets++;
+                            if(folding.charAt(j) == '>') brackets--;
+                            if(brackets == 0) break;
+                        }
+                        curNode.setBasePair(i,j);
                     }
-                    else{
-                        curNode.setLChildBPs(i, false);
-                        curNode.setRChildBPs(i, false);
-                    }
-                 }
-                while(curNode != tree.getRoot()){
-                    for(int i = 0; i < curNode.getSequence().length(); i++){
-                        if( curNodeParent.getChildren().get(0) == curNode){
-                            if(curNode.getRChildBPs(i) || curNode.getLChildBPs(i))
+                }
+                PhyloTreeNode curNodeUp = curNode;
+                while(curNodeUp.getParent() != null){
+                    curNodeUp = curNode.getParent();
+                    for(int i = 0; i < curNode.getBasePairs().size(); i++){
+                        if(curNode.getBasePairs() != null && curNode.getBasePairs().get(i) > i ){
+                            curNodeUp.setBasePair(i,curNode.getBasePairs().get(i));
                         }
                     }
-                    curNodeUp = curNodeUp.getParent();
-                    curNode = cur
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-        return 0;
     }
 
-    private static String getFolding(PhyloTreeNode curNode) {
-        return null;
+    private void foldingFromVienna(PhyloTreeNode curNode) throws IOException {
+        String command = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\ViennaRNAPackage\\rnaFold.exe";
+        BufferedReader inp;
+        BufferedWriter out;
+        ProcessBuilder builder = new ProcessBuilder(command);
+        builder.redirectErrorStream(true);
+        Process p = builder.start();
+        InputStream ips = p.getInputStream();
+        OutputStream ops = p.getOutputStream();
+        inp = new BufferedReader(new InputStreamReader(ips));
+        out = new BufferedWriter(new OutputStreamWriter(ops));
+        String seq = curNode.getSequence();
+        seq = seq.replace(",", "");
+        seq = seq.replace(".", "");
+        seq = seq.concat("\n");
+        out.write(seq);
+        out.flush();
+        String line;
+        int i = 0;
+        while(i < 2 && ( line = inp.readLine()) != null){
+            if(i == 1){
+                int lastClosed = line.lastIndexOf(")");
+                int lastOpen = MainMethodClass.findClosestOpen(lastClosed, line);
+                String energy = line.substring(lastOpen);
+                line = line.substring(0, lastOpen);
+                curNode.setFolding(line);
+                energy = energy.replace("(", "");
+                energy = energy.replace(")", "");
+                energy =  energy.trim();
+                curNode.setEnergy(Double.parseDouble(energy));
+            }
+            i++;
+        }
+        p.destroy();
+
     }
 }

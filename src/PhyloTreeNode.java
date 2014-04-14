@@ -1,6 +1,8 @@
 /**
  * Created by Gordon on 2/11/14.
  */
+import com.sun.java.swing.plaf.motif.resources.motif_zh_TW;
+
 import java.util.ArrayList;
 //mic check
 public class PhyloTreeNode {
@@ -16,20 +18,68 @@ public class PhyloTreeNode {
     private String ifParentisG = "";
     private String ifParentisU = "";
     private String ifParentisGap = "";
-    private ArrayList<Boolean> lChildBPs = new ArrayList<Boolean>();
-    private ArrayList<Boolean> rChildBPs = new ArrayList<Boolean>();
+    private ArrayList<Integer> basePairs = new ArrayList<Integer>();
+    private int[] scoreForSinglesACGUGap = new int[] {1,1,1,1,1};
+    private String[] baseIfParentAGCUGap = new String[] {"","","","",""};
 
-    public void setLChildBPs(int i, boolean b){
-        lChildBPs.add(i, b);
+    public void setBaseIfParentAGCUGap(String nodeBase, String parentBase){
+        switch(parentBase.charAt(0)){
+            case 'A': baseIfParentAGCUGap[0] = nodeBase;
+                break;
+            case 'C': baseIfParentAGCUGap[1] = nodeBase;
+                break;
+            case 'G': baseIfParentAGCUGap[2] = nodeBase;
+                break;
+            case 'U': baseIfParentAGCUGap[3] = nodeBase;
+                break;
+            case '.': baseIfParentAGCUGap[4] = nodeBase;
+        }
     }
-    public void setRChildBPs(int i, boolean b){
-        rChildBPs.add(i, b);
+
+    public String getBaseIfParentACGUGap(String parentBase){
+        switch(parentBase.charAt(0)){
+            case 'A': return baseIfParentAGCUGap[0];
+            case 'C': return baseIfParentAGCUGap[1];
+            case 'G': return baseIfParentAGCUGap[2];
+            case 'U': return baseIfParentAGCUGap[3];
+            case '.': return baseIfParentAGCUGap[4];
+        }
+        return "NOTABASE";
     }
-    public boolean getLChildBPs(int i){
-        return lChildBPs.get(i);
+
+    public void setScoreForSinglesACGT(String base, int score){
+        switch(base.charAt(0)){
+            case 'A': scoreForSinglesACGUGap[0] = score;
+                break;
+            case 'C': scoreForSinglesACGUGap[1] = score;
+                break;
+            case 'G': scoreForSinglesACGUGap[2] = score;
+                break;
+            case 'U': scoreForSinglesACGUGap[3] = score;
+                break;
+            case '.': scoreForSinglesACGUGap[4] = score;
+        }
     }
-    public boolean getRChildBPs(int i){
-        return rChildBPs.get(i);
+
+    public int getScoreForSinglesACGT(String base){
+        switch(base.charAt(0)){
+            case 'A': return scoreForSinglesACGUGap[0];
+            case 'C': return scoreForSinglesACGUGap[1];
+            case 'G': return scoreForSinglesACGUGap[2];
+            case 'U': return scoreForSinglesACGUGap[3];
+            case '.': return scoreForSinglesACGUGap[4];
+        }
+        return 1;
+    }
+
+
+    public void setBasePair(int i, int j){
+        basePairs.set(i, j);
+        basePairs.set(j, i);
+    }
+
+    public ArrayList<Integer> getBasePairs(){
+        return basePairs;
     }
 
     public String getIfParentisU() {
@@ -76,6 +126,7 @@ public class PhyloTreeNode {
         this.name = name;
         this.sequence = sequence;
         this.parent = null;
+
     }
 
     public void setName(String name){
