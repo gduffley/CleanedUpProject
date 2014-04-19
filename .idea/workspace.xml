@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PhyloTreeNode.java" afterPath="$PROJECT_DIR$/src/PhyloTreeNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SankoffwithStructure2.java" afterPath="$PROJECT_DIR$/src/SankoffwithStructure2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -93,13 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="17" selection-start="9314" selection-end="9314" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="4420">
-              <folding>
-                <element signature="e#8261#8276#0" expanded="true" />
-              </folding>
+            <state line="120" column="26" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.5828221" vertical-offset="1609" max-vertical-offset="5032">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="47" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.9478528" vertical-offset="1133" max-vertical-offset="3247">
+            <state line="25" column="29" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3315">
               <folding>
                 <element signature="e#818#828#0" expanded="true" />
                 <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
@@ -264,6 +263,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -289,19 +301,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -467,7 +466,11 @@
       <created>1397872972036</created>
       <updated>1397872972036</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it...&#10;">
+      <created>1397875299263</created>
+      <updated>1397875299263</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -484,7 +487,6 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -495,8 +497,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -524,7 +527,8 @@
     <MESSAGE value="Finally have a plan to implement structure, SankoffStructure2 has the plan in it that should work&#10;" />
     <MESSAGE value="About to reformat everything with try catch" />
     <MESSAGE value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it..." />
-    <option name="LAST_COMMIT_MESSAGE" value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it..." />
+    <MESSAGE value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it...&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it...&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -626,9 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="9" selection-start="7506" selection-end="7506" vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="4301">
-          <folding />
-        </state>
+        <state line="170" column="9" selection-start="7506" selection-end="7506" vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="4301" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure.java">
@@ -685,9 +687,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="4301">
-          <folding />
-        </state>
+        <state line="26" column="81" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="4301" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
@@ -737,9 +737,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="19" selection-start="6785" selection-end="6785" vertical-scroll-proportion="0.0" vertical-offset="2119" max-vertical-offset="3230">
-          <folding />
-        </state>
+        <state line="173" column="19" selection-start="6785" selection-end="6785" vertical-scroll-proportion="0.0" vertical-offset="2119" max-vertical-offset="3230" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
@@ -782,9 +780,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="30" selection-start="5797" selection-end="5797" vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="2754">
-          <folding />
-        </state>
+        <state line="148" column="30" selection-start="5797" selection-end="5797" vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="2754" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
@@ -834,9 +830,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="9" selection-start="7506" selection-end="7506" vertical-scroll-proportion="6.619816" vertical-offset="0" max-vertical-offset="4284">
-          <folding />
-        </state>
+        <state line="170" column="9" selection-start="7506" selection-end="7506" vertical-scroll-proportion="6.619816" vertical-offset="0" max-vertical-offset="4284" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
@@ -888,22 +882,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="17" selection-start="9314" selection-end="9314" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="4420">
-          <folding>
-            <element signature="e#8261#8276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="47" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.9478528" vertical-offset="1133" max-vertical-offset="3247">
+        <state line="25" column="29" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3315">
           <folding>
             <element signature="e#818#828#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="26" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.5828221" vertical-offset="1609" max-vertical-offset="5032">
+          <folding />
         </state>
       </provider>
     </entry>

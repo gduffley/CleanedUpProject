@@ -1,3 +1,5 @@
+import org.omg.CosNaming._BindingIteratorImplBase;
+
 import java.io.*;
 import java.util.*;
 
@@ -71,7 +73,7 @@ public class SankoffwithStructure2 {
         int parsimonyScore = 0;
         PhyloTreeNode root = tree.getRoot();
         for(int i = 0; i < root.getSequence().length(); i++){
-            if(root.getBasePairs().get(i) == null){
+            if(root.getBasePairs().get(i) == -1){
                 Iterator<String> it = singleBases.iterator();
                 int curScore = -MainMethodClass.INF;
                 int bestScore = -MainMethodClass.INF;
@@ -97,7 +99,7 @@ public class SankoffwithStructure2 {
                 int curScore = -MainMethodClass.INF;
                 while(it.hasNext()){
                     curBases = it.next();
-                    curScore = sankoffPairs(tree.getRoot(), curBases, i, j);
+                    curScore = sankoffPairs(tree.getRoot(), curBases, i, j, pairedBases);
                     if(curScore > bestScore){
                         bestScore = curScore;
                         bestBases = curBases;
@@ -115,8 +117,43 @@ public class SankoffwithStructure2 {
     //Case 1: Both of the parents have basepairing
         //TODO: Make it so that the basepairing with more children under it is the one chosen
         //Score is max
-    private int sankoffPairs(PhyloTreeNode node, String curBases, int i, int j) {
-        if(node.getChildren().get(0).getBasePairs().get(i) != )
+    private int sankoffPairs(PhyloTreeNode node, String curBases, int i, int j, Collection<String> pairedBases) {
+        //Sample array {5,,-1,
+        boolean LSinglei = false;
+        boolean LSinglej = false;
+        boolean RSinglei = false;
+        boolean RSinglej = false;
+        PhyloTreeNode childL = node.getChildren().get(0);
+        PhyloTreeNode childR = node.getChildren().get(1);
+        if(childL.getBasePairs().get(i) == -1) LSinglei = true;
+        if(childR.getBasePairs().get(i) == -1) RSinglei = true;
+        if(childL.getBasePairs().get(j) == -1) LSinglei = true;
+        if(childR.getBasePairs().get(j) == -1) RSinglei = true;
+        int scoreR;
+        int scoreL;
+        int transR;
+        int transL;
+        if(LSinglei && LSinglej && RSinglei && RSinglej){
+            String curL;
+            String curR;
+            String bestR;
+            String bestL;
+            int curScore;
+            int bestScore;
+            Iterator<String> itL = pairedBases.iterator();
+            while(itL.hasNext()){
+                curL = itL.next();
+                Iterator<String> itR = pairedBases.iterator();
+                while(itR.hasNext()){
+                    curR = itR.next();
+                    try{
+                        scoreR = childL.getSankoffScore()
+                    }
+                }
+            }
+        }
+
+
 
 
     }
@@ -202,12 +239,13 @@ public class SankoffwithStructure2 {
                         }
                         curNode.setBasePair(i,j);
                     }
+                    else curNode.setNoBP(i);
                 }
                 PhyloTreeNode curNodeUp = curNode;
                 while(curNodeUp.getParent() != null){
                     curNodeUp = curNode.getParent();
                     for(int i = 0; i < curNode.getBasePairs().size(); i++){
-                        if(curNode.getBasePairs() != null && curNode.getBasePairs().get(i) > i ){
+                        if(curNode.getBasePairs().get(i) > i ){
                             curNodeUp.setBasePair(i,curNode.getBasePairs().get(i));
                         }
                     }

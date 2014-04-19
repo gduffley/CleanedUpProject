@@ -22,6 +22,10 @@ public class PhyloTreeNode {
     private ArrayList<int[]> sankoffScores = new ArrayList<int[]>();
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
 
+    public void setNoBP(int i){
+        basePairs.set(i, -1);
+    }
+
     public void setBaseIfParent(int index, String parent, String base){
         try{
             baseIfParent.get(index);
