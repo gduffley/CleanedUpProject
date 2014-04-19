@@ -20,7 +20,51 @@ public class PhyloTreeNode {
     private String ifParentisGap = "";
     private ArrayList<Integer> basePairs = new ArrayList<Integer>();
     private ArrayList<int[]> sankoffScores = new ArrayList<int[]>();
-    private ArrayList<String[]> baseIfParentSingle = new ArrayList<String[]>();
+    private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
+
+    public void setBaseIfParent(int index, String parent, String base){
+        try{
+            baseIfParent.get(index);
+        }catch(IndexOutOfBoundsException e){
+            String[] temp = new String[5];
+            baseIfParent.add(temp);
+        }
+        String[] temp;
+        switch(base.charAt(0)){
+            case 'A':
+                temp = baseIfParent.get(index);
+                temp[0] = base;
+                break;
+            case 'C':
+                temp = baseIfParent.get(index);
+                temp[1] = base;
+                break;
+            case 'G':
+                temp = baseIfParent.get(index);
+                temp[2] = base;
+                break;
+            case 'U':
+                temp = baseIfParent.get(index);
+                temp[3] = base;
+                break;
+            case '.':
+                temp = baseIfParent.get(index);
+                temp[4] = base;
+                break;
+        }
+    }
+    //TODO: should probably add try catch
+    public String getBaseIfParent(int index, String parent){
+        String[] temp = baseIfParent.get(index);
+        switch(parent.charAt(0)){
+            case 'A': return temp[0];
+            case 'C': return temp[1];
+            case 'G': return temp[2];
+            case 'U': return temp[3];
+            case '.': return temp[4];
+        }
+        return "NO BASE. SOMETHING IS VERY WRONG";
+    }
 
     public void addSankoffScore(int index, String base, int score){
         try {
@@ -60,14 +104,19 @@ public class PhyloTreeNode {
         }
     }
 
-    public int getSankoffScore(int index, String base){
+    public int getSankoffScore(int index, String base) throws IndexOutOfBoundsException{
         int [] temp = sankoffScores.get(index);
         switch(base.charAt(0)){
-            case 'A': return temp[0];
-            case 'C': return temp[1];
-            case 'G': return temp[2];
-            case 'U': return temp[3];
-            case '.': return temp[4];
+            case 'A': if (temp[0] == 1) throw new IndexOutOfBoundsException();
+                else return temp[0];
+            case 'C': if (temp[1] == 1) throw new IndexOutOfBoundsException();
+                else return temp[1];
+            case 'G': if (temp[2] == 1) throw new IndexOutOfBoundsException();
+                else return temp[3];
+            case 'U': if (temp[3] == 1) throw new IndexOutOfBoundsException();
+                else return temp[3];
+            case '.': if (temp[4] == 1) throw  new IndexOutOfBoundsException();
+                else return temp[4];
         }
         return 1;
     }

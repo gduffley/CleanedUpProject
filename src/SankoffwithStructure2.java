@@ -108,7 +108,7 @@ public class SankoffwithStructure2 {
                 parsimonyScore += bestScore;
             }
         }
-        //TODO: for every letter, figure out the sequence based on the 2D array.
+        //TODO: Go through and get sequences from ifBaseIsParent 2D array
         return parsimonyScore;
     }
 
@@ -137,22 +137,24 @@ public class SankoffwithStructure2 {
         else{
             childL = node.getChildren().get(0);
             childR = node.getChildren().get(1);
-            if(childL.getScoreForSinglesACGT("A") == 1){
-                Iterator<String> it = singleBases.iterator();
-                while(it.hasNext()){
-                    String curBaseNow = it.next();
-                    childL.setScoreForSinglesACGT(curBaseNow, sankoffSingle(childL, curBaseNow, index, singleBases));
-                    childR.setScoreForSinglesACGT(curBaseNow, sankoffSingle(childR, curBaseNow, index, singleBases));
-                }
-            }
             Iterator<String> itL = singleBases.iterator();
             Iterator<String> itR = singleBases.iterator();
             while(itL.hasNext()){
                 curBaseL = itL.next();
                 while(itR.hasNext()){
                     curBaseR = itR.next();
-                    scoreL = childL.getScoreForSinglesACGT(curBaseL);
-                    scoreR = childR.getScoreForSinglesACGT(curBaseR);
+                    try{
+                        scoreL = childL.getSankoffScore(index, curBaseL);
+                    }catch(IndexOutOfBoundsException e){
+                        scoreL = sankoffSingle(childL, curBaseL, index, singleBases);
+                        childL.addSankoffScore(index, curBaseL, scoreL);
+                    }
+                    try{
+                        scoreR = childR.getSankoffScore(index, curBaseR);
+                    }catch(IndexOutOfBoundsException e){
+                        scoreR = sankoffSingle(childR, curBaseR, index, singleBases);
+                        childR.addSankoffScore(index, curBaseR, scoreR);
+                    }
                     transitionL = MainMethodClass.cost(curBase, curBaseL);
                     transitionR = MainMethodClass.cost(curBase, curBaseR);
                     curScore = scoreL + scoreR + transitionL + transitionR;
@@ -163,8 +165,8 @@ public class SankoffwithStructure2 {
                     }
                 }
             }
-            childL.setBaseIfParentAGCUGap(bestBaseL, curBase);
-            childR.setBaseIfParentAGCUGap(bestBaseR, curBase);
+            childL.setBaseIfParent(index, curBase, bestBaseL);
+            childR.setBaseIfParent(index, curBase, bestBaseR);
         }
         return bestScore;
     }
