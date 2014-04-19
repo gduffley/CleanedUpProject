@@ -112,9 +112,13 @@ public class SankoffwithStructure2 {
         return parsimonyScore;
     }
 
-    private int sankoffPairs(PhyloTreeNode root, String curBases, int i, int j) {
-        return 0;
-        //TODO: write this method
+    //Case 1: Both of the parents have basepairing
+        //TODO: Make it so that the basepairing with more children under it is the one chosen
+        //Score is max
+    private int sankoffPairs(PhyloTreeNode node, String curBases, int i, int j) {
+        if(node.getChildren().get(0).getBasePairs().get(i) != )
+
+
     }
 
     private int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {

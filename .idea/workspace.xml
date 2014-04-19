@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PhyloTreeNode.java" afterPath="$PROJECT_DIR$/src/PhyloTreeNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SankoffwithStructure2.java" afterPath="$PROJECT_DIR$/src/SankoffwithStructure2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -94,11 +93,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="73" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.6088957" vertical-offset="1456" max-vertical-offset="4352">
-              <folding />
+            <state line="204" column="17" selection-start="9314" selection-end="9314" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="4420">
+              <folding>
+                <element signature="e#8261#8276#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="50" selection-start="2221" selection-end="2221" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="3247">
+            <state line="107" column="47" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.9478528" vertical-offset="1133" max-vertical-offset="3247">
               <folding>
                 <element signature="e#818#828#0" expanded="true" />
                 <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
@@ -462,7 +463,11 @@
       <created>1397870857131</created>
       <updated>1397870857131</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it...">
+      <created>1397872972036</created>
+      <updated>1397872972036</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -518,7 +523,8 @@
     <MESSAGE value="Finally have a plan to implement structure, SankoffStructure2 has the plan in it that should work" />
     <MESSAGE value="Finally have a plan to implement structure, SankoffStructure2 has the plan in it that should work&#10;" />
     <MESSAGE value="About to reformat everything with try catch" />
-    <option name="LAST_COMMIT_MESSAGE" value="About to reformat everything with try catch" />
+    <MESSAGE value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it..." />
+    <option name="LAST_COMMIT_MESSAGE" value="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -882,20 +888,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
+    <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="50" selection-start="2221" selection-end="2221" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="3247">
+        <state line="204" column="17" selection-start="9314" selection-end="9314" vertical-scroll-proportion="0.0" vertical-offset="2867" max-vertical-offset="4420">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
-            <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="e#8261#8276#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
+    <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="73" selection-start="5425" selection-end="5425" vertical-scroll-proportion="0.6088957" vertical-offset="1456" max-vertical-offset="4352">
-          <folding />
+        <state line="107" column="47" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.9478528" vertical-offset="1133" max-vertical-offset="3247">
+          <folding>
+            <element signature="e#818#828#0" expanded="true" />
+            <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
