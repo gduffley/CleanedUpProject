@@ -19,59 +19,58 @@ public class PhyloTreeNode {
     private String ifParentisU = "";
     private String ifParentisGap = "";
     private ArrayList<Integer> basePairs = new ArrayList<Integer>();
-    private int[] scoreForSinglesACGUGap = new int[] {1,1,1,1,1};
-    private String[] baseIfParentAGCUGap = new String[] {"","","","",""};
+    private ArrayList<int[]> sankoffScores = new ArrayList<int[]>();
+    private ArrayList<String[]> baseIfParentSingle = new ArrayList<String[]>();
 
-    public void setBaseIfParentAGCUGap(String nodeBase, String parentBase){
-        switch(parentBase.charAt(0)){
-            case 'A': baseIfParentAGCUGap[0] = nodeBase;
-                break;
-            case 'C': baseIfParentAGCUGap[1] = nodeBase;
-                break;
-            case 'G': baseIfParentAGCUGap[2] = nodeBase;
-                break;
-            case 'U': baseIfParentAGCUGap[3] = nodeBase;
-                break;
-            case '.': baseIfParentAGCUGap[4] = nodeBase;
+    public void addSankoffScore(int index, String base, int score){
+        try {
+            sankoffScores.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            int[] temp = new int[] {1,1,1,1,1};
+            sankoffScores.add(index, temp);
         }
-    }
-
-    public String getBaseIfParentACGUGap(String parentBase){
-        switch(parentBase.charAt(0)){
-            case 'A': return baseIfParentAGCUGap[0];
-            case 'C': return baseIfParentAGCUGap[1];
-            case 'G': return baseIfParentAGCUGap[2];
-            case 'U': return baseIfParentAGCUGap[3];
-            case '.': return baseIfParentAGCUGap[4];
-        }
-        return "NOTABASE";
-    }
-
-    public void setScoreForSinglesACGT(String base, int score){
+        int[] temp;
         switch(base.charAt(0)){
-            case 'A': scoreForSinglesACGUGap[0] = score;
+            case 'A' :
+                temp = sankoffScores.get(index);
+                temp[0] = score;
+                sankoffScores.set(index, temp);
                 break;
-            case 'C': scoreForSinglesACGUGap[1] = score;
+            case 'C' :
+                temp = sankoffScores.get(index);
+                temp[1] = score;
+                sankoffScores.set(index, temp);
                 break;
-            case 'G': scoreForSinglesACGUGap[2] = score;
+            case 'G' :
+                temp = sankoffScores.get(index);
+                temp[2] = score;
+                sankoffScores.set(index, temp);
                 break;
-            case 'U': scoreForSinglesACGUGap[3] = score;
+            case 'U' :
+                temp = sankoffScores.get(index);
+                temp[3] = score;
+                sankoffScores.set(index, temp);
                 break;
-            case '.': scoreForSinglesACGUGap[4] = score;
+            case '.' :
+                temp = sankoffScores.get(index);
+                temp[4] = score;
+                sankoffScores.set(index, temp);
+                break;
+
         }
     }
 
-    public int getScoreForSinglesACGT(String base){
+    public int getSankoffScore(int index, String base){
+        int [] temp = sankoffScores.get(index);
         switch(base.charAt(0)){
-            case 'A': return scoreForSinglesACGUGap[0];
-            case 'C': return scoreForSinglesACGUGap[1];
-            case 'G': return scoreForSinglesACGUGap[2];
-            case 'U': return scoreForSinglesACGUGap[3];
-            case '.': return scoreForSinglesACGUGap[4];
+            case 'A': return temp[0];
+            case 'C': return temp[1];
+            case 'G': return temp[2];
+            case 'U': return temp[3];
+            case '.': return temp[4];
         }
         return 1;
     }
-
 
     public void setBasePair(int i, int j){
         basePairs.set(i, j);
