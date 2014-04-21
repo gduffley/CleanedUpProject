@@ -113,20 +113,34 @@ public class SankoffwithStructure2 {
         //TODO: Go through and get sequences from ifBaseIsParent 2D array
         return parsimonyScore;
     }
+    //The sankoffPairs will conserve BP for a pair of bases only if both basepairing[i] = j && basepairing[j] = i
+    //Any other cases are essentially legacy cases of other basepairing below in the array
+    //Works this way because the
+    /*
+    SankoffScores works such that the score of sankoffScores[i] = sankoffScores[j] if i and j are a pair
+        This implies that if you call Sankoff pairs on them
 
-    //Case 1: Both of the parents have basepairing
-        //TODO: Make it so that the basepairing with more children under it is the one chosen
-        //Score is max
-    private int sankoffPairs(PhyloTreeNode node, String curBases, int i, int j, Collection<String> pairedBases) {
-        //Sample array {5,,-1,
+     */
+
+
+
+    /*Case 1: Both of the parents have the same basepairing
+        TODO: Make it so that the basepairing with more children under it is the one chosen
+        Score = max over all 36 combinations of bases {lChild.sankoffDoubleScores(bases, index)
+        + rChild.sankoffDoubleScores(bases, index) + the 4 transitions}.
+    Case 2: One of (left in this case) has same base pairing, other has none
+        Score = max over the 6 possible combinations of paired bases for the pairs and the 25 combinations for the
+        other, so 150 combinations {lChild.sankoffDoubleScores(bases, index) + rChild.sankoffSingles(base, index)
+        + sankoffSingle(base, second index) + 4 transitions}
+    Case 3: One of (left in this case) has the same base pairing and the other has
+    */
+    private int sankoffPairs(PhyloTreeNode node, String curBases, int index, Collection<String> pairedBases) {
         boolean LSinglei = false;
-        boolean LSinglej = false;
         boolean RSinglei = false;
-        boolean RSinglej = false;
         PhyloTreeNode childL = node.getChildren().get(0);
         PhyloTreeNode childR = node.getChildren().get(1);
-        if(childL.getBasePairs().get(i) == -1) LSinglei = true;
-        if(childR.getBasePairs().get(i) == -1) RSinglei = true;
+        if(childL.getBasePairs().get(index) == -1) LSinglei = true;
+        if(childR.getBasePairs().get(index) == -1) RSinglei = true;
         if(childL.getBasePairs().get(j) == -1) LSinglei = true;
         if(childR.getBasePairs().get(j) == -1) RSinglei = true;
         int scoreR;
@@ -212,7 +226,7 @@ public class SankoffwithStructure2 {
         return bestScore;
     }
 
-
+    //TODO: edit to make the folding of a node more accurately represent the general folding of the children
     private void getFolding(PhyloTree tree) throws IOException {
         PhyloTreeNode curNode = tree.getRoot();
         Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();

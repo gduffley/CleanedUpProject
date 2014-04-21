@@ -97,8 +97,10 @@
       <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="26" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.5828221" vertical-offset="1609" max-vertical-offset="5032">
-              <folding />
+            <state line="137" column="1" selection-start="6838" selection-end="7992" vertical-scroll-proportion="0.05214724" vertical-offset="2244" max-vertical-offset="5270">
+              <folding>
+                <element signature="e#10586#10601#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,10 +117,48 @@
       <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="29" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3315">
+            <state line="109" column="34" selection-start="3807" selection-end="3807" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="5270">
               <folding>
-                <element signature="e#818#828#0" expanded="true" />
+                <element signature="e#7465#7466#0" expanded="true" />
+                <element signature="e#7497#7498#0" expanded="true" />
+                <element signature="e#7535#7536#0" expanded="true" />
+                <element signature="e#7569#7570#0" expanded="true" />
+                <element signature="e#7623#7624#0" expanded="true" />
+                <element signature="e#7669#7670#0" expanded="true" />
+                <element signature="e#7707#7708#0" expanded="true" />
+                <element signature="e#7741#7742#0" expanded="true" />
+                <element signature="e#7779#7780#0" expanded="true" />
+                <element signature="e#7813#7814#0" expanded="true" />
+                <element signature="e#7851#7852#0" expanded="true" />
+                <element signature="e#7885#7886#0" expanded="true" />
+                <element signature="e#7925#7926#0" expanded="true" />
+                <element signature="e#7961#7962#0" expanded="true" />
+                <element signature="e#8015#8016#0" expanded="true" />
+                <element signature="e#8061#8062#0" expanded="true" />
+                <element signature="e#8115#8116#0" expanded="true" />
+                <element signature="e#8161#8162#0" expanded="true" />
+                <element signature="e#8215#8216#0" expanded="true" />
+                <element signature="e#8261#8262#0" expanded="true" />
+                <element signature="e#8319#8320#0" expanded="true" />
+                <element signature="e#8369#8370#0" expanded="true" />
+                <element signature="e#8560#8561#0" expanded="true" />
+                <element signature="e#8592#8593#0" expanded="true" />
+                <element signature="e#8642#8643#0" expanded="true" />
+                <element signature="e#8678#8679#0" expanded="true" />
+                <element signature="e#8913#8914#0" expanded="true" />
+                <element signature="e#8953#8954#0" expanded="true" />
+                <element signature="e#8983#8984#0" expanded="true" />
+                <element signature="e#9015#9016#0" expanded="true" />
+                <element signature="e#9049#9050#0" expanded="true" />
+                <element signature="e#9085#9086#0" expanded="true" />
+                <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
                 <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+                <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -470,7 +510,11 @@
       <created>1397875299263</created>
       <updated>1397875299263</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="No testing, but SankoffSingle is correctly implemented, set up so that recovering the sequences after the fact won't be difficult at all. All that left to do is Implement SankoffPairs and finish SankoffWithStructure so that we recover sequences. And test it...&#10;">
+      <created>1397889631060</created>
+      <updated>1397889631060</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -542,8 +586,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="0" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="1938">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -587,8 +669,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="0" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1921">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -644,8 +764,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="0" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1921">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -692,17 +850,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="697">
-          <folding />
-        </state>
+        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="697" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1309">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -744,8 +938,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1309">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -816,9 +1048,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeepStructure2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.5736196" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
+        <state line="23" column="79" selection-start="811" selection-end="811" vertical-scroll-proportion="0.5736196" vertical-offset="0" max-vertical-offset="680" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0/src.zip!/java/util/ArrayList.java">
@@ -870,9 +1100,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/temp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="16" selection-start="238" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="9" column="16" selection-start="238" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sankoff.java">
@@ -884,18 +1112,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="29" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3315">
+        <state line="109" column="34" selection-start="3807" selection-end="3807" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="5270">
           <folding>
-            <element signature="e#818#828#0" expanded="true" />
+            <element signature="e#7465#7466#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7535#7536#0" expanded="true" />
+            <element signature="e#7569#7570#0" expanded="true" />
+            <element signature="e#7623#7624#0" expanded="true" />
+            <element signature="e#7669#7670#0" expanded="true" />
+            <element signature="e#7707#7708#0" expanded="true" />
+            <element signature="e#7741#7742#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#7813#7814#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#7885#7886#0" expanded="true" />
+            <element signature="e#7925#7926#0" expanded="true" />
+            <element signature="e#7961#7962#0" expanded="true" />
+            <element signature="e#8015#8016#0" expanded="true" />
+            <element signature="e#8061#8062#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8161#8162#0" expanded="true" />
+            <element signature="e#8215#8216#0" expanded="true" />
+            <element signature="e#8261#8262#0" expanded="true" />
+            <element signature="e#8319#8320#0" expanded="true" />
+            <element signature="e#8369#8370#0" expanded="true" />
+            <element signature="e#8560#8561#0" expanded="true" />
+            <element signature="e#8592#8593#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8678#8679#0" expanded="true" />
+            <element signature="e#8913#8914#0" expanded="true" />
+            <element signature="e#8953#8954#0" expanded="true" />
+            <element signature="e#8983#8984#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9049#9050#0" expanded="true" />
+            <element signature="e#9085#9086#0" expanded="true" />
+            <element signature="method#getParent#0;class#PhyloTreeNode#0" expanded="true" />
             <element signature="method#getChildren#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getFolding#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getEnergy#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#setDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
+            <element signature="method#getDistanceFromConsensus#0;class#PhyloTreeNode#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="26" selection-start="5835" selection-end="5835" vertical-scroll-proportion="0.5828221" vertical-offset="1609" max-vertical-offset="5032">
-          <folding />
+        <state line="137" column="1" selection-start="6838" selection-end="7992" vertical-scroll-proportion="0.05214724" vertical-offset="2244" max-vertical-offset="5270">
+          <folding>
+            <element signature="e#10586#10601#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
