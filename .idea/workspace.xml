@@ -492,7 +492,11 @@
       <created>1398128903099</created>
       <updated>1398128903099</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="3 cases down, same pairing, single, and both different pairing. Left is single and pairing. Then we have to worry about what to call with the &quot;fake&quot; pairs from the array of the root. Also not sure that different pairing will actually work&#10;">
+      <created>1398128979848</created>
+      <updated>1398128979848</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -553,7 +557,8 @@
     <MESSAGE value="Added sankoffPairs data structure with getter/setter" />
     <MESSAGE value="The case of both children having the same pairing and the case where one of the children has the same pairing and the other child has no pairing is taken care of" />
     <MESSAGE value="3 cases down, same pairing, single, and both different pairing. Left is single and pairing. Then we have to worry about what to call with the &quot;fake&quot; pairs from the array of the root. Also not sure that different pairing will actually work" />
-    <option name="LAST_COMMIT_MESSAGE" value="3 cases down, same pairing, single, and both different pairing. Left is single and pairing. Then we have to worry about what to call with the &quot;fake&quot; pairs from the array of the root. Also not sure that different pairing will actually work" />
+    <MESSAGE value="3 cases down, same pairing, single, and both different pairing. Left is single and pairing. Then we have to worry about what to call with the &quot;fake&quot; pairs from the array of the root. Also not sure that different pairing will actually work&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 cases down, same pairing, single, and both different pairing. Left is single and pairing. Then we have to worry about what to call with the &quot;fake&quot; pairs from the array of the root. Also not sure that different pairing will actually work&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
