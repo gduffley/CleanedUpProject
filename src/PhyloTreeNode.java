@@ -25,7 +25,7 @@ public class PhyloTreeNode {
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
 
     public void setNoBP(int i){
-        basePairs.set(i, -1);
+        basePairs.add(i, -1);
     }
 
     //index1 corresponds with the first base in bases
