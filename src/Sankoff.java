@@ -16,7 +16,7 @@ Steps:
     This calls sankoffRecursion() which goes through and tests each base
 
  */
-public class Sankoff {
+public class Sankoff {/*
     public static int sankoff(PhyloTree tree){
         int min = -MainMethodClass.INF;
         int cur = 0;
@@ -227,5 +227,5 @@ public class Sankoff {
     }
     //if we aren't at a leaf, for our pretend base
     //the score for our base is dependent on 2 criteria
-
+*/
 }

@@ -2,6 +2,7 @@
  * Created by Gordon on 2/11/14.
  */
 import com.sun.java.swing.plaf.motif.resources.motif_zh_TW;
+import com.sun.swing.internal.plaf.basic.resources.basic_es;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,11 +15,6 @@ public class PhyloTreeNode {
     private String folding;
     private double energy;
     private int distanceFromConsensus;
-    private String ifParentisA = "";
-    private String ifParentisC = "";
-    private String ifParentisG = "";
-    private String ifParentisU = "";
-    private String ifParentisGap = "";
     private ArrayList<Integer> basePairs = new ArrayList<Integer>();
     private ArrayList<int[]> sankoffSingleScores = new ArrayList<int[]>();
     private ArrayList<int[]> sankoffPairsScores = new ArrayList<int[]>();
@@ -118,26 +114,31 @@ public class PhyloTreeNode {
             baseIfParent.add(temp);
         }
         String[] temp;
-        switch(base.charAt(0)){
+        switch(parent.charAt(0)){
             case 'A':
                 temp = baseIfParent.get(index);
                 temp[0] = base;
+                baseIfParent.set(index, temp);
                 break;
             case 'C':
                 temp = baseIfParent.get(index);
                 temp[1] = base;
+                baseIfParent.set(index, temp);
                 break;
             case 'G':
                 temp = baseIfParent.get(index);
                 temp[2] = base;
+                baseIfParent.set(index, temp);
                 break;
             case 'U':
                 temp = baseIfParent.get(index);
                 temp[3] = base;
+                baseIfParent.set(index, temp);
                 break;
             case '.':
                 temp = baseIfParent.get(index);
                 temp[4] = base;
+                baseIfParent.set(index, temp);
                 break;
         }
     }
@@ -200,7 +201,7 @@ public class PhyloTreeNode {
             case 'C': if (temp[1] == 1) throw new IndexOutOfBoundsException();
                 else return temp[1];
             case 'G': if (temp[2] == 1) throw new IndexOutOfBoundsException();
-                else return temp[3];
+                else return temp[2];
             case 'U': if (temp[3] == 1) throw new IndexOutOfBoundsException();
                 else return temp[3];
             case '.': if (temp[4] == 1) throw  new IndexOutOfBoundsException();
@@ -209,53 +210,21 @@ public class PhyloTreeNode {
         return MainMethodClass.INF;
     }
 
-    public void setBasePair(int i, int j){
-        basePairs.set(i, j);
-        basePairs.set(j, i);
+    public void setBasePair(Integer i, Integer j){
+        try{
+            basePairs.set(i,j);
+        }catch(IndexOutOfBoundsException e){
+            basePairs.add(i, j);
+        }
+        try{
+            basePairs.set(j,i);
+        }catch(IndexOutOfBoundsException e){
+            basePairs.add(j, i);
+        }
     }
 
     public ArrayList<Integer> getBasePairs(){
         return basePairs;
-    }
-
-    public String getIfParentisU() {
-        return ifParentisU;
-    }
-
-    public void setIfParentisU(String ifParentisU) {
-        this.ifParentisU = ifParentisU;
-    }
-
-    public String getIfParentisA() {
-        return ifParentisA;
-    }
-
-    public String getIfParentisC() {
-        return ifParentisC;
-    }
-
-    public String getIfParentisG() {
-        return ifParentisG;
-    }
-
-    public String getIfParentisGap() {
-        return ifParentisGap;
-    }
-
-    public void setIfParentisA(String ifParentisA) {
-        this.ifParentisA = ifParentisA;
-    }
-
-    public void setIfParentisC(String ifParentisC) {
-        this.ifParentisC = ifParentisC;
-    }
-
-    public void setIfParentisG(String ifParentisG) {
-        this.ifParentisG = ifParentisG;
-    }
-
-    public void setIfParentisGap(String ifParentisGap) {
-        this.ifParentisGap = ifParentisGap;
     }
 
     public PhyloTreeNode(String name, String sequence){

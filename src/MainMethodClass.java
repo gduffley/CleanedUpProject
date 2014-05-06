@@ -106,12 +106,6 @@ public class MainMethodClass {
             cost[3][2] = -2;
             int j = 0;
             SankoffwithStructure2.sankoffWithStructure(tree);
-            ViennaCalls.rnaFold(tree);
-            System.out.println("consensus:" + tree.getConsensusSequence());
-            printTree(tree);
-            Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
-            PhyloTreeNode curNode = tree.getRoot();
-            q.add(curNode);
             printTree(tree);
 
 

@@ -208,7 +208,7 @@ public class MakeTree {
     public static PhyloTree makeTree(String args0, String args1) throws IOException {
         stockholmParse(args0);
         phyloTreeCreator(args1);
-        sequenceMod();
+        //sequenceMod();
         return tree;
     }
 }

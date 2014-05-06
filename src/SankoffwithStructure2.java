@@ -11,6 +11,64 @@ import java.util.*;
  */
 public class SankoffwithStructure2 {
 
+
+    //Public method to be called
+    public static int sankoff(PhyloTree tree) throws IOException{
+        Collection<String> singleBases = new ArrayList<String>();
+        singleBases.add("A");
+        singleBases.add("C");
+        singleBases.add("G");
+        singleBases.add("U");
+        singleBases.add(".");
+        String newSequence = "";
+        int parsimonyScore = 0;
+        String curBase;
+        String bestBase = "";
+        int curScore;
+        int bestScore;
+        PhyloTreeNode root = tree.getRoot();
+        PhyloTreeNode curNode = root;
+        while(curNode.getChildren().size() > 0) curNode = curNode.getChildren().get(0);
+        String sequence = curNode.getSequence();
+        for(int i = 0; i < sequence.length(); i++){
+            bestScore = -MainMethodClass.INF;
+            Iterator<String> it = singleBases.iterator();
+            while(it.hasNext()){
+                curBase = it.next();
+                curScore = sankoffSingle(root, curBase, i, singleBases);
+                if(curScore > bestScore){
+                    bestBase = curBase;
+                    bestScore = curScore;
+                }
+            }
+            newSequence = newSequence.concat(bestBase);
+            root.setSequence(newSequence);
+            curNode = tree.getRoot();
+            Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+            q.add(curNode);
+            while(!q.isEmpty()){
+                curNode = q.poll();
+                for(int j = 0; j < curNode.getChildren().size(); j++){
+                    if(curNode.getChildren().size() > 0 && curNode.getChildren().get(j).getChildren().size() > 0){
+                        PhyloTreeNode curChild = curNode.getChildren().get(j);
+                        curBase = curNode.getSequence().substring(i,i+1);
+                        q.add(curChild);
+                        if(i == 0) {
+                            curChild.setSequence(curChild.getBaseIfParent(i,curBase));
+                        }
+                        else{
+                            String curSequence = curChild.getSequence();
+                            curSequence = curSequence.concat(curChild.getBaseIfParent(i, curBase));
+                            curChild.setSequence(curSequence);
+                        }
+                    }
+                }
+            }
+            parsimonyScore += parsimonyScore;
+        }
+        root.setSequence(newSequence);
+        return parsimonyScore;
+    }
     public static int sankoffWithStructure(PhyloTree tree) throws IOException {
         /**TODO: Update the data structure of the nodes to be a 2D array to store best values
          *just like what we have now, except make it 2D for every spot in the sequence
@@ -32,7 +90,9 @@ public class SankoffwithStructure2 {
         ArrayList<String> newSequence = new ArrayList<String>();
         int parsimonyScore = 0;
         PhyloTreeNode root = tree.getRoot();
-        for(int i = 0; i < root.getSequence().length(); i++){
+        String sequence = root.getSequence();
+        sequence = sequence.replace(",","");
+        for(int i = 0; i < sequence.length(); i++){
             int j = root.getBasePairs().get(i);
             if(root.getBasePairs().get(i) == -1){
                 Iterator<String> it = singleBases.iterator();
@@ -71,11 +131,13 @@ public class SankoffwithStructure2 {
                 parsimonyScore += bestScore;
             }
 
+
         }
         //TODO: Go through and get sequences from ifBaseIsParent 2D array
         return parsimonyScore;
     }
 
+   //Method to get called on all pairs of basepairs
     private static int sankoffPairs(PhyloTreeNode node, String bases, int index1, Collection<String> pairedBases,
                              Collection<String> singleBases) {
         int index2 = node.getBasePairs().get(index1);
@@ -379,7 +441,7 @@ public class SankoffwithStructure2 {
     }
 
 
-
+    //method called on all of the single bases
     private static int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {
         int scoreL;
         int scoreR;
@@ -394,16 +456,17 @@ public class SankoffwithStructure2 {
         PhyloTreeNode childL;
         PhyloTreeNode childR;
         if(node.getChildren().size() < 2){
-            if((node.getSequence().substring(index, index+1)).equals(curBase)) return 0;
+            String curBaseFromSequence = node.getSequence().substring(index, index+1);
+            if(curBaseFromSequence.equals(curBase)) return 0;
             else return -MainMethodClass.INF;
         }
         else{
             childL = node.getChildren().get(0);
             childR = node.getChildren().get(1);
             Iterator<String> itL = singleBases.iterator();
-            Iterator<String> itR = singleBases.iterator();
             while(itL.hasNext()){
                 curBaseL = itL.next();
+                Iterator<String> itR = singleBases.iterator();
                 while(itR.hasNext()){
                     curBaseR = itR.next();
                     try{
@@ -450,15 +513,13 @@ public class SankoffwithStructure2 {
                 foldingFromVienna(curNode);
                 String sequence = curNode.getSequence();
                 String folding = curNode.getFolding();
-                String cleanSeq = curNode.getSequence();
-                cleanSeq = cleanSeq.replace(",", "");
-                for(int i = 0; i < cleanSeq.length(); i++){
-                    if(folding.charAt(i) == '<'){
+                for(int i = 0; i < sequence.length(); i++){
+                    if(folding.charAt(i) == '('){
                         int brackets = 1;
                         int j;
                         for(j = i; j < folding.length(); j++){
-                            if(folding.charAt(j) == '<') brackets++;
-                            if(folding.charAt(j) == '>') brackets--;
+                            if(folding.charAt(j) == '(') brackets++;
+                            if(folding.charAt(j) == ')') brackets--;
                             if(brackets == 0) break;
                         }
                         curNode.setBasePair(i,j);
