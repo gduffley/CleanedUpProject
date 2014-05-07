@@ -20,8 +20,21 @@ public class PhyloTreeNode {
     private ArrayList<int[]> sankoffPairsScores = new ArrayList<int[]>();
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
 
+    //Method works because using add doesn't override values already there
     public void setNoBP(int i){
-        basePairs.add(i, -1);
+        try{
+            basePairs.set(i,-1);
+        }catch(IndexOutOfBoundsException e){
+            for(int j = basePairs.size(); j <= i; j++) basePairs.add(-1);
+        }
+    }
+
+    public int getBasePair(int i) throws IndexOutOfBoundsException{
+        try{
+            return basePairs.get(i);
+        }catch(IndexOutOfBoundsException e){
+            throw e;
+        }
     }
 
     //index1 corresponds with the first base in bases
@@ -212,19 +225,12 @@ public class PhyloTreeNode {
 
     public void setBasePair(Integer i, Integer j){
         try{
-            basePairs.set(i,j);
-        }catch(IndexOutOfBoundsException e){
-            basePairs.add(i, j);
-        }
-        try{
             basePairs.set(j,i);
         }catch(IndexOutOfBoundsException e){
-            basePairs.add(j, i);
+            for(int k = basePairs.size(); k <= j; k++) basePairs.add(-1);
+            basePairs.set(j, i);
         }
-    }
-
-    public ArrayList<Integer> getBasePairs(){
-        return basePairs;
+        basePairs.set(i,j);
     }
 
     public PhyloTreeNode(String name, String sequence){
