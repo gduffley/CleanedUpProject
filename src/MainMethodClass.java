@@ -105,6 +105,7 @@ public class MainMethodClass {
             cost[3][1] = -1;
             cost[3][2] = -2;
             int j = 0;
+            printTree(tree);
             SankoffwithStructure2.sankoffWithStructure(tree);
             printTree(tree);
 

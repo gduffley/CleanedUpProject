@@ -41,18 +41,11 @@ public class PhyloTreeNode {
     //AU,UA,CG,GC,GU,UG
     public void setSankoffPairsScores(int index1, int index2, String bases, int score){
         try{
-            int[] temp = sankoffPairsScores.get(index1);
-        }
-        catch(ArrayIndexOutOfBoundsException e){
-            int[] temp = new int[] {1,1,1,1,1,1};
-            sankoffPairsScores.set(index1, temp);
-        }
-        try{
-            int[] temp = sankoffPairsScores.get(index2);
-        }
-        catch(ArrayIndexOutOfBoundsException e){
-            int[] temp = new int[] {1,1,1,1,1};
-            sankoffPairsScores.set(index2, temp);
+            int[] temp = sankoffPairsScores.get(Math.max(index1, index2));
+        }catch(IndexOutOfBoundsException e){
+            for(int i = sankoffPairsScores.size(); i <= Math.max(index1, index2); i++){
+                sankoffPairsScores.add(new int[] {1,1,1,1,1,1});
+            }
         }
         int[] temp1 = sankoffPairsScores.get(index1);
         int[] temp2 = sankoffPairsScores.get(index2);
@@ -86,6 +79,8 @@ public class PhyloTreeNode {
                 }
                 break;
         }
+        sankoffPairsScores.set(index1, temp1);
+        sankoffPairsScores.set(index2, temp2);
     }
 
     //AU,UA,CG,GC,GU,UG
@@ -99,20 +94,20 @@ public class PhyloTreeNode {
                 return temp[2];
             case 'G':
                 if(bases.charAt(1) == 'C'){
-                    if(temp[3] == 1) throw new ArrayIndexOutOfBoundsException();
+                    if(temp[3] == 1) throw new IndexOutOfBoundsException();
                     return temp[3];
                 }
                 else{
-                    if(temp[4] == 1) throw new ArrayIndexOutOfBoundsException();
+                    if(temp[4] == 1) throw new IndexOutOfBoundsException();
                     return temp[4];
                 }
             case 'U':
                 if(bases.charAt(1) == 'G'){
-                    if(temp[5] == 1) throw new ArrayIndexOutOfBoundsException();
+                    if(temp[5] == 1) throw new IndexOutOfBoundsException();
                     return temp[5];
                 }
                 else{
-                    if(temp[1] == 1) throw new ArrayIndexOutOfBoundsException();
+                    if(temp[1] == 1) throw new IndexOutOfBoundsException();
                     return temp[1];
                 }
         }
@@ -125,6 +120,7 @@ public class PhyloTreeNode {
         }catch(IndexOutOfBoundsException e){
             String[] temp = new String[5];
             baseIfParent.add(temp);
+            for(int i = baseIfParent.size(); i <= index; i++) baseIfParent.add(i, new String[5]);
         }
         String[] temp;
         switch(parent.charAt(0)){
@@ -172,8 +168,9 @@ public class PhyloTreeNode {
         try {
             sankoffSingleScores.get(index);
         } catch (IndexOutOfBoundsException e) {
-            int[] temp = new int[] {1,1,1,1,1};
-            sankoffSingleScores.add(index, temp);
+            for(int i = sankoffSingleScores.size(); i <= index; i++){
+                sankoffSingleScores.add(i, new int [] {1,1,1,1,1});
+            }
         }
         int[] temp;
         switch(base.charAt(0)){
@@ -231,6 +228,10 @@ public class PhyloTreeNode {
             basePairs.set(j, i);
         }
         basePairs.set(i,j);
+    }
+
+    public ArrayList<Integer> getBasePairs() {
+        return basePairs;
     }
 
     public PhyloTreeNode(String name, String sequence){

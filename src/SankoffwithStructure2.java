@@ -1,6 +1,7 @@
 import com.sun.javaws.Main;
 import org.omg.CosNaming._BindingIteratorImplBase;
 
+import java.beans.IndexedPropertyDescriptor;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -87,16 +88,30 @@ public class SankoffwithStructure2 {
         pairedBases.add("UG");
         pairedBases.add("AU");
         pairedBases.add("UA");
-        ArrayList<String> newSequence = new ArrayList<String>();
         int parsimonyScore = 0;
+        getFolding(tree);
+        String sequence = "";
+        Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+        PhyloTreeNode printNode = tree.getRoot();
+        q.add(printNode);
+        while(!q.isEmpty()){
+            printNode = q.poll();
+            if(printNode.getChildren().size() > 0){
+                for(int i = 0; i < printNode.getChildren().size(); i++){
+                    q.add(printNode.getChildren().get(i));
+                }
+            }
+            else{
+                sequence = printNode.getSequence();
+            }
+        }
         PhyloTreeNode root = tree.getRoot();
-        String sequence = root.getSequence();
-        sequence = sequence.replace(",","");
-        for(int i = 0; i < sequence.length(); i++){
+        ArrayList<String> newSequence = new ArrayList<String>(sequence.length());
+        for(int i = 0; i < sequence.length(); i++){ //This is the line to change to change what index
             int j = root.getBasePair(i);
             if(root.getBasePair(i) == -1){
                 Iterator<String> it = singleBases.iterator();
-                int curScore = -MainMethodClass.INF;
+                int curScore;
                 int bestScore = -MainMethodClass.INF;
                 String curBase = "";
                 String bestBase = "";
@@ -108,11 +123,16 @@ public class SankoffwithStructure2 {
                         bestScore = curScore;
                     }
                 }
-                newSequence.add(i, bestBase);
+                try{
+                    newSequence.set(i, bestBase);
+                }catch(IndexOutOfBoundsException e){
+                    for(int k = newSequence.size(); k <= i; k++) newSequence.add(k, "");
+                    newSequence.set(i, bestBase);
+                }
                 parsimonyScore += bestScore;
             }
             else if(root.getBasePair(i) > i && root.getBasePair(i) == j
-                    && root.getBasePair(i) == i ){
+                    && root.getBasePair(j) == i ){
                 Iterator<String> it = pairedBases.iterator();
                 String curBases = "";
                 String bestBases = "";
@@ -126,14 +146,18 @@ public class SankoffwithStructure2 {
                         bestBases = curBases;
                     }
                 }
-                newSequence.add(i, bestBases.substring(0,1));
-                newSequence.add(j, bestBases.substring(1));
+                try{
+                    newSequence.set(j, bestBases.substring(1));
+                    newSequence.set(i,bestBases.substring(0,1));
+                }catch(IndexOutOfBoundsException e){
+                    for(int k = newSequence.size(); k <= Math.max(i,j); k++) newSequence.add(k, "");
+                    newSequence.set(i, bestBases.substring(1));
+                    newSequence.set(j, bestBases.substring(0,1));
+                }
                 parsimonyScore += bestScore;
             }
-
-
         }
-        //TODO: Go through and get sequences from ifBaseIsParent 2D array
+        //TODO: Go through and get sequences from ifBaseIsParent 2D array. Do at the the very end
         return parsimonyScore;
     }
 
@@ -156,8 +180,8 @@ public class SankoffwithStructure2 {
         boolean Lindex2pairing = false;
 
 
-        if(LChild.getBasePair(index1) == index2) LChildSame = true;
-        if(RChild.getBasePair(index1) == index2) RChildSame = true;
+        if(LChild.getBasePair(index1) == index2 && LChild.getBasePair(index2) == index1) LChildSame = true;
+        if(RChild.getBasePair(index1) == index2 && RChild.getBasePair(index2) == index1) RChildSame = true;
         if(LChild.getBasePair(index1) > -1) Lindex1pairing = true;
         if(LChild.getBasePair(index2) > -1) Lindex2pairing = true;
         if(RChild.getBasePair(index1) > -1) Rindex1pairing = true;
@@ -432,7 +456,7 @@ public class SankoffwithStructure2 {
         try{
             score = child.getSankoffScore(index, curBase);
         }
-        catch(ArrayIndexOutOfBoundsException e){
+        catch(IndexOutOfBoundsException e){
             score = sankoffSingle(child, curBase, index,singleBases);
             child.addSankoffScore(index, curBase, score);
         }
@@ -529,28 +553,28 @@ public class SankoffwithStructure2 {
                     else if(folding.charAt(i) == ')');
                     else curNode.setNoBP(i);
                 }
+                    //copy basepairing up, override and pass up all pairs, don't pass up no pairing to spots that already have
+                    //pairing, which they received from the other child.
+                    PhyloTreeNode curNodeUp = curNode;
+                    while(curNodeUp.getParent() != null){
+                        curNodeUp = curNodeUp.getParent();
+                        for(int i = 0; i < sequence.length(); i++){
+                            boolean paired = false;
+                            try{
+                                if(curNodeUp.getBasePair(i) == -1){
+                                    if(curNode.getBasePair(i) != -1) curNodeUp.setBasePair(i, curNode.getBasePair(i));
+                                }
+                            }catch(IndexOutOfBoundsException e){
+                                if(curNode.getBasePair(i) == -1) curNodeUp.setNoBP(i);
+                                else curNodeUp.setBasePair(i,curNode.getBasePair(i));
+                            }
+                        }
+                    }
+                }
 
             }
         }
-        //copy basepairing up, override and pass up all pairs, don't pass up no pairing to spots that already have
-        //pairing, which they received from the other child.
-        PhyloTreeNode curNodeUp = curNode;
-        while(curNodeUp.getParent() != null){
-            curNodeUp = curNodeUp.getParent();
-            for(int i = 0; i < sequence.length(); i++){
-                boolean paired = false;
-                try{
-                    if(curNodeUp.getBasePair(i) != -1){
-                        if(curNode.getBasePair(i) == -1) curNodeUp.setNoBP(i);
-                        else curNodeUp.setBasePair(i,curNode.getBasePair(i));
-                    }
-                }catch(IndexOutOfBoundsException e){
-                    if(curNode.getBasePair(i) == -1) curNodeUp.setNoBP(i);
-                    else curNodeUp.setBasePair(i,curNode.getBasePair(i));
-                }
-            }
-        }
-    }
+
 
     private static void foldingFromVienna(PhyloTreeNode curNode) throws IOException {
         String command = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\ViennaRNAPackage\\rnaFold.exe";
