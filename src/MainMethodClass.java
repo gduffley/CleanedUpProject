@@ -65,7 +65,8 @@ public class MainMethodClass {
             System.out.print(current.getName());
             if(current.getParent() != null) System.out.print("     " + current.getParent().getName());
             else System.out.print("       no parent");
-            System.out.println("     " + current.getSequence());
+            System.out.print("     " + current.getSequence());
+            System.out.println("     " + current.getFolding());
             if(current.getChildren() != null){
                 for(int i = 0; i < current.getChildren().size(); i++){
                     s.add(current.getChildren().get(i));
@@ -105,8 +106,11 @@ public class MainMethodClass {
             cost[3][1] = -1;
             cost[3][2] = -2;
             int j = 0;
-            printTree(tree);
             SankoffwithStructure2.sankoffWithStructure(tree);
+            ViennaCalls.rnaFold(tree);
+            printTree(tree);
+            SankoffwithStructure2.sankoff(tree);
+            ViennaCalls.rnaFold(tree);
             printTree(tree);
 
 

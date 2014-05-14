@@ -156,12 +156,71 @@ public class SankoffwithStructure2 {
                 }
                 parsimonyScore += bestScore;
             }
+            else{
+                Iterator<String> it = singleBases.iterator();
+                int curScore;
+                int bestScore = -MainMethodClass.INF;
+                String curBase = "";
+                String bestBase = "";
+                while(it.hasNext()){
+                    curBase = it.next();
+                    curScore = sankoffPseudoPair(tree.getRoot(), curBase, i, singleBases, pairedBases);
+                    if(curScore > bestScore){
+                        bestBase = curBase;
+                        bestScore = curScore;
+                    }
+                }
+                try{
+                    newSequence.set(i, bestBase);
+                }catch(IndexOutOfBoundsException e){
+                    for(int k = newSequence.size(); k <= i; k++) newSequence.add(k, "");
+                    newSequence.set(i, bestBase);
+                }
+                parsimonyScore += bestScore;
+            }
         }
-        //TODO: Go through and get sequences from ifBaseIsParent 2D array. Do at the the very end
+        String newSequenceString = "";
+        for(int i = 0; i < sequence.length(); i++){
+            newSequenceString = newSequenceString.concat(newSequence.get(i));
+        }
+        tree.getRoot().setSequence(newSequenceString);
+        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
+        for(int i = 0; i < tree.getRoot().getChildren().size(); i++){
+            s.add(tree.getRoot().getChildren().get(i));
+        }
+        PhyloTreeNode curNode;
+        while(!s.empty()){
+            curNode = s.pop();
+            for(int i = 0; i < curNode.getChildren().size(); i++){
+                s.add(curNode.getChildren().get(i));
+            }
+            if(curNode.getChildren().size() > 0){
+                newSequenceString = "";
+                String parentSequence = curNode.getParent().getSequence();
+                for(int i = 0; i < sequence.length(); i++){
+                    newSequenceString = newSequenceString.concat(curNode.getBaseIfParent(i, parentSequence.substring(i,i+1)));
+                }
+            }
+            curNode.setSequence(newSequenceString);
+        }
         return parsimonyScore;
     }
 
-   //Method to get called on all pairs of basepairs
+
+   // Going to call Sankoffpairs to simplify the recursive calls
+   // Cases:
+   /*
+        1) Both the children have pseudoPairing --> score if pseudopairing called on both nodes
+        2) One child with pseudoPairing and the other child with no pairing
+        3) one child with pseudoPairing and the other with real pairing for that base
+        4) The children have different pairing
+
+        Base case of single, with scoring being different depending on the condition of the children
+
+    */
+
+
+    //Method to get called on all pairs of basepairs
     private static int sankoffPairs(PhyloTreeNode node, String bases, int index1, Collection<String> pairedBases,
                              Collection<String> singleBases) {
         int index2 = node.getBasePair(index1);
