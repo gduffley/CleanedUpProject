@@ -18,6 +18,7 @@ public class PhyloTreeNode {
     private ArrayList<Integer> basePairs = new ArrayList<Integer>();
     private ArrayList<int[]> sankoffSingleScores = new ArrayList<int[]>();
     private ArrayList<int[]> sankoffPairsScores = new ArrayList<int[]>();
+    private ArrayList<int[]> sankoffPseudoScores = new ArrayList<int[]>();
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
 
     //Method works because using add doesn't override values already there
@@ -162,6 +163,62 @@ public class PhyloTreeNode {
             case '.': return temp[4];
         }
         return "NO BASE. SOMETHING IS VERY WRONG";
+    }
+
+    public void addSankoffPseudoScore(int index, String base, int score){
+        try {
+            sankoffPseudoScores.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            for(int i = sankoffPseudoScores.size(); i <= index; i++){
+                sankoffPseudoScores.add(i, new int [] {1,1,1,1,1});
+            }
+        }
+        int[] temp;
+        switch(base.charAt(0)){
+            case 'A' :
+                temp = sankoffPseudoScores.get(index);
+                temp[0] = score;
+                sankoffPseudoScores.set(index, temp);
+                break;
+            case 'C' :
+                temp = sankoffPseudoScores.get(index);
+                temp[1] = score;
+                sankoffPseudoScores.set(index, temp);
+                break;
+            case 'G' :
+                temp = sankoffPseudoScores.get(index);
+                temp[2] = score;
+                sankoffPseudoScores.set(index, temp);
+                break;
+            case 'U' :
+                temp = sankoffPseudoScores.get(index);
+                temp[3] = score;
+                sankoffPseudoScores.set(index, temp);
+                break;
+            case '.' :
+                temp = sankoffPseudoScores.get(index);
+                temp[4] = score;
+                sankoffPseudoScores.set(index, temp);
+                break;
+
+        }
+    }
+
+    public int getSankoffPseudoScore(int index, String base) throws IndexOutOfBoundsException{
+        int [] temp = sankoffPseudoScores.get(index);
+        switch(base.charAt(0)){
+            case 'A': if (temp[0] == 1) throw new IndexOutOfBoundsException();
+            else return temp[0];
+            case 'C': if (temp[1] == 1) throw new IndexOutOfBoundsException();
+            else return temp[1];
+            case 'G': if (temp[2] == 1) throw new IndexOutOfBoundsException();
+            else return temp[2];
+            case 'U': if (temp[3] == 1) throw new IndexOutOfBoundsException();
+            else return temp[3];
+            case '.': if (temp[4] == 1) throw  new IndexOutOfBoundsException();
+            else return temp[4];
+        }
+        return MainMethodClass.INF;
     }
 
     public void addSankoffScore(int index, String base, int score){

@@ -156,7 +156,7 @@ public class SankoffwithStructure2 {
                 }
                 parsimonyScore += bestScore;
             }
-            else{
+            /*else{
                 Iterator<String> it = singleBases.iterator();
                 int curScore;
                 int bestScore = -MainMethodClass.INF;
@@ -177,7 +177,7 @@ public class SankoffwithStructure2 {
                     newSequence.set(i, bestBase);
                 }
                 parsimonyScore += bestScore;
-            }
+            }*/
         }
         String newSequenceString = "";
         for(int i = 0; i < sequence.length(); i++){
@@ -205,19 +205,157 @@ public class SankoffwithStructure2 {
         }
         return parsimonyScore;
     }
-
-
-   // Going to call Sankoffpairs to simplify the recursive calls
-   // Cases:
+    // Cases:
    /*
-        1) Both the children have pseudoPairing --> score if pseudopairing called on both nodes
-        2) One child with pseudoPairing and the other child with no pairing
-        3) one child with pseudoPairing and the other with real pairing for that base
+        1) Both the children have pseudoPairing --> score if pseudoP  airing called on both nodes
+        2) One child with pseudoPairing and the other child with no pairing --> pseudoPairing and single
+        3) one child with pseudoPairing and the other with real pairing for that base --> pseudoPairing and sankoffPair
         4) The children have different pairing
 
         Base case of single, with scoring being different depending on the condition of the children
+        Going to
 
     */
+    private static int sankoffPseudoPair(PhyloTreeNode node, String curBase, int index,
+                                         Collection<String> singleBases, Collection<String> pairedBases) {
+        PhyloTreeNode childL = node.getChildren().get(0);
+        PhyloTreeNode childR = node.getChildren().get(1);
+        ArrayList<Integer> basePairL = childL.getBasePairs();
+        ArrayList<Integer> basePairR = childR.getBasePairs();
+        int curScoreL;
+        int curScoreR;
+        int bestScoreL = -MainMethodClass.INF;
+        int bestScoreR = -MainMethodClass.INF;
+        int pairIndexL = basePairL.get(index);
+        int pairIndexR = basePairR.get(index);
+        String curBaseL;
+        String curBaseR;
+        String bestBaseL = "";
+        String bestBaseR = "";
+        if(pairIndexL > 0 && basePairL.get(pairIndexL) != index){
+           Iterator<String> itL = singleBases.iterator();
+           while(itL.hasNext()){
+               curBaseL = itL.next();
+               try{
+                   curScoreL = childL.getSankoffPseudoScore(index, curBaseL);
+               }catch(ArrayIndexOutOfBoundsException e){
+                   curScoreL = sankoffPseudoPair(childL, curBaseL, index, singleBases, pairedBases);
+                   childL.addSankoffPseudoScore(index, curBaseL, curScoreL);
+               }
+               curScoreL += MainMethodClass.cost(curBase, curBaseL);
+               if(curScoreL > bestScoreL){
+                   bestBaseL = curBaseL;
+                   bestScoreL = curScoreL;
+               }
+
+           }
+        }
+        else if(pairIndexL > 0 && basePairL.get(pairIndexL) == index){
+            Iterator<String> itL = pairedBases.iterator();
+            String curBasePairL;
+            while(itL.hasNext()){
+                curBaseL = itL.next();
+                curBasePairL = curBaseL.concat(node.getSequence().substring(pairIndexL, pairIndexL + 1));
+                try{
+                    curScoreL = childL.getSankoffPairsScore(index, curBaseL);
+                }catch(ArrayIndexOutOfBoundsException e){
+                    curScoreL = sankoffPairs(childL, curBasePairL, index, pairedBases, singleBases);
+                    childL.setSankoffPairsScores(index, pairIndexL, curBaseL, curScoreL);
+                }
+                curScoreL += MainMethodClass.cost(curBase, curBaseL.substring(0,1));
+                curScoreL += MainMethodClass.cost(curBasePairL.substring(1), curBaseL.substring(1));
+                if(curScoreL > bestScoreL){
+                    bestBaseL = curBaseL;
+                    bestScoreL = curScoreL;
+                }
+            }
+        }
+        else{
+            Iterator<String> itL = pairedBases.iterator();
+            while(itL.hasNext()){
+                curBaseL = itL.next();
+                try{
+                    curScoreL = childL.getSankoffScore(index, curBaseL);
+                }catch(ArrayIndexOutOfBoundsException e){
+                    curScoreL = sankoffSingle(childL, curBaseL, index, singleBases);
+                    childL.addSankoffPseudoScore(index, curBaseL, curScoreL);
+                }
+                curScoreL += MainMethodClass.cost(curBase, curBaseL);
+                if(curScoreL > bestScoreL){
+                    bestBaseL = curBaseL;
+                    bestScoreL = curScoreL;
+                }
+            }
+        }
+        if(pairIndexR > 0 && basePairR.get(pairIndexR) != index){
+            Iterator<String> itR = singleBases.iterator();
+            while(itR.hasNext()){
+                curBaseR = itR.next();
+                try{
+                    curScoreR = childR.getSankoffPseudoScore(index, curBaseR);
+                }catch(ArrayIndexOutOfBoundsException e){
+                    curScoreR = sankoffPseudoPair(childR, curBaseR, index, singleBases, pairedBases);
+                    childR.addSankoffPseudoScore(index, curBaseR, curScoreR);
+                }
+                curScoreR += MainMethodClass.cost(curBase, curBaseR);
+                if(curScoreR > bestScoreR){
+                    bestBaseR = curBaseR;
+                    bestScoreR = curScoreR;
+                }
+
+            }
+        }
+        else if(pairIndexR > 0 && basePairR.get(pairIndexR) == index){
+            Iterator<String> itR = pairedBases.iterator();
+            String curBasePairR;
+            while(itR.hasNext()){
+                curBaseR = itR.next();
+                curBasePairR = curBaseR.concat(node.getSequence().substring(pairIndexR, pairIndexR + 1));
+                try{
+                    curScoreR = childR.getSankoffPairsScore(index, curBaseR);
+                }catch(ArrayIndexOutOfBoundsException e){
+                    curScoreR = sankoffPairs(childR, curBasePairR, index, pairedBases, singleBases);
+                    childR.setSankoffPairsScores(index, pairIndexR, curBaseR, curScoreR);
+                }
+                curScoreR += MainMethodClass.cost(curBase, curBaseR.substring(0,1));
+                curScoreR += MainMethodClass.cost(curBasePairR.substring(1), curBaseR.substring(1));
+                if(curScoreR > bestScoreR){
+                    bestBaseR = curBaseR;
+                    bestScoreR = curScoreR;
+                }
+            }
+        }
+        else{
+            Iterator<String> itR = pairedBases.iterator();
+            while(itR.hasNext()){
+                curBaseR = itR.next();
+                try{
+                    curScoreR = childR.getSankoffScore(index, curBaseR);
+                }catch(ArrayIndexOutOfBoundsException e){
+                    curScoreR = sankoffSingle(childR, curBaseR, index, singleBases);
+                    childR.addSankoffPseudoScore(index, curBaseR, curScoreR);
+                }
+                curScoreR += MainMethodClass.cost(curBase, curBaseR);
+                if(curScoreR > bestScoreR){
+                    bestBaseR = curBaseR;
+                    bestScoreR = curScoreR;
+                }
+            }
+        }
+        if(bestBaseL.length() == 1) childL.setBaseIfParent(index, curBase, bestBaseL);
+        if(bestBaseR.length() == 1) childR.setBaseIfParent(index, curBase, bestBaseR);
+        if(bestBaseL.length() == 2){
+            childL.setBaseIfParent(index, curBase, bestBaseL.substring(0,1));
+            childL.setBaseIfParent(pairIndexL, node.getSequence().substring(pairIndexL, pairIndexL + 1), bestBaseL.substring(1));
+        }
+        if(bestBaseR.length() == 2){
+            childR.setBaseIfParent(index, curBase, bestBaseR.substring(0,1));
+            childR.setBaseIfParent(pairIndexR, node.getSequence().substring(pairIndexR, pairIndexR + 1), bestBaseR.substring(1));
+        }
+        return bestScoreR + bestScoreL;
+    }
+
+
 
 
     //Method to get called on all pairs of basepairs
