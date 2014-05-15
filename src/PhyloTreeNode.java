@@ -86,6 +86,11 @@ public class PhyloTreeNode {
 
     //AU,UA,CG,GC,GU,UG
     public int getSankoffPairsScore(int index1, String bases){
+        try{
+            int[] temp = sankoffPairsScores.get(index1);
+        }catch (IndexOutOfBoundsException e){
+            throw new IndexOutOfBoundsException();
+        }
         int[] temp = sankoffPairsScores.get(index1);
         switch(bases.charAt(0)){
             case 'A':

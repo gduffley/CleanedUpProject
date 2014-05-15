@@ -106,8 +106,9 @@ public class MainMethodClass {
             cost[3][1] = -1;
             cost[3][2] = -2;
             int j = 0;
+            SankoffwithStructure2.sankoff(tree);
+            printTree(tree);
             SankoffwithStructure2.sankoffWithStructure(tree);
-            ViennaCalls.rnaFold(tree);
             printTree(tree);
             SankoffwithStructure2.sankoff(tree);
             ViennaCalls.rnaFold(tree);

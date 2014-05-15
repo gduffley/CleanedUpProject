@@ -12,8 +12,8 @@ import java.util.Queue;
 //test
 public class MakeTree {
     private static ArrayList<PhyloTreeNode> sequenceVariations; //ArrayList PhyloTreeNodes that represent a gene variation in the family
-    private static String ss_Cons = null; //consensus secondary structure
-    private static String rf = null; //sequence alignment???
+    private static String ss_Cons = ""; //consensus secondary structure
+    private static String rf = ""; //sequence alignment???
     private static PhyloTree tree; //phylogenetic tree of the gene family
     private static String name; //name of the family we are working on
     private static String alphabet = "ABCDEFGHIJKLMNOPQRSTUV"; //alphabet so that each new node gets a 1 letter unique name
@@ -36,22 +36,24 @@ public class MakeTree {
                     }
                     name = name.substring(0, name.length() - 1);
                 }
-                if(line.contains("#=GC SS_cons")){
+                else if(line.contains("#=GC SS_cons")){
                     String[] parts = line.split("\\s{1,}");
-                    ss_Cons = parts[2];
+                    ss_Cons = ss_Cons.concat(parts[2]);
                 }
-                if(line.contains("#=GC RF")){
+                else if(line.contains("#=GC RF")){
                     String[] parts = line.split("\\s{1,}");
-                    rf = parts[2];
+                    rf = rf.concat(parts[2]);
                 }
-                if(line.contains("#=GS")){
+                else if(line.contains("#=GS")){
                     String[] parts = line.split("\\s{1,}");
-                    PhyloTreeNode current = new PhyloTreeNode(parts[3], null);
+                    PhyloTreeNode current = new PhyloTreeNode(parts[3], "");
                     sequenceVariations.add(current);
                 }
-                if(!line.startsWith("#") && !line.equals("") && sequenceCounter < sequenceVariations.size()){
+                else if(!line.startsWith("#") && !line.equals("//") && !line.equals("")){
                     String[] parts = line.split("\\s{1,}");
-                    sequenceVariations.get(sequenceCounter).setSequence(parts[1]);
+                    if(sequenceCounter == sequenceVariations.size()) sequenceCounter = 0;
+                    PhyloTreeNode curNode = sequenceVariations.get(sequenceCounter);
+                    curNode.setSequence(curNode.getSequence().concat(parts[1]));
                     sequenceCounter ++;
                 }
             }

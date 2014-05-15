@@ -156,7 +156,7 @@ public class SankoffwithStructure2 {
                 }
                 parsimonyScore += bestScore;
             }
-            /*else{
+            else if(newSequence.get(i) == null){
                 Iterator<String> it = singleBases.iterator();
                 int curScore;
                 int bestScore = -MainMethodClass.INF;
@@ -177,7 +177,7 @@ public class SankoffwithStructure2 {
                     newSequence.set(i, bestBase);
                 }
                 parsimonyScore += bestScore;
-            }*/
+            }
         }
         String newSequenceString = "";
         for(int i = 0; i < sequence.length(); i++){
@@ -636,7 +636,7 @@ public class SankoffwithStructure2 {
         try{
             scoreDif = different.getSankoffPairsScore(index, curBase);
         }
-        catch(ArrayIndexOutOfBoundsException e){
+        catch(IndexOutOfBoundsException e){
             scoreDif = sankoffPairs(different, parent, index, pairedBases, singleBases);
             different.setSankoffPairsScores(index, indexPair, curBase, scoreDif);
         }
@@ -786,6 +786,11 @@ public class SankoffwithStructure2 {
         out = new BufferedWriter(new OutputStreamWriter(ops));
         String seq = curNode.getSequence();
         seq = seq.replace(",", "");
+        ArrayList<Integer> gaps = new ArrayList<Integer>();
+        for(int i = 0; i < seq.length() - 1; i++){
+            if(seq.substring(i,i+1).equals(".")) gaps.add(i);
+        }
+        if(seq.substring(seq.length()-1) == ".") gaps.add(seq.length()-1);
         seq = seq.replace(".", "");
         seq = seq.concat("\n");
         out.write(seq);
@@ -798,6 +803,10 @@ public class SankoffwithStructure2 {
                 int lastOpen = MainMethodClass.findClosestOpen(lastClosed, line);
                 String energy = line.substring(lastOpen);
                 line = line.substring(0, lastOpen);
+                line = line.replace(" ", "");
+                for(i = 0; i < gaps.size(); i++){
+                    line = line.substring(0,gaps.get(i)).concat(".".concat(line.substring(gaps.get(i))));
+                }
                 curNode.setFolding(line);
                 energy = energy.replace("(", "");
                 energy = energy.replace(")", "");
