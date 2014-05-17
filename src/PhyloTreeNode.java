@@ -210,7 +210,12 @@ public class PhyloTreeNode {
     }
 
     public int getSankoffPseudoScore(int index, String base) throws IndexOutOfBoundsException{
-        int [] temp = sankoffPseudoScores.get(index);
+        try{
+            int [] temp = sankoffPseudoScores.get(index);
+        }catch (IndexOutOfBoundsException e){
+            throw new IndexOutOfBoundsException();
+        }
+        int[] temp = sankoffPseudoScores.get(index);
         switch(base.charAt(0)){
             case 'A': if (temp[0] == 1) throw new IndexOutOfBoundsException();
             else return temp[0];
