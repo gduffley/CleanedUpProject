@@ -606,7 +606,11 @@
       <created>1400187873087</created>
       <updated>1400187873087</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Debugging, Sankoff different giving problems&#10;">
+      <created>1400340356508</created>
+      <updated>1400340356508</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
