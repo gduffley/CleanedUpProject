@@ -16,7 +16,6 @@ public class MakeTree {
     private static String rf = ""; //sequence alignment???
     private static PhyloTree tree; //phylogenetic tree of the gene family
     private static String name; //name of the family we are working on
-    private static String alphabet = "ABCDEFGHIJKLMNOPQRSTUV"; //alphabet so that each new node gets a 1 letter unique name
     private static int alphCounter = 0; //counter so that each new node gets a unique name
 
     private static void stockholmParse(String stockholmFile) throws IOException {
@@ -64,13 +63,20 @@ public class MakeTree {
         catch(IOException ex){
             System.out.println("error reading the file");
         }
-        //System.out.println(name);
-        //System.out.println(ss_Cons);
-        //System.out.println(rf);
-        //for(int i = 0; i < sequenceVariations.size(); i++){
-        //System.out.println(sequenceVariations.get(i).getName());
-        //System.out.println(sequenceVariations.get(i).getSequence());
-        //}
+        /*for(int i = 0; i < sequenceVariations.size(); i++){
+            String seq = sequenceVariations.get(i).getSequence();
+            String newSeq = "";
+            char[] seqArray = seq.toCharArray();
+            for(int j = 0; j < seq.length(); j++){
+                if(seqArray[j] == 'Y') seqArray[j] = 'C';
+            }
+            for(int j = 0; j < seqArray.length; j++){
+                newSeq = newSeq.concat(Character.toString(seqArray[j]));
+            }
+            sequenceVariations.get(i).setSequence(newSeq);
+            int afa = 342;
+        }
+        */
     }
 
     //identify the most inner bracket --> find the first )
@@ -85,7 +91,7 @@ public class MakeTree {
         String line = null;
         int curOpen;
         int curClosed;
-        tree = new PhyloTree(alphabet.substring(alphCounter, alphCounter + 1), "tbd"); //creates root with name A
+        tree = new PhyloTree(Integer.toString(alphCounter), "tbd"); //creates root with name A
         alphCounter++;
         tree.setConsensusSequence(ss_Cons);
         try{
@@ -111,7 +117,7 @@ public class MakeTree {
                     if(numberofGenesInLayer == 2){
                         newNode = twoLayer(layer);
                         if(tree.getRoot().getChildren().size() == 2){
-                            PhyloTreeNode newRoot = new PhyloTreeNode(alphabet.substring(alphCounter, alphCounter + 1), "tbd");
+                            PhyloTreeNode newRoot = new PhyloTreeNode(Integer.toString(alphCounter), "tbd");
                             newRoot.addChild(newNode);
                             tree.addNode(newRoot);
                             alphCounter++;
@@ -130,7 +136,7 @@ public class MakeTree {
                             }
                         }
                         if(tree.getRoot().getChildren().size() == 2){
-                            PhyloTreeNode newRoot = new PhyloTreeNode(alphabet.substring(alphCounter, alphCounter + 1), "tbd");
+                            PhyloTreeNode newRoot = new PhyloTreeNode(Integer.toString(alphCounter), "tbd");
                             newRoot.addChild(newNode);
                             tree.addNode(newRoot);
                             alphCounter++;
@@ -157,7 +163,7 @@ public class MakeTree {
     //method that takes a layer of 2 and combines the 2 nodes into a new parent node
     private static PhyloTreeNode twoLayer(String layer) {
         String curName;
-        PhyloTreeNode parent = new PhyloTreeNode(alphabet.substring(alphCounter, alphCounter + 1), "tbd");
+        PhyloTreeNode parent = new PhyloTreeNode(Integer.toString(alphCounter), "tbd");
         alphCounter++;
         for(int i = 0; i < sequenceVariations.size(); i++){
             curName = sequenceVariations.get(i).getName();

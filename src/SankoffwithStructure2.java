@@ -32,6 +32,10 @@ public class SankoffwithStructure2 {
         while(curNode.getChildren().size() > 0) curNode = curNode.getChildren().get(0);
         String sequence = curNode.getSequence();
         for(int i = 0; i < sequence.length(); i++){
+            if(i == 114){
+                int breakage = 0;
+            }
+            bestBase = "";
             bestScore = -MainMethodClass.INF;
             Iterator<String> it = singleBases.iterator();
             while(it.hasNext()){
@@ -42,6 +46,9 @@ public class SankoffwithStructure2 {
                     bestScore = curScore;
                 }
             }
+            if(bestBase.equals("")){
+                int breaker = 4+4;
+            }
             newSequence = newSequence.concat(bestBase);
             root.setSequence(newSequence);
             curNode = tree.getRoot();
@@ -50,9 +57,12 @@ public class SankoffwithStructure2 {
             while(!q.isEmpty()){
                 curNode = q.poll();
                 for(int j = 0; j < curNode.getChildren().size(); j++){
-                    if(curNode.getChildren().size() > 0 && curNode.getChildren().get(j).getChildren().size() > 0){
+                    if(curNode.getChildren().get(j).getChildren().size() > 0){
                         PhyloTreeNode curChild = curNode.getChildren().get(j);
-                        curBase = curNode.getSequence().substring(i,i+1);
+                        if(i == 114){
+                            int fdfd = 2 + 2;
+                        }
+                        curBase = curNode.getSequence().substring(i, i+1);
                         q.add(curChild);
                         if(i == 0) {
                             curChild.setSequence(curChild.getBaseIfParent(i,curBase));
@@ -107,7 +117,10 @@ public class SankoffwithStructure2 {
         }
         PhyloTreeNode root = tree.getRoot();
         ArrayList<String> newSequence = new ArrayList<String>(sequence.length());
-        for(int i = 0; i < sequence.length(); i++){ //This is the line to change to change what index
+        for(int i = 0; i < sequence.length(); i++){
+            if(i == 15){
+                int rakes = 44;
+            }
             int j = root.getBasePair(i);
             if(root.getBasePair(i) == -1){
                 Iterator<String> it = singleBases.iterator();
@@ -128,6 +141,9 @@ public class SankoffwithStructure2 {
                 }catch(IndexOutOfBoundsException e){
                     for(int k = newSequence.size(); k <= i; k++) newSequence.add(k, "");
                     newSequence.set(i, bestBase);
+                }
+                if(bestScore <= -MainMethodClass.INF){
+                    int rest = 99;
                 }
                 parsimonyScore += bestScore;
             }
@@ -154,6 +170,9 @@ public class SankoffwithStructure2 {
                     newSequence.set(i, bestBases.substring(1));
                     newSequence.set(j, bestBases.substring(0,1));
                 }
+                if(bestScore <= -MainMethodClass.INF){
+                    int rest = 99;
+                }
                 parsimonyScore += bestScore;
             }
             else{
@@ -176,6 +195,15 @@ public class SankoffwithStructure2 {
                     for(int k = newSequence.size(); k <= i; k++) newSequence.add(k, "");
                     newSequence.set(i, bestBase);
                 }
+                if(bestScore <= -MainMethodClass.INF){
+                    int breaks = 9;
+                }
+                if(bestScore <= -MainMethodClass.INF){
+                    int psueooscore = 99;
+                }
+                else{
+                     int itworks = 33;
+                }
                 parsimonyScore += bestScore;
             }
         }
@@ -184,26 +212,21 @@ public class SankoffwithStructure2 {
             newSequenceString = newSequenceString.concat(newSequence.get(i));
         }
         tree.getRoot().setSequence(newSequenceString);
-        Stack<PhyloTreeNode> s = new Stack<PhyloTreeNode>();
+        Queue<PhyloTreeNode> s = new LinkedList<PhyloTreeNode>();
         for(int i = 0; i < tree.getRoot().getChildren().size(); i++){
             s.add(tree.getRoot().getChildren().get(i));
         }
         PhyloTreeNode curNode;
-        while(!s.empty()){
-            curNode = s.pop();
+        while(!s.isEmpty()){
+            curNode = s.poll();
             for(int i = 0; i < curNode.getChildren().size(); i++){
                 s.add(curNode.getChildren().get(i));
             }
             if(curNode.getChildren().size() > 0){
                 newSequenceString = "";
                 String parentSequence = curNode.getParent().getSequence();
-                for(int i = 0; i < sequence.length(); i++){
-                    if(i < sequence.length() - 1){
-                    newSequenceString = newSequenceString.concat(curNode.getBaseIfParent(i, parentSequence.substring(i,i+1)));
-                    }
-                    else newSequenceString = newSequenceString.concat((
-                            curNode.getBaseIfParent(i, parentSequence.substring(i))));
-                }
+                for(int i = 0; i < sequence.length() -1; i++) newSequenceString =
+                        newSequenceString.concat(curNode.getBaseIfParent(i, parentSequence.substring(i,i+1)));
             }
             curNode.setSequence(newSequenceString);
         }
@@ -211,15 +234,14 @@ public class SankoffwithStructure2 {
     }
     // Cases:
    /*
-        1) Both the children have pseudoPairing --> score if pseudoP  airing called on both nodes
-        2) One child with pseudoPairing and the other child with no pairing --> pseudoPairing and single
-        3) one child with pseudoPairing and the other with real pairing for that base --> pseudoPairing and sankoffPair
-        4) The children have different pairing
-
-        Base case of single, with scoring being different depending on the condition of the children
-        Going to
+    Each of children fall into 1 of 3 cases
+    1)The index passed has no pairing
+    2)The index passed has real pairing
+    3)The index passed has pseudopairing
 
     */
+
+
     private static int sankoffPseudoPair(PhyloTreeNode node, String curBase, int index,
                                          Collection<String> singleBases, Collection<String> pairedBases) {
         PhyloTreeNode childL = node.getChildren().get(0);
@@ -242,7 +264,7 @@ public class SankoffwithStructure2 {
                curBaseL = itL.next();
                try{
                    curScoreL = childL.getSankoffPseudoScore(index, curBaseL);
-               }catch(ArrayIndexOutOfBoundsException e){
+               }catch(IndexOutOfBoundsException e){
                    curScoreL = sankoffPseudoPair(childL, curBaseL, index, singleBases, pairedBases);
                    childL.addSankoffPseudoScore(index, curBaseL, curScoreL);
                }
@@ -254,7 +276,8 @@ public class SankoffwithStructure2 {
 
            }
         }
-        else if(pairIndexL > 0 && basePairL.get(pairIndexL) == index){
+        //works
+        else if(pairIndexL >= 0 && basePairL.get(pairIndexL) == index){
             Iterator<String> itL = pairedBases.iterator();
             String curBasePairL;
             while(itL.hasNext()){
@@ -274,8 +297,9 @@ public class SankoffwithStructure2 {
                 }
             }
         }
-        else{
-            Iterator<String> itL = pairedBases.iterator();
+        //This case at least works sometimes
+        else if(basePairL.get(index) == -1){
+            Iterator<String> itL = singleBases.iterator();
             while(itL.hasNext()){
                 curBaseL = itL.next();
                 try{
@@ -291,6 +315,10 @@ public class SankoffwithStructure2 {
                 }
             }
         }
+        else{
+            int whatisgoingon = 100;
+        }
+        //this may not work
         if(pairIndexR > 0 && basePairR.get(pairIndexR) != index){
             Iterator<String> itR = singleBases.iterator();
             while(itR.hasNext()){
@@ -309,7 +337,7 @@ public class SankoffwithStructure2 {
 
             }
         }
-        else if(pairIndexR > 0 && basePairR.get(pairIndexR) == index){
+        else if(pairIndexR >= 0 && basePairR.get(pairIndexR) == index){
             Iterator<String> itR = pairedBases.iterator();
             String curBasePairR;
             while(itR.hasNext()){
@@ -329,8 +357,8 @@ public class SankoffwithStructure2 {
                 }
             }
         }
-        else{
-            Iterator<String> itR = pairedBases.iterator();
+        else if(basePairR.get(index) == -1){
+            Iterator<String> itR = singleBases.iterator();
             while(itR.hasNext()){
                 curBaseR = itR.next();
                 try{
@@ -346,19 +374,18 @@ public class SankoffwithStructure2 {
                 }
             }
         }
-        if(bestBaseL.length() == 1) childL.setBaseIfParent(index, curBase, bestBaseL);
-        if(bestBaseR.length() == 1) childR.setBaseIfParent(index, curBase, bestBaseR);
-        if(bestBaseL.length() == 2){
-            childL.setBaseIfParent(index, curBase, bestBaseL.substring(0,1));
-            childL.setBaseIfParent(pairIndexL, node.getSequence().substring(pairIndexL, pairIndexL + 1), bestBaseL.substring(1));
+        else{
+            int what = 333;
         }
-        if(bestBaseR.length() == 2){
+        try{
+            childL.setBaseIfParent(index, curBase, bestBaseL.substring(0,1));
+        }catch(StringIndexOutOfBoundsException e){
+            childL.setBaseIfParent(index, curBase, bestBaseL);
+        }
+        try{
             childR.setBaseIfParent(index, curBase, bestBaseR.substring(0,1));
-            try{
-                childR.setBaseIfParent(pairIndexR, node.getSequence().substring(pairIndexR, pairIndexR + 1), bestBaseR.substring(1));
-            }catch(StringIndexOutOfBoundsException e){
-                childR.setBaseIfParent(pairIndexR, node.getSequence().substring(pairIndexR), bestBaseR.substring(1));
-            }
+        }catch(StringIndexOutOfBoundsException e){
+            childR.setBaseIfParent(index, curBase, bestBaseR);
         }
         return bestScoreR + bestScoreL;
     }
@@ -429,41 +456,49 @@ public class SankoffwithStructure2 {
 
     private static int samePairing(PhyloTreeNode LChild, PhyloTreeNode RChild, int index1, int index2, String bases,
                          Collection<String> pairedBases, Collection<String> singleBases){
-        String LcurBases;
-        String LbestBases = "";
-        String RcurBases;
-        String RbestBases = "";
-        int scoreR;
-        int scoreL;
-        int bestScore = -MainMethodClass.INF;
-        int curScore;
+        String curBaseL;
+        String curBaseR;
+        String bestBaseL = "";
+        String bestBaseR = "";
+        int curScoreR;
+        int curScoreL;
+        int bestScoreL = -MainMethodClass.INF;
+        int bestScoreR = -MainMethodClass.INF;
         Iterator<String> itL = pairedBases.iterator();
+        if(LChild.getName().equals("Z00028.1/5121-5234") && index1 == 2 && index2 == 40){
+            int rest = 222;
+        }
         while(itL.hasNext()){
-            LcurBases = itL.next();
-            scoreL = transitionAndScoreSame(LChild, index1, index2, bases, LcurBases, pairedBases, singleBases);
-            Iterator<String> itR = pairedBases.iterator();
-            while(itR.hasNext()){
-                RcurBases = itR.next();
-                scoreR = transitionAndScoreSame(RChild, index1, index2, bases, RcurBases, pairedBases, singleBases);
-                curScore = scoreR + scoreL;
-                if(curScore > bestScore){
-                    bestScore = curScore;
-                    LbestBases = LcurBases;
-                    RbestBases = RcurBases;
-                }
+            curBaseL = itL.next();
+            curScoreL = transitionAndScoreSame(LChild, index1, index2, bases, curBaseL, pairedBases, singleBases);
+            if(curScoreL > bestScoreL){
+                bestScoreL = curScoreL;
+                bestBaseL = curBaseL;
             }
+        }
+        Iterator<String> itR = pairedBases.iterator();
+        while(itR.hasNext()){
+            curBaseR = itR.next();
+            curScoreR = transitionAndScoreSame(RChild, index1, index2, bases, curBaseR, pairedBases, singleBases);
+            if(curScoreR > bestScoreR){
+                bestScoreR = curScoreR;
+                bestBaseR = curBaseR;
+            }
+        }
+        if(bestBaseR.length() < 2){
+            int breaker = 50;
         }
         String index1Base = bases.substring(0,1);
         String index2Base = bases.substring(1);
-        String Lindex1Base = LbestBases.substring(0,1);
-        String Lindex2Base = LbestBases.substring(1);
-        String Rindex1Base = RbestBases.substring(0,1);
-        String Rindex2Base = RbestBases.substring(1);
+        String Lindex1Base = bestBaseL.substring(0,1);
+        String Lindex2Base = bestBaseL.substring(1);
+        String Rindex1Base = bestBaseR.substring(0,1);
+        String Rindex2Base = bestBaseR.substring(1);
         LChild.setBaseIfParent(index1, index1Base, Lindex1Base);
         LChild.setBaseIfParent(index2, index2Base, Lindex2Base);
         RChild.setBaseIfParent(index1, index1Base, Rindex1Base);
         RChild.setBaseIfParent(index2, index2Base, Rindex2Base);
-        return bestScore;
+        return bestScoreR + bestScoreL;
     }
 
 
@@ -522,12 +557,15 @@ public class SankoffwithStructure2 {
         String curBaseSame;
         String curBaseDif1;
         String curBaseDif2;
+        int bestScoreSame = -MainMethodClass.INF;
+        int bestScoreDif1 = -MainMethodClass.INF;
+        int bestScoreDif2 = -MainMethodClass.INF;
+        int curScoreSame;
+        int curScoreDif1;
+        int curScoreDif2;
         int scoreSame;
         int scoreDif1;
         int scoreDif2;
-        int transitionSame;
-        int transitionDif1;
-        int transitionDif2;
         int curScore;
         int bestScore = -MainMethodClass.INF;
         String bestBaseSame = "";
@@ -536,29 +574,34 @@ public class SankoffwithStructure2 {
         Iterator<String> sameIt = pairedBases.iterator();
         while(sameIt.hasNext()){
             curBaseSame = sameIt.next();
-            scoreSame = transitionAndScoreSame(same, index1, index2, bases, curBaseSame, pairedBases, singleBases);
-            Iterator<String> dif1It = pairedBases.iterator();
-            //The big issue is that we are calling SankoffPairs on a different indices but assuming that the parents
-            //are the same. This might work, because the string that we are assuming are the parents of the node,
-            //will itereate through all of them
-            while(dif1It.hasNext()){
-                curBaseDif1 = dif1It.next();
-                scoreDif1 = transitionAndScoreDifferent(different, index1, index1Pair, bases, curBaseDif1, pairedBases,
-                        singleBases);
-                //SHOULD WE INCLUDE THE OTHER TRANSITION??????????????????????
-                Iterator<String> dif2It = pairedBases.iterator();
-                while(dif2It.hasNext()){
-                    curBaseDif2 = dif2It.next();
-                    scoreDif2 = transitionAndScoreDifferent(different, index2, index2Pair, bases, curBaseDif2,
-                            pairedBases, singleBases);
-                    curScore = scoreDif1 + scoreDif2 + scoreSame;
-                    if(curScore > bestScore){
-                        bestScore = curScore;
-                        bestBaseDif1 = curBaseDif1;
-                        bestBaseDif2 = curBaseDif2;
-                        bestBaseSame = curBaseSame;
-                    }
-                }
+            curScoreSame = transitionAndScoreSame(same, index1, index2, bases, curBaseSame, pairedBases, singleBases);
+            if(curScoreSame > bestScoreSame){
+                bestScoreSame = curScoreSame;
+                bestBaseSame = curBaseSame;
+            }
+        }
+        Iterator<String> dif1It = pairedBases.iterator();
+        //The big issue is that we are calling SankoffPairs on a different indices but assuming that the parents
+        //are the same. This might work, because the string that we are assuming are the parents of the node,
+        //will itereate through all of them
+        while(dif1It.hasNext()){
+            curBaseDif1 = dif1It.next();
+            curScoreDif1 = transitionAndScoreDifferent(different, index1, index1Pair, bases, curBaseDif1, pairedBases,
+                    singleBases);
+            if(curScoreDif1 > bestScoreDif1){
+                bestScoreDif1 = curScoreDif1;
+                bestBaseDif1 = curBaseDif1;
+            }
+        }
+        //SHOULD WE INCLUDE THE OTHER TRANSITION??????????????????????
+        Iterator<String> dif2It = pairedBases.iterator();
+        while(dif2It.hasNext()){
+            curBaseDif2 = dif2It.next();
+            curScoreDif2 = transitionAndScoreDifferent(different, index2, index2Pair, bases, curBaseDif2,
+                    pairedBases, singleBases);
+            if(curScoreDif2 > bestScoreDif2){
+                bestScoreDif2 = curScoreDif2;
+                bestBaseDif2 = curBaseDif2;
             }
         }
         //CAN'T SET PARENT IFS FOR THE SECOND HALF OF THE DIFFERENT PAIRS BECAUSE WE GENERATE THE PAIRS WITHOUT
@@ -573,7 +616,7 @@ public class SankoffwithStructure2 {
         String different2 = bestBaseDif2.substring(0,1);
         different.setBaseIfParent(index1, base1, different1);
         different.setBaseIfParent(index2, base2, different2);
-        return bestScore;
+        return bestScoreDif1 + bestScoreDif2 + bestScoreSame;
     }
     //Bug could be 2 issues. Either sankoffPair isn't being called with all combinations of bases, or the bases
     //actually aren't paired
@@ -686,8 +729,8 @@ public class SankoffwithStructure2 {
     private static int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {
         int scoreL;
         int scoreR;
-        int transitionR;
-        int transitionL;
+        int bestScoreL = -MainMethodClass.INF;
+        int bestScoreR = -MainMethodClass.INF;
         int curScore;
         int bestScore = -MainMethodClass.INF;
         String curBaseR;
@@ -699,6 +742,10 @@ public class SankoffwithStructure2 {
         if(node.getChildren().size() < 2){
             String curBaseFromSequence = node.getSequence().substring(index, index+1);
             if(curBaseFromSequence.equals(curBase)) return 0;
+            if(curBaseFromSequence.equals("N")) return 0;
+            if(curBaseFromSequence.equals("Y")){
+                if(curBase.equals("C") || curBase.equals("T")) return 0;
+            }
             else return -MainMethodClass.INF;
         }
         else{
@@ -707,35 +754,43 @@ public class SankoffwithStructure2 {
             Iterator<String> itL = singleBases.iterator();
             while(itL.hasNext()){
                 curBaseL = itL.next();
-                Iterator<String> itR = singleBases.iterator();
-                while(itR.hasNext()){
-                    curBaseR = itR.next();
-                    try{
-                        scoreL = childL.getSankoffScore(index, curBaseL);
-                    }catch(IndexOutOfBoundsException e){
-                        scoreL = sankoffSingle(childL, curBaseL, index, singleBases);
-                        childL.addSankoffScore(index, curBaseL, scoreL);
-                    }
-                    try{
-                        scoreR = childR.getSankoffScore(index, curBaseR);
-                    }catch(IndexOutOfBoundsException e){
-                        scoreR = sankoffSingle(childR, curBaseR, index, singleBases);
-                        childR.addSankoffScore(index, curBaseR, scoreR);
-                    }
-                    transitionL = MainMethodClass.cost(curBase, curBaseL);
-                    transitionR = MainMethodClass.cost(curBase, curBaseR);
-                    curScore = scoreL + scoreR + transitionL + transitionR;
-                    if(curScore > bestScore){
-                        bestScore = curScore;
-                        bestBaseL = curBaseL;
-                        bestBaseR = curBaseR;
-                    }
+                try{
+                    scoreL = childL.getSankoffScore(index, curBaseL);
+                }catch(IndexOutOfBoundsException e){
+                    scoreL = sankoffSingle(childL, curBaseL, index, singleBases);
+                    childL.addSankoffScore(index, curBaseL, scoreL);
                 }
+                scoreL += MainMethodClass.cost(curBase, curBaseL);
+                if(scoreL > bestScoreL){
+                    bestScoreL = scoreL;
+                    bestBaseL = curBaseL;
+                }
+            }
+            Iterator<String> itR = singleBases.iterator();
+            while(itR.hasNext()){
+                curBaseR = itR.next();
+                try{
+                    scoreR = childR.getSankoffScore(index, curBaseR);
+                }catch(IndexOutOfBoundsException e){
+                    scoreR = sankoffSingle(childR, curBaseR, index, singleBases);
+                    childR.addSankoffScore(index, curBaseR, scoreR);
+                }
+                scoreR += MainMethodClass.cost(curBase, curBaseR);
+                if(scoreR > bestScoreR){
+                    bestScoreR = scoreR;
+                    bestBaseR = curBaseR;
+                }
+            }
+            if(childL.getChildren().size() < 2 && bestBaseL == ""){
+                int breakdsa = 3243;
+            }
+            if(childR.getChildren().size() < 2 && bestBaseR == ""){
+                int adfadf =343443;
             }
             childL.setBaseIfParent(index, curBase, bestBaseL);
             childR.setBaseIfParent(index, curBase, bestBaseR);
         }
-        return bestScore;
+        return bestScoreR + bestScoreL;
     }
 
     //TODO: edit to make the folding of a node more accurately represent the general folding of the children
@@ -757,6 +812,9 @@ public class SankoffwithStructure2 {
                 sequence = curNode.getSequence();
                 folding = curNode.getFolding();
                 for(int i = 0; i < sequence.length(); i++){
+                    if(i == 117){
+                        int restrer = 23423;
+                    }
                     if(folding.charAt(i) == '('){
                         int brackets = 0;
                         int j;
