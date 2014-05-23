@@ -796,7 +796,11 @@
       <created>1400809814723</created>
       <updated>1400809814723</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Working, need to run over night">
+      <created>1400809887686</created>
+      <updated>1400809887686</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -840,7 +844,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Keep structure doesn't work, but the files are organized in a way that is at least managable&#10;" />
     <MESSAGE value="Implementing keepStructure where only accept base pair changes if in a pair, then the base it is paired with changes at well, if its not then make sure the basepairing doesnt change by running RNAfold" />
     <MESSAGE value="Implementing keepStructure where only accept base pair changes if in a pair, then the base it is paired with changes at well, if its not then make sure the basepairing doesnt change by running RNAfold&#10;" />
     <MESSAGE value="I cant figure out how to keep structure" />
@@ -865,7 +868,8 @@
     <MESSAGE value="SankoffPairs is written, time for a serious debug" />
     <MESSAGE value="Debugging, Sankoff different giving problems&#10;" />
     <MESSAGE value="bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
+    <MESSAGE value="Working, need to run over night" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working, need to run over night" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
