@@ -808,6 +808,9 @@ public class SankoffwithStructure2 {
                 }
             }
             else{
+                if(curNode.getName().equals("X04512.1/2563-2632")){
+                    int takearest = 3243;
+                }
                 foldingFromVienna(curNode);
                 sequence = curNode.getSequence();
                 folding = curNode.getFolding();
@@ -866,7 +869,7 @@ public class SankoffwithStructure2 {
         for(int i = 0; i < seq.length() - 1; i++){
             if(seq.substring(i,i+1).equals(".")) gaps.add(i);
         }
-        if(seq.substring(seq.length()-1) == ".") gaps.add(seq.length()-1);
+        if(seq.substring(seq.length()-1).equals(".")) gaps.add(seq.length()-1);
         seq = seq.replace(".", "");
         seq = seq.concat("\n");
         out.write(seq);
