@@ -14,7 +14,7 @@ public class SankoffwithStructure2 {
 
 
     //Public method to be called
-    public static PhyloTree sankoff(PhyloTree tree) throws IOException{
+    public PhyloTree sankoff(PhyloTree tree) throws IOException{
         Collection<String> singleBases = new ArrayList<String>();
         singleBases.add("A");
         singleBases.add("C");
@@ -78,7 +78,7 @@ public class SankoffwithStructure2 {
         layerAndParsimony(tree);
         return tree;
     }
-    public static PhyloTree sankoffWithStructure(PhyloTree tree) throws IOException {
+    public PhyloTree sankoffWithStructure(PhyloTree tree) throws IOException {
         /**TODO: Update the data structure of the nodes to be a 2D array to store best values
          *just like what we have now, except make it 2D for every spot in the sequence
          */
@@ -220,7 +220,7 @@ public class SankoffwithStructure2 {
             for(int i = 0; i < curNode.getChildren().size(); i++){
                 s.add(curNode.getChildren().get(i));
             }
-            if(curNode.getChildren().size() > 0){
+            if(curNode.getChildren().size() > 0 && curNode != tree.getRoot()){
                 newSequenceString = "";
                 String parentSequence = curNode.getParent().getSequence();
                 for(int i = 0; i < sequence.length() -1; i++) newSequenceString =
@@ -279,17 +279,18 @@ public class SankoffwithStructure2 {
         else if(pairIndexL >= 0 && basePairL.get(pairIndexL) == index){
             Iterator<String> itL = pairedBases.iterator();
             String curBasePairL;
+            if(pairIndexL == 29){
+                int afad = 234234;
+            }
             while(itL.hasNext()){
                 curBaseL = itL.next();
-                curBasePairL = curBaseL.concat(node.getSequence().substring(pairIndexL, pairIndexL + 1));
                 try{
                     curScoreL = childL.getSankoffPairsScore(index, curBaseL);
                 }catch(IndexOutOfBoundsException e){
-                    curScoreL = sankoffPairs(childL, curBasePairL, index, pairedBases, singleBases);
+                    curScoreL = sankoffPairs(childL, curBaseL, index, pairedBases, singleBases);
                     childL.setSankoffPairsScores(index, pairIndexL, curBaseL, curScoreL);
                 }
                 curScoreL += MainMethodClass.cost(curBase, curBaseL.substring(0,1));
-                curScoreL += MainMethodClass.cost(curBasePairL.substring(1), curBaseL.substring(1));
                 if(curScoreL > bestScoreL){
                     bestBaseL = curBaseL;
                     bestScoreL = curScoreL;
@@ -303,7 +304,7 @@ public class SankoffwithStructure2 {
                 curBaseL = itL.next();
                 try{
                     curScoreL = childL.getSankoffScore(index, curBaseL);
-                }catch(ArrayIndexOutOfBoundsException e){
+                }catch(IndexOutOfBoundsException e){
                     curScoreL = sankoffSingle(childL, curBaseL, index, singleBases);
                     childL.addSankoffPseudoScore(index, curBaseL, curScoreL);
                 }
@@ -341,15 +342,13 @@ public class SankoffwithStructure2 {
             String curBasePairR;
             while(itR.hasNext()){
                 curBaseR = itR.next();
-                curBasePairR = curBaseR.concat(node.getSequence().substring(pairIndexR, pairIndexR + 1));
                 try{
                     curScoreR = childR.getSankoffPairsScore(index, curBaseR);
                 }catch(IndexOutOfBoundsException e){
-                    curScoreR = sankoffPairs(childR, curBasePairR, index, pairedBases, singleBases);
+                    curScoreR = sankoffPairs(childR, curBaseR, index, pairedBases, singleBases);
                     childR.setSankoffPairsScores(index, pairIndexR, curBaseR, curScoreR);
                 }
                 curScoreR += MainMethodClass.cost(curBase, curBaseR.substring(0,1));
-                curScoreR += MainMethodClass.cost(curBasePairR.substring(1), curBaseR.substring(1));
                 if(curScoreR > bestScoreR){
                     bestBaseR = curBaseR;
                     bestScoreR = curScoreR;
@@ -362,7 +361,7 @@ public class SankoffwithStructure2 {
                 curBaseR = itR.next();
                 try{
                     curScoreR = childR.getSankoffScore(index, curBaseR);
-                }catch(ArrayIndexOutOfBoundsException e){
+                }catch(IndexOutOfBoundsException e){
                     curScoreR = sankoffSingle(childR, curBaseR, index, singleBases);
                     childR.addSankoffPseudoScore(index, curBaseR, curScoreR);
                 }

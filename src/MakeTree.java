@@ -11,14 +11,14 @@ import java.util.Queue;
  */
 //test
 public class MakeTree {
-    private static ArrayList<PhyloTreeNode> sequenceVariations; //ArrayList PhyloTreeNodes that represent a gene variation in the family
-    private static String ss_Cons = ""; //consensus secondary structure
-    private static String rf = ""; //sequence alignment???
-    private static PhyloTree tree; //phylogenetic tree of the gene family
-    private static String name; //name of the family we are working on
-    private static int alphCounter = 0; //counter so that each new node gets a unique name
+    private ArrayList<PhyloTreeNode> sequenceVariations; //ArrayList PhyloTreeNodes that represent a gene variation in the family
+    private String ss_Cons = ""; //consensus secondary structure
+    private String rf = ""; //sequence alignment???
+    private PhyloTree tree; //phylogenetic tree of the gene family
+    private String name; //name of the family we are working on
+    private int alphCounter = 0; //counter so that each new node gets a unique name
 
-    private static void stockholmParse(String stockholmFile) throws IOException {
+    private void stockholmParse(String stockholmFile) throws IOException {
         sequenceVariations = new ArrayList<PhyloTreeNode>();
         String line = null;
         int sequenceCounter = 0; //counter to align the sequences to the PhyloTreeNodes with the correct names
@@ -73,7 +73,7 @@ public class MakeTree {
     //if there are 2 genes in a single layer at any point,
     //create a parent for them, treat the parent node like a single node
     //testd
-    private static void phyloTreeCreator(String treeFile) throws IOException{
+    private void phyloTreeCreator(String treeFile) throws IOException{
         String line = null;
         int curOpen;
         int curClosed;
@@ -149,7 +149,7 @@ public class MakeTree {
         tree.setName(name);
     }
     //method that takes a layer of 2 and combines the 2 nodes into a new parent node
-    private static PhyloTreeNode twoLayer(String layer) {
+    private PhyloTreeNode twoLayer(String layer) {
         String curName;
         PhyloTreeNode parent = new PhyloTreeNode(Integer.toString(alphCounter), "tbd");
         alphCounter++;
@@ -162,7 +162,7 @@ public class MakeTree {
         return parent;
     }
     //figures out if the layer is a one or 2 layer
-    private static int numberOfSequences(String layer){
+    private int numberOfSequences(String layer){
         int counter = 0;
         String curName;
         for(int i = 0; i < sequenceVariations.size(); i++){
@@ -174,7 +174,7 @@ public class MakeTree {
 
     //Finds the closest open bracket to our current closed bracker
     //BFS print out of the tree
-    private static void printTree(PhyloTree tree){
+    private void printTree(PhyloTree tree){
         PhyloTreeNode current = null;
         Queue<PhyloTreeNode> s = new LinkedList<PhyloTreeNode>();
         s.add(tree.getRoot());
@@ -193,7 +193,7 @@ public class MakeTree {
     }
 
 
-    private static void sequenceMod(){
+    private void sequenceMod(){
         for(int i = 0; i < sequenceVariations.size(); i++){
             String seq = sequenceVariations.get(i).getSequence();
             seq = seq.replace("", ",");
@@ -201,7 +201,12 @@ public class MakeTree {
             sequenceVariations.get(i).setSequence(seq);
         }
     }
-    public static PhyloTree makeTree(String args0, String args1) throws IOException {
+
+    public PhyloTree getTree() {
+        return tree;
+    }
+
+    public PhyloTree makeTree(String args0, String args1) throws IOException {
         if(alphCounter == 0){
             int dfdf = 3334343;
         }

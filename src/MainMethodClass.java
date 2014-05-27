@@ -112,15 +112,21 @@ public class MainMethodClass {
                 while(((line = bufferedReader.readLine()) != null)){
                     line = path.concat(line);
                     String stock = path.concat(bufferedReader.readLine());
-                    PhyloTree treeStructure = MakeTree.makeTree(stock, line);
-                    PhyloTree treeSankoff = MakeTree.makeTree(stock, line);
+                    MakeTree treeMakerSankoff = new MakeTree();
+                    MakeTree treeMakerStructure = new MakeTree();
+                    treeMakerSankoff.makeTree(stock, line);
+                    treeMakerStructure.makeTree(stock, line);
+                    PhyloTree treeSankoff = treeMakerSankoff.getTree();
+                    PhyloTree treeStructure = treeMakerStructure.getTree();
                     try{
                         PrintWriter individualSankoff = new PrintWriter(treeStructure.getName() + "Sankoff.csv");
                         PrintWriter individualStructure = new PrintWriter(treeStructure.getName() + "Structure.csv");
                         individualStructure.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode");
                         summary.println("name, seqLength, numOfSeqs, numOfLayers, sankoffScore, structureScore");
-                        treeSankoff = SankoffwithStructure2.sankoff(treeStructure);
-                        treeStructure = SankoffwithStructure2.sankoffWithStructure(treeSankoff);
+                        SankoffwithStructure2 sankoff = new SankoffwithStructure2();
+                        SankoffwithStructure2 structure = new SankoffwithStructure2();
+                        sankoff.sankoff(treeStructure);
+                        structure.sankoffWithStructure(treeSankoff);
                         System.out.println(treeSankoff == treeStructure);
                         ViennaCalls.rnaFold(treeSankoff);
                         ViennaCalls.rnaFold(treeStructure);
