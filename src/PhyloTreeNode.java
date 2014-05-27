@@ -20,6 +20,24 @@ public class PhyloTreeNode {
     private ArrayList<int[]> sankoffPairsScores = new ArrayList<int[]>();
     private ArrayList<int[]> sankoffPseudoScores = new ArrayList<int[]>();
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
+    private int parsimonyScore;
+    private int layer;
+
+    public int getLayer() {
+        return layer;
+    }
+
+    public void setLayer(int layer) {
+        this.layer = layer;
+    }
+
+    public int getParsimonyScore() {
+        return parsimonyScore;
+    }
+
+    public void setParsimonyScore(int parsimonyScore) {
+        this.parsimonyScore = parsimonyScore;
+    }
 
     //Method works because using add doesn't override values already there
     public void setNoBP(int i){
@@ -305,6 +323,7 @@ public class PhyloTreeNode {
         this.name = name;
         this.sequence = sequence;
         this.parent = null;
+        parsimonyScore = 0;
 
     }
 

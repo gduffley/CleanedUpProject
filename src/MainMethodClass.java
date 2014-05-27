@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -103,26 +104,79 @@ public class MainMethodClass {
         String line;
         String path = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\Alignments+Trees\\";
         int i = 0;
-        try {
-            FileReader fileReader = new FileReader(Args[0]);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while((line = bufferedReader.readLine()) != null){
-                line = path.concat(line);
-                String stock = path.concat(bufferedReader.readLine());
-                //if(i != 0){
-                     PhyloTree tree = MakeTree.makeTree(stock, line);
-                    int test = 5+5;
-                    SankoffwithStructure2.sankoff(tree);
-                    printTree(tree);
-                    SankoffwithStructure2.sankoffWithStructure(tree);
-                    printTree(tree);
-                    SankoffwithStructure2.sankoff(tree);
-                    ViennaCalls.rnaFold(tree);
-                    printTree(tree);
-                //}
-                i++;
-            }
-        }catch(IOException e){};
+        try{
+            PrintWriter summary = new PrintWriter("summary.csv");
+            try {
+                FileReader fileReader = new FileReader(Args[0]);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                while(((line = bufferedReader.readLine()) != null)){
+                    line = path.concat(line);
+                    String stock = path.concat(bufferedReader.readLine());
+                    PhyloTree treeStructure = MakeTree.makeTree(stock, line);
+                    PhyloTree treeSankoff = MakeTree.makeTree(stock, line);
+                    try{
+                        PrintWriter individualSankoff = new PrintWriter(treeStructure.getName() + "Sankoff.csv");
+                        PrintWriter individualStructure = new PrintWriter(treeStructure.getName() + "Structure.csv");
+                        individualStructure.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode");
+                        summary.println("name, seqLength, numOfSeqs, numOfLayers, sankoffScore, structureScore");
+                        treeSankoff = SankoffwithStructure2.sankoff(treeStructure);
+                        treeStructure = SankoffwithStructure2.sankoffWithStructure(treeSankoff);
+                        System.out.println(treeSankoff == treeStructure);
+                        ViennaCalls.rnaFold(treeSankoff);
+                        ViennaCalls.rnaFold(treeStructure);
+                        PhyloTreeNode cur = treeSankoff.getRoot();
+                        Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
+                        q.add(cur);
+                        int deepestLayer = 0;
+                        while(!q.isEmpty()){
+                            cur = q.poll();
+                            for(int j = 0; j < cur.getChildren().size(); j++){
+                                q.add(cur.getChildren().get(j));
+                            }
+                            if(cur.getLayer() > deepestLayer) deepestLayer = cur.getLayer();
+                            individualSankoff.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode");
+                            individualSankoff.print(cur.getName() + ", ");
+                            individualSankoff.print(cur.getLayer() + ", ");
+                            individualSankoff.print(cur.getSequence() + ", ");
+                            individualSankoff.print(cur.getFolding() + ", ");
+                            individualSankoff.print(cur.getParsimonyScore() + ", ");
+                            individualSankoff.println(cur == treeSankoff.getRoot());
+                        }
+                        individualSankoff.close();
+                        cur = treeStructure.getRoot();
+                        q = new LinkedList<PhyloTreeNode>();
+                        q.add(cur);
+                        while(!q.isEmpty()){
+                            cur = q.poll();
+                            for(int j = 0; j < cur.getChildren().size(); j++){
+                                q.add(cur.getChildren().get(j));
+                            }
+                            individualStructure.print(cur.getName() + ", ");
+                            individualStructure.print(cur.getLayer() + ", ");
+                            individualStructure.print(cur.getSequence() + ", ");
+                            individualStructure.print(cur.getFolding() + ", ");
+                            individualStructure.print(cur.getParsimonyScore() + ", ");
+                            individualStructure.println(cur == treeSankoff.getRoot());
+
+                        }
+                        individualStructure.close();
+                        summary.print(treeStructure.getName() + ", " + treeSankoff.getRoot().getSequence().length() + ", ");
+                        summary.print(treeStructure.getNumberOfLeafs() + ", ");
+                        summary.print(deepestLayer + ", ");
+                        summary.print(treeSankoff.getRoot().getParsimonyScore() + ", ");
+                        summary.println(treeStructure.getRoot().getParsimonyScore());
+
+
+                    i++;
+                    }catch(IOException ee){
+                        System.out.println("can't make individual file");
+                    }
+                }
+                summary.close();
+            }catch(IOException e){};
+        }catch(IOException e){
+            System.out.print("couldnt create summary file");
+        }
     }
 }
 

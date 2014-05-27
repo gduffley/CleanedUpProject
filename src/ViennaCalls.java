@@ -47,7 +47,6 @@ public class ViennaCalls {
                 }
                 i++;
             }
-            System.out.println(cur.getFolding() + "   " + Double.toString(cur.getEnergy()));
         }
         p.destroy();
 
@@ -82,13 +81,11 @@ public class ViennaCalls {
             String line;
             int i = 0;
             while(i < 1 && ( line = inp.readLine()) != null){
-                //System.out.println(line);
                 line = line.substring(2);
                 line = line.trim();
                 cur.setDistanceFromConsensus(Integer.parseInt(line));
                 i++;
             }
-            System.out.println(cur.getDistanceFromConsensus());
         }
     }
 }

@@ -1,4 +1,4 @@
-import com.sun.javaws.Main;
+ import com.sun.javaws.Main;
 import org.omg.CosNaming._BindingIteratorImplBase;
 
 import java.beans.IndexedPropertyDescriptor;
@@ -14,7 +14,7 @@ public class SankoffwithStructure2 {
 
 
     //Public method to be called
-    public static int sankoff(PhyloTree tree) throws IOException{
+    public static PhyloTree sankoff(PhyloTree tree) throws IOException{
         Collection<String> singleBases = new ArrayList<String>();
         singleBases.add("A");
         singleBases.add("C");
@@ -32,9 +32,6 @@ public class SankoffwithStructure2 {
         while(curNode.getChildren().size() > 0) curNode = curNode.getChildren().get(0);
         String sequence = curNode.getSequence();
         for(int i = 0; i < sequence.length(); i++){
-            if(i == 114){
-                int breakage = 0;
-            }
             bestBase = "";
             bestScore = -MainMethodClass.INF;
             Iterator<String> it = singleBases.iterator();
@@ -78,9 +75,10 @@ public class SankoffwithStructure2 {
             parsimonyScore += parsimonyScore;
         }
         root.setSequence(newSequence);
-        return parsimonyScore;
+        layerAndParsimony(tree);
+        return tree;
     }
-    public static int sankoffWithStructure(PhyloTree tree) throws IOException {
+    public static PhyloTree sankoffWithStructure(PhyloTree tree) throws IOException {
         /**TODO: Update the data structure of the nodes to be a 2D array to store best values
          *just like what we have now, except make it 2D for every spot in the sequence
          */
@@ -230,7 +228,8 @@ public class SankoffwithStructure2 {
             }
             curNode.setSequence(newSequenceString);
         }
-        return parsimonyScore;
+        layerAndParsimony(tree);
+        return tree;
     }
     // Cases:
    /*
@@ -258,7 +257,7 @@ public class SankoffwithStructure2 {
         String curBaseR;
         String bestBaseL = "";
         String bestBaseR = "";
-        if(pairIndexL > 0 && basePairL.get(pairIndexL) != index){
+        if(pairIndexL >= 0 && basePairL.get(pairIndexL) != index){
            Iterator<String> itL = singleBases.iterator();
            while(itL.hasNext()){
                curBaseL = itL.next();
@@ -319,7 +318,7 @@ public class SankoffwithStructure2 {
             int whatisgoingon = 100;
         }
         //this may not work
-        if(pairIndexR > 0 && basePairR.get(pairIndexR) != index){
+        if(pairIndexR >= 0 && basePairR.get(pairIndexR) != index){
             Iterator<String> itR = singleBases.iterator();
             while(itR.hasNext()){
                 curBaseR = itR.next();
@@ -649,7 +648,6 @@ public class SankoffwithStructure2 {
         Iterator<String> itDif = pairedBases.iterator();
         while(itDif.hasNext()){
             String curBaseDif = itDif.next();
-            //System.out.println(different.getName() + " " + indexDif + " " + indexDifPair + " " + bases);
              int curScoreDif = transitionAndScoreDifferent(different, indexDif, indexDifPair, bases, curBaseDif, pairedBases,
                     singleBases);
             if(curScoreDif > bestScoreDif){
@@ -741,10 +739,44 @@ public class SankoffwithStructure2 {
         PhyloTreeNode childR;
         if(node.getChildren().size() < 2){
             String curBaseFromSequence = node.getSequence().substring(index, index+1);
+            if(!curBaseFromSequence.equals("G") && !curBaseFromSequence.equals("A") && !curBaseFromSequence.equals("C")
+                    && !curBaseFromSequence.equals("U") && !curBaseFromSequence.equals(".")
+                    && !curBaseFromSequence.equals("N") && !curBaseFromSequence.equals("R")
+                    && !curBaseFromSequence.equals("Y") && !curBaseFromSequence.equals("W")
+                    && !curBaseFromSequence.equals("M") && !curBaseFromSequence.equals("K")){
+                int reqrqer = 83838;
+            }
             if(curBaseFromSequence.equals(curBase)) return 0;
             if(curBaseFromSequence.equals("N")) return 0;
+            if(curBaseFromSequence.equals("R")){
+                if(curBase.equals("A") || curBase.equals("G")) return 0;
+            }
             if(curBaseFromSequence.equals("Y")){
                 if(curBase.equals("C") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("W")){
+                if(curBase.equals("A") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("M")){
+                if(curBase.equals("A") || curBase.equals("C")) return 0;
+            }
+            if(curBaseFromSequence.equals("K")){
+                if(curBase.equals("G") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("S")){
+                if(curBase.equals("C") || curBase.equals("G")) return 0;
+            }
+            if(curBaseFromSequence.equals("B")){
+                if(curBase.equals("C") || curBase.equals("G") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("V")){
+                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("G")) return 0;
+            }
+            if(curBaseFromSequence.equals("H")){
+                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("D")){
+                if(curBase.equals("A") || curBase.equals("G") || curBase.equals("T")) return 0;
             }
             else return -MainMethodClass.INF;
         }
@@ -808,9 +840,6 @@ public class SankoffwithStructure2 {
                 }
             }
             else{
-                if(curNode.getName().equals("X04512.1/2563-2632")){
-                    int takearest = 3243;
-                }
                 foldingFromVienna(curNode);
                 sequence = curNode.getSequence();
                 folding = curNode.getFolding();
@@ -875,15 +904,15 @@ public class SankoffwithStructure2 {
         out.write(seq);
         out.flush();
         String line;
-        int i = 0;
-        while(i < 2 && ( line = inp.readLine()) != null){
-            if(i == 1){
+        int j = 0;
+        while(j < 2 && ( line = inp.readLine()) != null){
+            if(j == 1){
                 int lastClosed = line.lastIndexOf(")");
                 int lastOpen = MainMethodClass.findClosestOpen(lastClosed, line);
                 String energy = line.substring(lastOpen);
                 line = line.substring(0, lastOpen);
                 line = line.replace(" ", "");
-                for(i = 0; i < gaps.size(); i++){
+                for(int i = 0; i < gaps.size(); i++){
                     line = line.substring(0,gaps.get(i)).concat(".".concat(line.substring(gaps.get(i))));
                 }
                 curNode.setFolding(line);
@@ -892,9 +921,50 @@ public class SankoffwithStructure2 {
                 energy =  energy.trim();
                 curNode.setEnergy(Double.parseDouble(energy));
             }
-            i++;
+            j++;
         }
         p.destroy();
 
+    }
+    public static void layerAndParsimony(PhyloTree tree){
+        int parsimonyScore;
+        PhyloTreeNode root = tree.getRoot();
+        Queue<PhyloTreeNode> all = new LinkedList<PhyloTreeNode>();
+        Queue<PhyloTreeNode> leafs = new LinkedList<PhyloTreeNode>();
+        Queue<PhyloTreeNode> bottomUp = new LinkedList<PhyloTreeNode>();
+        all.add(root);
+        PhyloTreeNode cur;
+        while(!all.isEmpty()){
+            cur = all.poll();
+            for(int i = 0; i < cur.getChildren().size(); i++){
+                all.add(cur.getChildren().get(i));
+                cur.getChildren().get(i).setLayer(cur.getLayer() + 1);
+            }
+            if(cur.getChildren().size() < 2) leafs.add(cur);
+        }
+        while(!leafs.isEmpty()){
+            cur = leafs.poll();
+            bottomUp.add(cur.getParent());
+        }
+        while(!bottomUp.isEmpty()){
+            cur = bottomUp.poll();
+            if(cur.getParsimonyScore() == 0){
+                if(cur.getParent() != null) bottomUp.add(cur.getParent());
+                int newScore = 0;
+                String childLSeq = cur.getChildren().get(0).getSequence();
+                String childRSeq = cur.getChildren().get(1).getSequence();
+                String curSeq = cur.getSequence();
+                for(int i = 0; i < cur.getSequence().length(); i++){
+                    if(curSeq.charAt(i) != childLSeq.charAt(i))
+                        newScore += MainMethodClass.cost(curSeq.substring(i, i+1), childLSeq.substring(i, i+1));
+                    if(curSeq.charAt(i) != childRSeq.charAt(i))
+                        newScore += MainMethodClass.cost(curSeq.substring(i, i+1), childRSeq.substring(i, i+1));
+                }
+                newScore = newScore + cur.getChildren().get(0).getParsimonyScore()
+                         + cur.getChildren().get(1).getParsimonyScore();
+                cur.setParsimonyScore(newScore);
+                cur.setLayer(cur.getChildren().get(0).getLayer() + 1);
+            }
+        }
     }
 }

@@ -63,20 +63,6 @@ public class MakeTree {
         catch(IOException ex){
             System.out.println("error reading the file");
         }
-        /*for(int i = 0; i < sequenceVariations.size(); i++){
-            String seq = sequenceVariations.get(i).getSequence();
-            String newSeq = "";
-            char[] seqArray = seq.toCharArray();
-            for(int j = 0; j < seq.length(); j++){
-                if(seqArray[j] == 'Y') seqArray[j] = 'C';
-            }
-            for(int j = 0; j < seqArray.length; j++){
-                newSeq = newSeq.concat(Character.toString(seqArray[j]));
-            }
-            sequenceVariations.get(i).setSequence(newSeq);
-            int afa = 342;
-        }
-        */
     }
 
     //identify the most inner bracket --> find the first )
@@ -152,6 +138,7 @@ public class MakeTree {
                     else break;
                 }
             }
+            tree.setNumberOfLeafs(sequenceVariations.size());
         }
         catch(FileNotFoundException ex) {
             System.out.println("no file homie1");
@@ -159,6 +146,7 @@ public class MakeTree {
         catch(IOException ex){
             System.out.println("error reading the file");
         }
+        tree.setName(name);
     }
     //method that takes a layer of 2 and combines the 2 nodes into a new parent node
     private static PhyloTreeNode twoLayer(String layer) {
@@ -214,6 +202,9 @@ public class MakeTree {
         }
     }
     public static PhyloTree makeTree(String args0, String args1) throws IOException {
+        if(alphCounter == 0){
+            int dfdf = 3334343;
+        }
         stockholmParse(args0);
         phyloTreeCreator(args1);
         //sequenceMod();
