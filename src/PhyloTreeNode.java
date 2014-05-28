@@ -138,6 +138,10 @@ public class PhyloTreeNode {
         return MainMethodClass.INF;
     }
 
+    public void setBasePairs(ArrayList<Integer> basePairs) {
+        this.basePairs = basePairs;
+    }
+
     public void setBaseIfParent(int index, String parent, String base){
         try{
             baseIfParent.get(index);
@@ -324,6 +328,7 @@ public class PhyloTreeNode {
         this.sequence = sequence;
         this.parent = null;
         parsimonyScore = 0;
+        this.folding = null;
 
     }
 
