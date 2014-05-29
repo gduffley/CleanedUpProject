@@ -173,7 +173,7 @@ public class SankoffwithStructure2 {
                 }
                 parsimonyScore += bestScore;
             }
-            else{
+            else if(root.getBasePair(i) == -2){
                 Iterator<String> it = singleBases.iterator();
                 int curScore;
                 int bestScore = -MainMethodClass.INF;
@@ -259,7 +259,7 @@ public class SankoffwithStructure2 {
         String curBaseR;
         String bestBaseL = "";
         String bestBaseR = "";
-        if(pairIndexL >= 0 && basePairL.get(pairIndexL) != index){
+        if(pairIndexL == -2){
            Iterator<String> itL = singleBases.iterator();
            while(itL.hasNext()){
                curBaseL = itL.next();
@@ -321,7 +321,7 @@ public class SankoffwithStructure2 {
             int whatisgoingon = 100;
         }
         //this may not work
-        if(pairIndexR >= 0 && basePairR.get(pairIndexR) != index){
+        if(pairIndexR == -2){
             Iterator<String> itR = singleBases.iterator();
             while(itR.hasNext()){
                 curBaseR = itR.next();
@@ -455,7 +455,7 @@ public class SankoffwithStructure2 {
         else if(RChildSame && Lindex1pairing && !Lindex2pairing) return differentAndSingle(RChild, LChild, index2,
                 index1, bases, singleBases, pairedBases);
         else if(RChildSame && !Lindex1pairing && Lindex2pairing) return differentAndSingle(RChild, LChild, index1,
-                index2, bases, singleBases, pairedBases); 
+                index2, bases, singleBases, pairedBases);
         else return 1;
     }
 
@@ -911,6 +911,8 @@ public class SankoffwithStructure2 {
                     else if(folding.charAt(i) == ')');
                     else curNode.setNoBP(i);
                 }
+            }
+        }
                     //pass up all folds, and -1 at no pairs if the parent doesn't have any folding
                     PhyloTreeNode curNodeUp = curNode;
                 /*
@@ -931,47 +933,75 @@ public class SankoffwithStructure2 {
                         }
                     }
                     */
-                Queue<PhyloTreeNode> leafs = new LinkedList<PhyloTreeNode>();
-                Queue<PhyloTreeNode> all = new LinkedList<PhyloTreeNode>();
-                curNode = tree.getRoot();
-                all.add(curNode);
-                while(!all.isEmpty()){
-                    curNode = all.poll();
-                    for(int i = 0; i < curNode.getChildren().size(); i++){
-                        all.add(curNode.getChildren().get(i));
-                    }
-                    if(curNode.getChildren().size() == 0) leafs.add(curNode);
-                }
-                while(!leafs.isEmpty()){
-                    curNode = leafs.poll();
-                    if(curNode.getParent() != null) leafs.add(curNode.getParent());
-                }
-                if(curNode.getFolding() == null) curNode.setBasePairs(mergeFold(curNode.getChildren().get(0),
+        Queue<PhyloTreeNode> leafs = new LinkedList<PhyloTreeNode>();
+        Queue<PhyloTreeNode> all = new LinkedList<PhyloTreeNode>();
+        curNode = tree.getRoot();
+        all.add(curNode);
+        while(!all.isEmpty()){
+            curNode = all.poll();
+            for(int i = 0; i < curNode.getChildren().size(); i++){
+                all.add(curNode.getChildren().get(i));
+            }
+            if(curNode.getChildren().size() == 0) leafs.add(curNode);
+        }
+        while(!leafs.isEmpty()){
+            curNode = leafs.poll();
+            if(curNode.getParent() != null) leafs.add(curNode.getParent());
+            if(curNode.getBasePairs().size() == 0 && curNode.getChildren().get(0).getBasePairs().size() > 0
+                    && curNode.getChildren().get(1).getBasePairs().size() > 0){
+                curNode.setBasePairs(mergeFold(curNode.getChildren().get(0),
                         curNode.getChildren().get(1)));
+
             }
         }
     }
     //Add all folding that is the same, belongs to the consensus sequence as long as there are no
     //pseudoknots, and also any that either child has that doesn't cause pseudoknots
+    //Output will be the an ArrayList with -1 for bases that are single and all children below are single,
+    //-2 for all bases that aren't paired in the new sequence but have a child paired in the nodes below,
+    //and if there is a pair, that is represented in the ArrayList
     private static ArrayList<Integer> mergeFold(PhyloTreeNode node2, PhyloTreeNode node1) {
         ArrayList<Integer> bp1 = node1.getBasePairs();
         ArrayList<Integer> bp2 = node2.getBasePairs();
-        ArrayList<Integer> bpComb = new ArrayList<Integer>();
+        ArrayList<Integer> bpComb = new ArrayList<Integer>(bp1.size());
         for(int i = 0; i < bp1.size(); i++){
-            if(bp1.get(i) == bp2.get(i) && bp1.get(bp1.get(i)) == bp2.get(bp2.get(i))){
-                try{
-                    bpComb.set(i, bp1.get(i));
-                    bpComb.set(bp1.get(i), i);
-                }catch(IndexOutOfBoundsException e){
-                    for(int j = bpComb.size(); j <= Math.max(bp1.get(i), i); j++){
-                        bpComb.add(-1);
-                    }
-                }
+            bpComb.add(-3);
+        }
+        //For loop adds all of the basepairs that are shared by both nodes to the new ArrayList<Integer>
+        for(int i = 0; i < bp1.size(); i++){
+            if(bp1.get(i) >= 0 && bp2.get(i) >= 0 && bp1.get(i) == bp2.get(i) && bp1.get(bp1.get(i)) == bp2.get(bp2.get(i))){
                 bpComb.set(i, bp1.get(i));
                 bpComb.set(bp1.get(i), i);
             }
         }
-
+        //all add all basepairs that one of them have and don't cause a pseudoknot
+        for(int i = 0; i < bp1.size(); i++){
+            if(bp1.get(i) >= 0 && i > bp1.get(i) && bp1.get(bp1.get(i)) == i && pseudoknotCheck(bpComb, i, bp1.get(i))){
+                bpComb.set(i, bp1.get(i));
+                bpComb.set(bp1.get(i), i);
+            }
+            if(bp2.get(i) >= 0 && i > bp2.get(i) && bp2.get(bp2.get(i)) == i && pseudoknotCheck(bpComb, i, bp2.get(i))){
+                bpComb.set(bp2.get(i), i);
+                bpComb.set(i, bp2.get(i));
+            }
+        }
+        for(int i = 0; i < bp1.size(); i++){
+            if((bp1.get(i) == -2 || bp1.get(i) >= 0) && bpComb.get(i) == -3) bpComb.set(i, -2);
+            if((bp2.get(i) == -2 || bp2.get(i) >= 0) && bpComb.get(i) == -3) bpComb.set(i, -2);
+            if(bpComb.get(i) == -3) bpComb.set(i, -1);
+        }
+        return bpComb;
+    }
+    //Retruns true if adding the bases to the ArrayList would NOT create a pseudoknot
+    private static boolean pseudoknotCheck(ArrayList<Integer> bpComb, int i1, int i2) {
+        boolean knot = true;
+        if(bpComb.get(i1) >= 0 || bpComb.get(i2) >= 0) return false;
+        for(int i = 0; i< bpComb.size(); i++){
+            if(bpComb.get(i) >= 0){
+                if(!((i1 > i && i2 < bpComb.get(i)) || (i1 < i && i2 > bpComb.get(i)))) knot = false;
+            }
+        }
+        return knot;
     }
 
     private static int getPseudoScore(PhyloTreeNode node, int index, String curBase, String parent,
