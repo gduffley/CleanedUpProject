@@ -105,7 +105,8 @@ public class MainMethodClass {
         String path = "C:\\Users\\Gordon\\Dropbox\\Winter2014\\Comp401\\Alignments+Trees\\";
         int i = 0;
         try{
-            PrintWriter summary = new PrintWriter("summary.csv");
+            PrintWriter summary = new PrintWriter("summaryFolding1.csv");
+            summary.println("name, seqLength, numOfSeqs, numOfLayers, sankoffScore, structureScore");
             try {
                 FileReader fileReader = new FileReader(Args[0]);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -119,17 +120,30 @@ public class MainMethodClass {
                     PhyloTree treeSankoff = treeMakerSankoff.getTree();
                     PhyloTree treeStructure = treeMakerStructure.getTree();
                     try{
-                        PrintWriter individualSankoff = new PrintWriter(treeStructure.getName() + "Sankoff.csv");
-                        PrintWriter individualStructure = new PrintWriter(treeStructure.getName() + "Structure.csv");
-                        individualStructure.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode");
-                        summary.println("name, seqLength, numOfSeqs, numOfLayers, sankoffScore, structureScore");
+                        PrintWriter individualSankoff = new PrintWriter(treeStructure.getName() + "SankoffFolding1.csv");
+                        PrintWriter individualStructure = new PrintWriter(treeStructure.getName() + "StructureFolding1.csv");
+                        individualStructure.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode," +
+                                " distanceFromConsensus, distanceFromImpossed, energy, boolRoot");
+                        individualSankoff.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode," +
+                                " distanceFromConsensus, distanceFromImpossed, energy, boolRoot");
                         SankoffwithStructure2 sankoff = new SankoffwithStructure2();
                         SankoffwithStructure2 structure = new SankoffwithStructure2();
-                        sankoff.sankoff(treeStructure);
-                        structure.sankoffWithStructure(treeSankoff);
-                        System.out.println(treeSankoff == treeStructure);
+                        sankoff.sankoff(treeSankoff);
+                        //printTree(treeSankoff);
+                        //printTree(treeStructure);
+                        structure.sankoffWithStructure(treeStructure);
                         ViennaCalls.rnaFold(treeSankoff);
                         ViennaCalls.rnaFold(treeStructure);
+                        boolean pseudoKnot = false;
+                        for(int k = 0; k < treeSankoff.getConsensusSequence().length(); k++){
+                            String letter = treeSankoff.getConsensusSequence().substring(k, k+1);
+                            if(letter != "<" && letter != ">" && letter != ".") pseudoKnot = true;
+                        }
+                        if(!pseudoKnot){
+                            ViennaCalls.calcDistancesFromConsensus(treeSankoff);
+                            ViennaCalls.calcDistancesFromConsensus(treeStructure);
+                        }
+                        ViennaCalls.calcDistanceFromImposed(treeStructure);
                         PhyloTreeNode cur = treeSankoff.getRoot();
                         Queue<PhyloTreeNode> q = new LinkedList<PhyloTreeNode>();
                         q.add(cur);
@@ -140,12 +154,13 @@ public class MainMethodClass {
                                 q.add(cur.getChildren().get(j));
                             }
                             if(cur.getLayer() > deepestLayer) deepestLayer = cur.getLayer();
-                            individualSankoff.println("nameOfNode, layer, sequence, folding, parsimonyScoreAtNode");
                             individualSankoff.print(cur.getName() + ", ");
                             individualSankoff.print(cur.getLayer() + ", ");
                             individualSankoff.print(cur.getSequence() + ", ");
                             individualSankoff.print(cur.getFolding() + ", ");
                             individualSankoff.print(cur.getParsimonyScore() + ", ");
+                            individualSankoff.print(cur.getDistanceFromConsensus() + ", null, ");
+                            individualSankoff.print(cur.getEnergy() + ", ");
                             individualSankoff.println(cur == treeSankoff.getRoot());
                         }
                         individualSankoff.close();
@@ -162,6 +177,9 @@ public class MainMethodClass {
                             individualStructure.print(cur.getSequence() + ", ");
                             individualStructure.print(cur.getFolding() + ", ");
                             individualStructure.print(cur.getParsimonyScore() + ", ");
+                            individualStructure.print(cur.getDistanceFromConsensus() + ", ");
+                            individualStructure.print(cur.getDistFromImpossed() + ", ");
+                            individualStructure.print(cur.getEnergy() + ", ");
                             individualStructure.println(cur == treeSankoff.getRoot());
 
                         }

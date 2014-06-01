@@ -1,5 +1,6 @@
  import com.sun.javaws.Main;
-import org.omg.CosNaming._BindingIteratorImplBase;
+ import com.sun.org.apache.regexp.internal.recompile;
+ import org.omg.CosNaming._BindingIteratorImplBase;
 
 import java.beans.IndexedPropertyDescriptor;
 import java.io.*;
@@ -43,6 +44,7 @@ public class SankoffwithStructure2 {
                     bestScore = curScore;
                 }
             }
+            parsimonyScore += bestScore;
             if(bestBase.equals("")){
                 int breaker = 4+4;
             }
@@ -56,9 +58,6 @@ public class SankoffwithStructure2 {
                 for(int j = 0; j < curNode.getChildren().size(); j++){
                     if(curNode.getChildren().get(j).getChildren().size() > 0){
                         PhyloTreeNode curChild = curNode.getChildren().get(j);
-                        if(i == 114){
-                            int fdfd = 2 + 2;
-                        }
                         curBase = curNode.getSequence().substring(i, i+1);
                         q.add(curChild);
                         if(i == 0) {
@@ -72,9 +71,8 @@ public class SankoffwithStructure2 {
                     }
                 }
             }
-            parsimonyScore += parsimonyScore;
         }
-        root.setSequence(newSequence);
+        //System.out.println(parsimonyScore);
         layerAndParsimony(tree);
         return tree;
     }
@@ -140,7 +138,7 @@ public class SankoffwithStructure2 {
                     for(int k = newSequence.size(); k <= i; k++) newSequence.add(k, "");
                     newSequence.set(i, bestBase);
                 }
-                if(bestScore <= -MainMethodClass.INF){
+                if(bestBase.equals("")){
                     int rest = 99;
                 }
                 parsimonyScore += bestScore;
@@ -168,7 +166,7 @@ public class SankoffwithStructure2 {
                     newSequence.set(i, bestBases.substring(1));
                     newSequence.set(j, bestBases.substring(0,1));
                 }
-                if(bestScore <= -MainMethodClass.INF){
+                if(bestBases.equals("")){
                     int rest = 99;
                 }
                 parsimonyScore += bestScore;
@@ -223,12 +221,19 @@ public class SankoffwithStructure2 {
             if(curNode.getChildren().size() > 0 && curNode != tree.getRoot()){
                 newSequenceString = "";
                 String parentSequence = curNode.getParent().getSequence();
-                for(int i = 0; i < sequence.length() -1; i++){
-                    newSequenceString =
-                            newSequenceString.concat(curNode.getBaseIfParent(i, parentSequence.substring(i,i+1)));
+                for(int i = 0; i < sequence.length(); i++){
+                    if(false){
+                        int pasue = 343;
+                    }
+                    try{
+                        newSequenceString =
+                                newSequenceString.concat(curNode.getBaseIfParent(i, parentSequence.substring(i,i+1)));
+                    }catch(NullPointerException e){
+                        int dfd = 4343;
+                    }
                 }
+                curNode.setSequence(newSequenceString);
             }
-            curNode.setSequence(newSequenceString);
         }
         layerAndParsimony(tree);
         return tree;
@@ -241,7 +246,109 @@ public class SankoffwithStructure2 {
     3)The index passed has pseudopairing
 
     */
-
+    private static int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {
+        int scoreL;
+        int scoreR;
+        int bestScoreL = -MainMethodClass.INF;
+        int bestScoreR = -MainMethodClass.INF;
+        int curScore;
+        int bestScore = -MainMethodClass.INF;
+        String curBaseR;
+        String curBaseL;
+        String bestBaseR = "";
+        String bestBaseL = "";
+        PhyloTreeNode childL;
+        PhyloTreeNode childR;
+        if(node.getName().equals("43") && index == 9){
+            int ffff = 333;
+        }
+        if(node.getChildren().size() < 2){
+            String curBaseFromSequence = node.getSequence().substring(index, index+1);
+            if(!curBaseFromSequence.equals("G") && !curBaseFromSequence.equals("A") && !curBaseFromSequence.equals("C")
+                    && !curBaseFromSequence.equals("U") && !curBaseFromSequence.equals(".")
+                    && !curBaseFromSequence.equals("N") && !curBaseFromSequence.equals("R")
+                    && !curBaseFromSequence.equals("Y") && !curBaseFromSequence.equals("W")
+                    && !curBaseFromSequence.equals("M") && !curBaseFromSequence.equals("K")){
+                int reqrqer = 83838;
+            }
+            if(curBaseFromSequence.equals(curBase)) return 0;
+            if(curBaseFromSequence.equals("N")) return 0;
+            if(curBaseFromSequence.equals("R")){
+                if(curBase.equals("A") || curBase.equals("G")) return 0;
+            }
+            if(curBaseFromSequence.equals("Y")){
+                if(curBase.equals("C") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("W")){
+                if(curBase.equals("A") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("M")){
+                if(curBase.equals("A") || curBase.equals("C")) return 0;
+            }
+            if(curBaseFromSequence.equals("K")){
+                if(curBase.equals("G") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("S")){
+                if(curBase.equals("C") || curBase.equals("G")) return 0;
+            }
+            if(curBaseFromSequence.equals("B")){
+                if(curBase.equals("C") || curBase.equals("G") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("V")){
+                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("G")) return 0;
+            }
+            if(curBaseFromSequence.equals("H")){
+                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("T")) return 0;
+            }
+            if(curBaseFromSequence.equals("D")){
+                if(curBase.equals("A") || curBase.equals("G") || curBase.equals("T")) return 0;
+            }
+            else return -MainMethodClass.INF;
+        }
+        else{
+            childL = node.getChildren().get(0);
+            childR = node.getChildren().get(1);
+            Iterator<String> itL = singleBases.iterator();
+            while(itL.hasNext()){
+                curBaseL = itL.next();
+                try{
+                    scoreL = childL.getSankoffScore(index, curBaseL);
+                }catch(IndexOutOfBoundsException e){
+                    scoreL = sankoffSingle(childL, curBaseL, index, singleBases);
+                    childL.addSankoffScore(index, curBaseL, scoreL);
+                }
+                scoreL += MainMethodClass.cost(curBase, curBaseL);
+                if(scoreL > bestScoreL){
+                    bestScoreL = scoreL;
+                    bestBaseL = curBaseL;
+                }
+            }
+            Iterator<String> itR = singleBases.iterator();
+            while(itR.hasNext()){
+                curBaseR = itR.next();
+                try{
+                    scoreR = childR.getSankoffScore(index, curBaseR);
+                }catch(IndexOutOfBoundsException e){
+                    scoreR = sankoffSingle(childR, curBaseR, index, singleBases);
+                    childR.addSankoffScore(index, curBaseR, scoreR);
+                }
+                scoreR += MainMethodClass.cost(curBase, curBaseR);
+                if(scoreR > bestScoreR){
+                    bestScoreR = scoreR;
+                    bestBaseR = curBaseR;
+                }
+            }
+            if(childL.getChildren().size() < 2 && bestBaseL == ""){
+                int breakdsa = 3243;
+            }
+            if(childR.getChildren().size() < 2 && bestBaseR == ""){
+                int adfadf =343443;
+            }
+            childL.setBaseIfParent(index, curBase, bestBaseL);
+            childR.setBaseIfParent(index, curBase, bestBaseR);
+        }
+        return bestScoreR + bestScoreL;
+    }
 
     private static int sankoffPseudoPair(PhyloTreeNode node, String curBase, int index,
                                          Collection<String> singleBases, Collection<String> pairedBases) {
@@ -259,6 +366,9 @@ public class SankoffwithStructure2 {
         String curBaseR;
         String bestBaseL = "";
         String bestBaseR = "";
+        if(node.getName().equals("43") && index == 9){
+           int ffff = 333;
+        }
         if(pairIndexL == -2){
            Iterator<String> itL = singleBases.iterator();
            while(itL.hasNext()){
@@ -377,8 +487,8 @@ public class SankoffwithStructure2 {
         else{
             int what = 333;
         }
-        if(childL.getName().equals("2") && index == 1){
-            int takeabreak = 3423;
+        if(bestBaseL.equals("") || bestBaseR.equals("")){
+            int adfas = 223432;
         }
         try{
             childL.setBaseIfParent(index, curBase, bestBaseL.substring(0,1));
@@ -405,21 +515,25 @@ public class SankoffwithStructure2 {
                     node.getSequence().charAt(index2) == bases.charAt(1)) return 0;
             else return -MainMethodClass.INF;
         }
+        if((index1 == 9 || index2 == 9) && (node.getName().equals("45") || node.getName().equals("44") ||
+                node.getName().equals("42"))){
+            int ffff = 333;
+        }
         PhyloTreeNode LChild = node.getChildren().get(0);
         PhyloTreeNode RChild = node.getChildren().get(1);
         boolean LChildSame = false;
         boolean RChildSame = false;
-        boolean Rindex1pairing = false;
-        boolean Rindex2pairing = false;
-        boolean Lindex1pairing = false;
-        boolean Lindex2pairing = false;
+        boolean Rindex1Single = false;
+        boolean Rindex2Single = false;
+        boolean Lindex1Single = false;
+        boolean Lindex2Single = false;
 
         if(LChild.getBasePair(index1) == index2 && LChild.getBasePair(index2) == index1) LChildSame = true;
         if(RChild.getBasePair(index1) == index2 && RChild.getBasePair(index2) == index1) RChildSame = true;
-        if(LChild.getBasePair(index1) > -1) Lindex1pairing = true;
-        if(LChild.getBasePair(index2) > -1) Lindex2pairing = true;
-        if(RChild.getBasePair(index1) > -1) Rindex1pairing = true;
-        if(RChild.getBasePair(index2) > -1) Rindex2pairing = true;
+        if(LChild.getBasePair(index1) == -1) Lindex1Single = true;
+        if(LChild.getBasePair(index2) == -1) Lindex2Single = true;
+        if(RChild.getBasePair(index1) == -1) Rindex1Single = true;
+        if(RChild.getBasePair(index2) == -1) Rindex2Single = true;
 
         if(node.getName().equals("3") && index1 == 1){
             int sdfdf = 343;
@@ -436,25 +550,25 @@ public class SankoffwithStructure2 {
         if(LChildSame && RChildSame) return samePairing(LChild, RChild, index1, index2, bases, pairedBases, singleBases);
 
         //Case 3
-        else if(LChildSame && !Rindex1pairing && !Rindex2pairing) return bothSingle(index1, index2, LChild, RChild,
+        else if(LChildSame && Rindex1Single && Rindex2Single) return bothSingle(index1, index2, LChild, RChild,
                 bases, pairedBases, singleBases);
-        else if(RChildSame && !Lindex1pairing && !Lindex2pairing) return bothSingle(index1, index2, RChild, LChild,
+        else if(RChildSame && Lindex1Single && Lindex2Single) return bothSingle(index1, index2, RChild, LChild,
                 bases, pairedBases, singleBases);
 
         //Case 4
-        else if(RChildSame && Lindex1pairing && Lindex2pairing) return bothDifferent(RChild, LChild, index1,
+        else if(RChildSame && !Lindex1Single && !Lindex2Single) return bothDifferent(RChild, LChild, index1,
                 index2, bases, singleBases, pairedBases);
-        else if(LChildSame && Rindex1pairing && Rindex2pairing) return bothDifferent(LChild, RChild, index1,
+        else if(LChildSame && !Rindex1Single && !Rindex2Single) return bothDifferent(LChild, RChild, index1,
                 index2, bases, singleBases, pairedBases);
 
         //Case 2
-        else if(LChildSame && Rindex1pairing && !Rindex2pairing) return differentAndSingle(LChild, RChild, index2,
+        else if(LChildSame && !Rindex1Single && Rindex2Single) return differentAndSingle(LChild, RChild, index2,
                 index1, bases, singleBases, pairedBases);
-        else if(LChildSame && !Rindex1pairing && Rindex2pairing) return differentAndSingle(LChild, RChild, index1,
+        else if(LChildSame && Rindex1Single && !Rindex2Single) return differentAndSingle(LChild, RChild, index1,
                 index2, bases, singleBases, pairedBases);
-        else if(RChildSame && Lindex1pairing && !Lindex2pairing) return differentAndSingle(RChild, LChild, index2,
+        else if(RChildSame && !Lindex1Single && Lindex2Single) return differentAndSingle(RChild, LChild, index2,
                 index1, bases, singleBases, pairedBases);
-        else if(RChildSame && !Lindex1pairing && Lindex2pairing) return differentAndSingle(RChild, LChild, index1,
+        else if(RChildSame && Lindex1Single && !Lindex2Single) return differentAndSingle(RChild, LChild, index1,
                 index2, bases, singleBases, pairedBases);
         else return 1;
     }
@@ -557,6 +671,7 @@ public class SankoffwithStructure2 {
     //This is the potential problem, weighting the base that is the same too much
     private static int bothDifferent(PhyloTreeNode same, PhyloTreeNode different, int index1, int index2,
                                  String bases, Collection<String> singleBases, Collection<String> pairedBases){
+
         int index1PairSame = same.getBasePair(index1);
         int index2PairSame = same.getBasePair(index2);
         int index1PairDif = different.getBasePair(index1);
@@ -570,14 +685,12 @@ public class SankoffwithStructure2 {
         int curScoreSame;
         int curScoreDif1;
         int curScoreDif2;
-        int scoreSame;
-        int scoreDif1;
-        int scoreDif2;
-        int curScore;
-        int bestScore = -MainMethodClass.INF;
         String bestBaseSame = "";
         String bestBaseDif1 = "";
         String bestBaseDif2 = "";
+        if(index1 == 9 || index2 == 9){
+            int fdfd = 33;
+        }
         Iterator<String> sameIt = pairedBases.iterator();
         while(sameIt.hasNext()){
             curBaseSame = sameIt.next();
@@ -591,7 +704,7 @@ public class SankoffwithStructure2 {
         //The big issue is that we are calling SankoffPairs on a different indices but assuming that the parents
         //are the same. This might work, because the string that we are assuming are the parents of the node,
         //will itereate through all of them
-        if(different.getBasePair(index1PairDif) != index1){
+        if(index1PairDif == -2){
             Iterator<String> difL1It = singleBases.iterator();
             while(difL1It.hasNext()){
                 curBaseDif1 = difL1It.next();
@@ -607,7 +720,7 @@ public class SankoffwithStructure2 {
             Iterator<String> dif1It = pairedBases.iterator();
             while(dif1It.hasNext()){
                 curBaseDif1 = dif1It.next();
-                curScoreDif1 = transitionAndScoreDifferent(different, index1, index1PairSame, bases, curBaseDif1, pairedBases,
+                curScoreDif1 = transitionAndScoreDifferent(different, index1, index1PairDif, bases, curBaseDif1, pairedBases, //changes this line
                         singleBases);
                 if(curScoreDif1 > bestScoreDif1){
                     bestScoreDif1 = curScoreDif1;
@@ -615,11 +728,11 @@ public class SankoffwithStructure2 {
                 }
             }
          }
-        if(different.getBasePair(index2PairDif) != index2){
+        if(index2PairDif == -2){
             Iterator<String> difL2It = singleBases.iterator();
             while(difL2It.hasNext()){
                 curBaseDif2 = difL2It.next();
-                curScoreDif2 = getPseudoScore(different, index1, curBaseDif2, bases.substring(1),
+                curScoreDif2 = getPseudoScore(different, index2, curBaseDif2, bases.substring(1),
                         singleBases, pairedBases);
                 if(curScoreDif2 > bestScoreDif2){
                     bestScoreDif2 = curScoreDif2;
@@ -631,7 +744,7 @@ public class SankoffwithStructure2 {
             Iterator<String> dif2It = pairedBases.iterator();
             while(dif2It.hasNext()){
                 curBaseDif2 = dif2It.next();
-                curScoreDif2 = transitionAndScoreDifferent(different, index2, index2PairSame, bases, curBaseDif2,
+                curScoreDif2 = transitionAndScoreDifferent(different, index2, index2PairDif, bases, curBaseDif2, //changed this line
                         pairedBases, singleBases);
                 if(curScoreDif2 > bestScoreDif2){
                     bestScoreDif2 = curScoreDif2;
@@ -681,7 +794,7 @@ public class SankoffwithStructure2 {
                 bestBaseSame = curBaseSame;
             }
         }
-        if(different.getBasePair(indexDifPair) != indexDif){
+        if(indexDifPair == -2){
             Iterator<String> itDif = singleBases.iterator();
             while(itDif.hasNext()){
                 String curBaseDif = itDif.next();
@@ -774,106 +887,7 @@ public class SankoffwithStructure2 {
 
 
     //method called on all of the single bases
-    private static int sankoffSingle(PhyloTreeNode node, String curBase, int index, Collection<String> singleBases) {
-        int scoreL;
-        int scoreR;
-        int bestScoreL = -MainMethodClass.INF;
-        int bestScoreR = -MainMethodClass.INF;
-        int curScore;
-        int bestScore = -MainMethodClass.INF;
-        String curBaseR;
-        String curBaseL;
-        String bestBaseR = "";
-        String bestBaseL = "";
-        PhyloTreeNode childL;
-        PhyloTreeNode childR;
-        if(node.getChildren().size() < 2){
-            String curBaseFromSequence = node.getSequence().substring(index, index+1);
-            if(!curBaseFromSequence.equals("G") && !curBaseFromSequence.equals("A") && !curBaseFromSequence.equals("C")
-                    && !curBaseFromSequence.equals("U") && !curBaseFromSequence.equals(".")
-                    && !curBaseFromSequence.equals("N") && !curBaseFromSequence.equals("R")
-                    && !curBaseFromSequence.equals("Y") && !curBaseFromSequence.equals("W")
-                    && !curBaseFromSequence.equals("M") && !curBaseFromSequence.equals("K")){
-                int reqrqer = 83838;
-            }
-            if(curBaseFromSequence.equals(curBase)) return 0;
-            if(curBaseFromSequence.equals("N")) return 0;
-            if(curBaseFromSequence.equals("R")){
-                if(curBase.equals("A") || curBase.equals("G")) return 0;
-            }
-            if(curBaseFromSequence.equals("Y")){
-                if(curBase.equals("C") || curBase.equals("T")) return 0;
-            }
-            if(curBaseFromSequence.equals("W")){
-                if(curBase.equals("A") || curBase.equals("T")) return 0;
-            }
-            if(curBaseFromSequence.equals("M")){
-                if(curBase.equals("A") || curBase.equals("C")) return 0;
-            }
-            if(curBaseFromSequence.equals("K")){
-                if(curBase.equals("G") || curBase.equals("T")) return 0;
-            }
-            if(curBaseFromSequence.equals("S")){
-                if(curBase.equals("C") || curBase.equals("G")) return 0;
-            }
-            if(curBaseFromSequence.equals("B")){
-                if(curBase.equals("C") || curBase.equals("G") || curBase.equals("T")) return 0;
-            }
-            if(curBaseFromSequence.equals("V")){
-                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("G")) return 0;
-            }
-            if(curBaseFromSequence.equals("H")){
-                if(curBase.equals("A") || curBase.equals("C") || curBase.equals("T")) return 0;
-            }
-            if(curBaseFromSequence.equals("D")){
-                if(curBase.equals("A") || curBase.equals("G") || curBase.equals("T")) return 0;
-            }
-            else return -MainMethodClass.INF;
-        }
-        else{
-            childL = node.getChildren().get(0);
-            childR = node.getChildren().get(1);
-            Iterator<String> itL = singleBases.iterator();
-            while(itL.hasNext()){
-                curBaseL = itL.next();
-                try{
-                    scoreL = childL.getSankoffScore(index, curBaseL);
-                }catch(IndexOutOfBoundsException e){
-                    scoreL = sankoffSingle(childL, curBaseL, index, singleBases);
-                    childL.addSankoffScore(index, curBaseL, scoreL);
-                }
-                scoreL += MainMethodClass.cost(curBase, curBaseL);
-                if(scoreL > bestScoreL){
-                    bestScoreL = scoreL;
-                    bestBaseL = curBaseL;
-                }
-            }
-            Iterator<String> itR = singleBases.iterator();
-            while(itR.hasNext()){
-                curBaseR = itR.next();
-                try{
-                    scoreR = childR.getSankoffScore(index, curBaseR);
-                }catch(IndexOutOfBoundsException e){
-                    scoreR = sankoffSingle(childR, curBaseR, index, singleBases);
-                    childR.addSankoffScore(index, curBaseR, scoreR);
-                }
-                scoreR += MainMethodClass.cost(curBase, curBaseR);
-                if(scoreR > bestScoreR){
-                    bestScoreR = scoreR;
-                    bestBaseR = curBaseR;
-                }
-            }
-            if(childL.getChildren().size() < 2 && bestBaseL == ""){
-                int breakdsa = 3243;
-            }
-            if(childR.getChildren().size() < 2 && bestBaseR == ""){
-                int adfadf =343443;
-            }
-            childL.setBaseIfParent(index, curBase, bestBaseL);
-            childR.setBaseIfParent(index, curBase, bestBaseR);
-        }
-        return bestScoreR + bestScoreL;
-    }
+
 
     //TODO: edit to make the folding of a node more accurately represent the general folding of the children
 
@@ -1091,6 +1105,9 @@ public class SankoffwithStructure2 {
                 String childRSeq = cur.getChildren().get(1).getSequence();
                 String curSeq = cur.getSequence();
                 for(int i = 0; i < cur.getSequence().length(); i++){
+                    if(childLSeq.length() != childRSeq.length()){
+                        int fdfd = 33;
+                    }
                     if(curSeq.charAt(i) != childLSeq.charAt(i))
                         newScore += MainMethodClass.cost(curSeq.substring(i, i+1), childLSeq.substring(i, i+1));
                     if(curSeq.charAt(i) != childRSeq.charAt(i))
@@ -1101,6 +1118,30 @@ public class SankoffwithStructure2 {
                 cur.setParsimonyScore(newScore);
                 cur.setLayer(cur.getChildren().get(0).getLayer() + 1);
             }
+        }
+        recursiveParsimony(root);
+    }
+
+    private static int recursiveParsimony(PhyloTreeNode node) {
+        if(node.getChildren().size() == 0){
+            node.setParsimonyScore(0);
+            return 0;
+        }
+        else{
+            String childLSeq = node.getChildren().get(0).getSequence();
+            String childRSeq = node.getChildren().get(1).getSequence();
+            String curSeq = node.getSequence();
+            int newScore = 0;
+            for(int i = 0; i < node.getSequence().length(); i++){
+                if(curSeq.charAt(i) != childLSeq.charAt(i))
+                    newScore += MainMethodClass.cost(curSeq.substring(i, i+1), childLSeq.substring(i, i+1));
+                if(curSeq.charAt(i) != childRSeq.charAt(i))
+                    newScore += MainMethodClass.cost(curSeq.substring(i, i+1), childRSeq.substring(i, i+1));
+            }
+            newScore = newScore + recursiveParsimony(node.getChildren().get(0))
+                    + recursiveParsimony(node.getChildren().get(1));
+            node.setParsimonyScore(newScore);
+            return newScore;
         }
     }
 }

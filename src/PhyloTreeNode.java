@@ -22,6 +22,15 @@ public class PhyloTreeNode {
     private ArrayList<String[]> baseIfParent = new ArrayList<String[]>();
     private int parsimonyScore;
     private int layer;
+    private int distFromImpossed;
+
+    public int getDistFromImpossed() {
+        return distFromImpossed;
+    }
+
+    public void setDistFromImpossed(int distFromImpossed) {
+        this.distFromImpossed = distFromImpossed;
+    }
 
     public int getLayer() {
         return layer;

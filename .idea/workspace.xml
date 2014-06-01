@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a06fb94-d1a0-426c-80b6-df7a1edc0808" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainMethodClass.java" afterPath="$PROJECT_DIR$/src/MainMethodClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PhyloTreeNode.java" afterPath="$PROJECT_DIR$/src/PhyloTreeNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SankoffwithStructure2.java" afterPath="$PROJECT_DIR$/src/SankoffwithStructure2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ViennaCalls.java" afterPath="$PROJECT_DIR$/src/ViennaCalls.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CleanedUpProject.iws" />
@@ -74,7 +77,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="494" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="608" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -89,7 +92,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="320" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="430" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -104,7 +107,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="377" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="141" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -119,7 +122,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="143" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="169" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -134,7 +137,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="171" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="48" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -149,7 +152,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="46" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="935" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -164,7 +167,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="796" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="572" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -179,7 +182,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="224" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="490" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -194,7 +197,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="380" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="197" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -209,7 +212,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="424" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="231" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -224,7 +227,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="921" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="487" class="SankoffwithStructure2" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -239,7 +242,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="99" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/MainMethodClass.java" line="113" class="MainMethodClass" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -254,7 +257,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="951" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/ViennaCalls.java" line="97" class="ViennaCalls" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -269,7 +272,22 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/SankoffwithStructure2.java" line="947" class="SankoffwithStructure2" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/MainMethodClass.java" line="133" class="MainMethodClass" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/MainMethodClass.java" line="146" class="MainMethodClass" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -316,38 +334,35 @@
       <file leaf-file-name="MakeTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="32" selection-start="9900" selection-end="9900" vertical-scroll-proportion="0.0" vertical-offset="3408" max-vertical-offset="3808">
+            <state line="214" column="24" selection-start="10168" selection-end="10168" vertical-scroll-proportion="0.0" vertical-offset="3036" max-vertical-offset="3672">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SankoffwithStructure2.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="0" selection-start="3752" selection-end="3752" vertical-scroll-proportion="0.2037037" vertical-offset="327" max-vertical-offset="8687">
+            <state line="1067" column="0" selection-start="47854" selection-end="47854" vertical-scroll-proportion="0.0" vertical-offset="6568" max-vertical-offset="8619">
               <folding>
                 <element signature="docComment;class#SankoffwithStructure2#0" expanded="false" />
-                <element signature="method#sankoff#0;class#SankoffwithStructure2#0" expanded="false" />
-                <element signature="method#sankoffPseudoPair#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="method#sankoffWithStructure#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="method#sankoffPairs#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#samePairing#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#bothSingle#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#bothDifferent#0;class#SankoffwithStructure2#0" expanded="false" />
-                <element signature="e#25231#25335#0" expanded="false" />
-                <element signature="e#27619#27722#0" expanded="false" />
+                <element signature="e#30344#30448#0" expanded="false" />
+                <element signature="e#32716#32819#0" expanded="false" />
                 <element signature="method#differentAndSingle#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#transitionAndScoreSame#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#transitionAndScoreDifferent#0;class#SankoffwithStructure2#0" expanded="false" />
                 <element signature="method#transitionAndScoreSingle#0;class#SankoffwithStructure2#0" expanded="false" />
-                <element signature="method#sankoffSingle#0;class#SankoffwithStructure2#0" expanded="false" />
-                <element signature="e#39197#39212#0" expanded="true" />
-                <element signature="e#41637#41652#0" expanded="true" />
-                <element signature="e#41705#41720#0" expanded="true" />
-                <element signature="e#43276#43285#0" expanded="true" />
-                <element signature="e#46518#46527#0" expanded="true" />
-                <element signature="e#47936#47951#0" expanded="true" />
-                <element signature="e#48006#48021#0" expanded="true" />
-                <element signature="e#48079#48094#0" expanded="true" />
+                <element signature="e#39293#39335#0" expanded="false" />
+                <element signature="method#getFolding#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="method#mergeFold#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="method#pseudoknotCheck#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="method#getPseudoScore#0;class#SankoffwithStructure2#0" expanded="false" />
+                <element signature="e#46931#46940#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -356,8 +371,25 @@
       <file leaf-file-name="PhyloTreeNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="28" selection-start="11527" selection-end="11527" vertical-scroll-proportion="0.0" vertical-offset="5610" max-vertical-offset="6494">
-              <folding />
+            <state line="23" column="22" selection-start="947" selection-end="947" vertical-scroll-proportion="-7.1923075" vertical-offset="102" max-vertical-offset="2550">
+              <folding>
+                <element signature="e#879#889#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
+                <element signature="e#1120#1121#0" expanded="true" />
+                <element signature="e#1176#1177#0" expanded="true" />
+                <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+                <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -365,17 +397,33 @@
       <file leaf-file-name="PhyloTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhyloTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="5" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="833">
-              <folding />
+            <state line="31" column="5" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="646">
+              <folding>
+                <element signature="e#232#233#0" expanded="false" />
+                <element signature="e#268#269#0" expanded="false" />
+                <element signature="e#323#324#0" expanded="false" />
+                <element signature="e#373#374#0" expanded="false" />
+                <element signature="e#404#405#0" expanded="false" />
+                <element signature="e#432#433#0" expanded="false" />
+                <element signature="e#472#473#0" expanded="false" />
+                <element signature="e#504#505#0" expanded="false" />
+                <element signature="e#853#854#0" expanded="false" />
+                <element signature="e#885#886#0" expanded="false" />
+                <element signature="method#setConsensusSequence#0;class#PhyloTree#0" expanded="false" />
+                <element signature="e#1006#1007#0" expanded="false" />
+                <element signature="e#1038#1039#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMethodClass.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainMethodClass.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="0" selection-start="3981" selection-end="3981" vertical-scroll-proportion="0.0" vertical-offset="2057" max-vertical-offset="3298">
-              <folding />
+            <state line="181" column="78" selection-start="8356" selection-end="8356" vertical-scroll-proportion="0.7476415" vertical-offset="2675" max-vertical-offset="3519">
+              <folding>
+                <element signature="e#6090#6105#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -383,8 +431,12 @@
       <file leaf-file-name="ViennaCalls.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="61" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="1649">
-              <folding />
+            <state line="137" column="0" selection-start="5662" selection-end="5662" vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="2737">
+              <folding>
+                <element signature="e#844#859#0" expanded="true" />
+                <element signature="e#3289#3304#0" expanded="true" />
+                <element signature="e#4843#4858#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -407,20 +459,19 @@
         <option value="$PROJECT_DIR$/src/SankoffwithStructure.java" />
         <option value="$PROJECT_DIR$/src/temp.java" />
         <option value="$PROJECT_DIR$/src/Sankoff.java" />
-        <option value="$PROJECT_DIR$/src/ViennaCalls.java" />
         <option value="$PROJECT_DIR$/src/PhyloTree.java" />
         <option value="$PROJECT_DIR$/src/MakeTree.java" />
-        <option value="$PROJECT_DIR$/src/MainMethodClass.java" />
-        <option value="$PROJECT_DIR$/src/PhyloTreeNode.java" />
         <option value="$PROJECT_DIR$/src/SankoffwithStructure2.java" />
+        <option value="$PROJECT_DIR$/src/ViennaCalls.java" />
+        <option value="$PROJECT_DIR$/src/PhyloTreeNode.java" />
+        <option value="$PROJECT_DIR$/src/MainMethodClass.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
     <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -482,7 +533,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="844" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
-  <component name="RunManager" selected="Application.new bug">
+  <component name="RunManager" selected="Application.All Files">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -764,7 +815,29 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="7">
+    <configuration default="false" name="skip tRNA" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MainMethodClass" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Gordon\Dropbox\Winter2014\Comp401\Alignments+Trees\list10.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CleanedUpProject" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Application.Example from PDF" />
       <item index="1" class="java.lang.String" itemvalue="Application.RF02095" />
       <item index="2" class="java.lang.String" itemvalue="Application.All Files" />
@@ -772,6 +845,7 @@
       <item index="4" class="java.lang.String" itemvalue="Application.missing a file" />
       <item index="5" class="java.lang.String" itemvalue="Application.loop file" />
       <item index="6" class="java.lang.String" itemvalue="Application.new bug" />
+      <item index="7" class="java.lang.String" itemvalue="Application.skip tRNA" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -950,31 +1024,35 @@
       <created>1401306724310</created>
       <updated>1401306724310</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Folding changes implemented, makes really bad folding though. Could be a bug or just a bad algorithm. Also started to modify the algorithm to recognize -2 as a pseudopair, but that isnt fully implemented">
+      <created>1401375548252</created>
+      <updated>1401375548252</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="780" extended-state="0" />
+    <frame x="-8" y="0" width="1378" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31858408" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31750742" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37091988" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37009063" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789317" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3247734" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51124436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32153392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3202417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -994,7 +1072,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="I cant figure out how to keep structure&#10;" />
     <MESSAGE value="Fixed Sankoff so that sequences stored are correct, adjusting for the base of the parent. Fresh start to keeping sequence next" />
     <MESSAGE value="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs" />
     <MESSAGE value="SankoffwithStructure.SankoffSingles implemented&#10;TODO: Implement SankoffwithStructure.SankoffSinglesPairs&#10;" />
@@ -1019,7 +1096,8 @@
     <MESSAGE value="The program runs, but there is only really one tree object. Could be bullied into working this way, but not very eloquent. Come back to this version if you mess things up" />
     <MESSAGE value="SankoffwithStructure is actually running now so there are lots of new bugs :)" />
     <MESSAGE value="Some bug fixes, in proccess of changing how the folding works&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some bug fixes, in proccess of changing how the folding works&#10;" />
+    <MESSAGE value="Folding changes implemented, makes really bad folding though. Could be a bug or just a bad algorithm. Also started to modify the algorithm to recognize -2 as a pseudopair, but that isnt fully implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Folding changes implemented, makes really bad folding though. Could be a bug or just a bad algorithm. Also started to modify the algorithm to recognize -2 as a pseudopair, but that isnt fully implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1048,7 +1126,24 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="0" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1921">
-          <folding />
+          <folding>
+            <element signature="e#879#889#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,21 +1157,41 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="510">
-          <folding />
+          <folding>
+            <element signature="e#232#233#0" expanded="false" />
+            <element signature="e#268#269#0" expanded="false" />
+            <element signature="e#323#324#0" expanded="false" />
+            <element signature="e#373#374#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#504#505#0" expanded="false" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="method#setConsensusSequence#0;class#PhyloTree#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="46" selection-start="3358" selection-end="3358" vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="2244">
-          <folding />
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="39" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="1700">
-          <folding />
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1100,7 +1215,24 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="0" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1921">
-          <folding />
+          <folding>
+            <element signature="e#879#889#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,21 +1246,41 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="510">
-          <folding />
+          <folding>
+            <element signature="e#232#233#0" expanded="false" />
+            <element signature="e#268#269#0" expanded="false" />
+            <element signature="e#323#324#0" expanded="false" />
+            <element signature="e#373#374#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#504#505#0" expanded="false" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="method#setConsensusSequence#0;class#PhyloTree#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="0" selection-start="3267" selection-end="3267" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2244">
-          <folding />
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="27" selection-start="3219" selection-end="3219" vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="1683">
-          <folding />
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1152,7 +1304,24 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1309">
-          <folding />
+          <folding>
+            <element signature="e#879#889#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,14 +1335,20 @@
     <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="0" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2380">
-          <folding />
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="27" selection-start="3219" selection-end="3219" vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="1683">
-          <folding />
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1192,14 +1367,35 @@
     <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1309">
-          <folding />
+          <folding>
+            <element signature="e#879#889#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="208" selection-end="731" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1683">
-          <folding />
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,7 +1409,9 @@
     <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="0" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="2363">
-          <folding />
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1232,7 +1430,11 @@
     <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="35" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1683">
-          <folding />
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,7 +1448,9 @@
     <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="132" column="0" selection-start="3911" selection-end="3911" vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="2363">
-          <folding />
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,13 +1501,6 @@
         <state line="204" column="0" selection-start="7748" selection-end="7748" vertical-scroll-proportion="0.33333334" vertical-offset="2763" max-vertical-offset="9503" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhyloTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="5" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="19" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.7442396" vertical-offset="0" max-vertical-offset="19278" />
@@ -1323,59 +1520,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PhyloTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="5" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <folding>
+            <element signature="e#232#233#0" expanded="false" />
+            <element signature="e#268#269#0" expanded="false" />
+            <element signature="e#323#324#0" expanded="false" />
+            <element signature="e#373#374#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#504#505#0" expanded="false" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="method#setConsensusSequence#0;class#PhyloTree#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MakeTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="32" selection-start="9900" selection-end="9900" vertical-scroll-proportion="0.0" vertical-offset="3179" max-vertical-offset="3706">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="28" selection-start="11527" selection-end="11527" vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="1683">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="0" selection-start="3981" selection-end="3981" vertical-scroll-proportion="0.0" vertical-offset="1924" max-vertical-offset="3298">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="61" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1615">
+        <state line="214" column="24" selection-start="10168" selection-end="10168" vertical-scroll-proportion="0.0" vertical-offset="2014" max-vertical-offset="3706">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SankoffwithStructure2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="3752" selection-end="3752" vertical-scroll-proportion="0.2037037" vertical-offset="327" max-vertical-offset="8687">
+        <state line="1067" column="0" selection-start="47854" selection-end="47854" vertical-scroll-proportion="0.0" vertical-offset="7027" max-vertical-offset="8619">
           <folding>
             <element signature="docComment;class#SankoffwithStructure2#0" expanded="false" />
-            <element signature="method#sankoff#0;class#SankoffwithStructure2#0" expanded="false" />
-            <element signature="method#sankoffPseudoPair#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="method#sankoffWithStructure#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="method#sankoffPairs#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#samePairing#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#bothSingle#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#bothDifferent#0;class#SankoffwithStructure2#0" expanded="false" />
-            <element signature="e#25231#25335#0" expanded="false" />
-            <element signature="e#27619#27722#0" expanded="false" />
+            <element signature="e#30344#30448#0" expanded="false" />
+            <element signature="e#32716#32819#0" expanded="false" />
             <element signature="method#differentAndSingle#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#transitionAndScoreSame#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#transitionAndScoreDifferent#0;class#SankoffwithStructure2#0" expanded="false" />
             <element signature="method#transitionAndScoreSingle#0;class#SankoffwithStructure2#0" expanded="false" />
-            <element signature="method#sankoffSingle#0;class#SankoffwithStructure2#0" expanded="false" />
-            <element signature="e#39197#39212#0" expanded="true" />
-            <element signature="e#41637#41652#0" expanded="true" />
-            <element signature="e#41705#41720#0" expanded="true" />
-            <element signature="e#43276#43285#0" expanded="true" />
-            <element signature="e#46518#46527#0" expanded="true" />
-            <element signature="e#47936#47951#0" expanded="true" />
-            <element signature="e#48006#48021#0" expanded="true" />
-            <element signature="e#48079#48094#0" expanded="true" />
+            <element signature="e#39293#39335#0" expanded="false" />
+            <element signature="method#getFolding#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="method#mergeFold#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="method#pseudoknotCheck#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="method#getPseudoScore#0;class#SankoffwithStructure2#0" expanded="false" />
+            <element signature="e#46931#46940#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ViennaCalls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="0" selection-start="5662" selection-end="5662" vertical-scroll-proportion="0.0" vertical-offset="2114" max-vertical-offset="2737">
+          <folding>
+            <element signature="e#844#859#0" expanded="true" />
+            <element signature="e#3289#3304#0" expanded="true" />
+            <element signature="e#4843#4858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PhyloTreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="22" selection-start="947" selection-end="947" vertical-scroll-proportion="-7.1923075" vertical-offset="102" max-vertical-offset="2550">
+          <folding>
+            <element signature="e#879#889#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="method#getBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setSankoffPairsScores#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPairsScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getBaseIfParent#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffPseudoScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#getSankoffScore#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#setBasePair#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#addChild#0;class#PhyloTreeNode#0" expanded="false" />
+            <element signature="method#removeChild#0;class#PhyloTreeNode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainMethodClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="78" selection-start="8356" selection-end="8356" vertical-scroll-proportion="0.7476415" vertical-offset="2675" max-vertical-offset="3519">
+          <folding>
+            <element signature="e#6090#6105#0" expanded="true" />
           </folding>
         </state>
       </provider>
